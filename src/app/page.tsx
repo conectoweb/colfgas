@@ -604,15 +604,14 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* Transparent Notice about Client Photos */}
-          <div className="mb-12 p-5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 max-w-4xl mx-auto flex items-start gap-3.5">
-            <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-            <div className="text-xs sm:text-sm">
-              <strong className="font-bold text-amber-900">Política de Transparencia de Imágenes:</strong>{' '}
-              COLFGAS CONSTRUCCIONES S.A.S. muestra únicamente trabajos reales autorizados. En tanto el
-              cliente formalice la entrega o autorización de sus registros fotográficos de obra, las
-              fichas a continuación presentan esquemas técnicos provisionales claramente identificados,
-              sin usar fotos de archivo de terceros haciéndolas pasar por proyectos propios.
+          {/* Transparent Notice about Technical Illustrations */}
+          <div className="mb-12 p-5 rounded-2xl bg-blue-50/80 border border-blue-200 text-slate-800 max-w-4xl mx-auto flex items-start gap-3.5">
+            <Camera className="w-5 h-5 text-[#0066B3] flex-shrink-0 mt-0.5" aria-hidden="true" />
+            <div className="text-xs sm:text-sm leading-relaxed">
+              <strong className="font-bold text-[#0066B3]">Ilustraciones Técnicas de Alcance:</strong>{' '}
+              Las imágenes a continuación representan de manera gráfica y realista el alcance técnico de nuestras
+              soluciones en redes matrices, estaciones ERM de regulación y pruebas de hermeticidad conforme a normas NTC
+              2505 y NTC 3838, garantizando total transparencia técnica y constructiva.
             </div>
           </div>
 
@@ -621,33 +620,63 @@ export default function LandingPage() {
             {PROJECTS_GALLERY.map((project) => (
               <article
                 key={project.id}
-                className="rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden"
+                className="rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
               >
                 <div>
-                  {/* Visual Blueprint Schema Header */}
-                  <div className="relative aspect-[16/10] bg-gradient-to-br from-[#263238] via-[#1E293B] to-[#334155] p-5 flex flex-col justify-between text-white">
-                    <div className="flex items-center justify-between">
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/20 text-white border border-white/30">
-                        {project.category}
-                      </span>
-                      <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-400 text-slate-900">
-                        Esquema Provisional
-                      </span>
-                    </div>
+                  {/* Real Image or Technical Blueprint Header */}
+                  {project.imageSrc ? (
+                    <div className="relative aspect-[16/10] bg-slate-900 overflow-hidden">
+                      <Image
+                        src={project.imageSrc}
+                        alt={project.imageAlt || project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
-                    <div className="text-center my-auto py-2">
-                      <div className="w-10 h-10 mx-auto mb-1.5 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                        <Layers className="w-5 h-5 text-[#43BE24]" aria-hidden="true" />
+                      {/* Badges */}
+                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 z-10">
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/20">
+                          {project.category}
+                        </span>
+                        <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-[#43BE24] text-white shadow-sm flex items-center gap-1">
+                          <Camera className="w-3 h-3" aria-hidden="true" />
+                          <span>Ilustración Técnica</span>
+                        </span>
                       </div>
-                      <p className="text-xs uppercase tracking-wider text-slate-200 font-bold">
-                        Esquema Técnico
-                      </p>
-                    </div>
 
-                    <div className="text-xs text-slate-300 font-medium">
-                      {project.sectorLabel}
+                      {/* Bottom Sector Label */}
+                      <div className="absolute bottom-3 left-3 right-3 z-10 text-xs font-medium text-slate-100 drop-shadow">
+                        {project.sectorLabel}
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="relative aspect-[16/10] bg-gradient-to-br from-[#263238] via-[#1E293B] to-[#334155] p-5 flex flex-col justify-between text-white">
+                      <div className="flex items-center justify-between">
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/20 text-white border border-white/30">
+                          {project.category}
+                        </span>
+                        <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-400 text-slate-900">
+                          Esquema Técnico
+                        </span>
+                      </div>
+
+                      <div className="text-center my-auto py-2">
+                        <div className="w-10 h-10 mx-auto mb-1.5 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+                          <Layers className="w-5 h-5 text-[#43BE24]" aria-hidden="true" />
+                        </div>
+                        <p className="text-xs uppercase tracking-wider text-slate-200 font-bold">
+                          Esquema Técnico
+                        </p>
+                      </div>
+
+                      <div className="text-xs text-slate-300 font-medium">
+                        {project.sectorLabel}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Body */}
                   <div className="p-6">
@@ -669,7 +698,7 @@ export default function LandingPage() {
                 </div>
 
                 {/* Footer */}
-                <div className="px-6 py-3 bg-slate-50 border-t border-slate-100 text-[11px] text-[#5B6570] text-center">
+                <div className="px-6 py-3 bg-slate-50 border-t border-slate-100 text-[11px] text-[#5B6570] text-center font-medium">
                   {project.confirmationDetails}
                 </div>
               </article>

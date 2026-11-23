@@ -30,9 +30,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/20">
                 {project.category}
               </span>
-              <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-600 text-white shadow-sm flex items-center gap-1">
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-[#43BE24] text-white shadow-sm flex items-center gap-1">
                 <Camera className="w-3 h-3" aria-hidden="true" />
-                <span>Registro Técnico</span>
+                <span>Ilustración Técnica</span>
               </span>
             </div>
 
@@ -108,12 +108,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Confirmation Footer */}
-      <div className="px-6 py-3 bg-amber-50/70 border-t border-amber-200/80">
-        <ClientConfirmationBadge
-          label="Datos y fotos sujetos a validación del cliente"
-          tooltip={project.confirmationDetails}
-          className="w-full justify-center"
-        />
+      <div className="px-6 py-3 bg-slate-50 border-t border-slate-100 text-[11px] text-[#5B6570] text-center font-medium">
+        {project.confirmationDetails}
       </div>
     </article>
   );

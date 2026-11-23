@@ -284,10 +284,10 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
     scope: 'Construcción de acometida, montantes verticales y batería centralizada de medidores',
     description:
       'Registro técnico documental de instalación de gas natural para unidades de vivienda multifamiliar, con pruebas de hermeticidad y adecuación a norma NTC 2505.',
-    isPlaceholder: true,
+    isPlaceholder: false,
     confirmationDetails:
-      '[CONFIRMAR CON COLFGAS: Pendiente entrega de fotografías oficiales autorizadas de la obra]',
-    imageSrc: '/images/galeria/gran-banco-de-medidores-de-gas.webp',
+      'Ilustración técnica: Batería centralizada de medidores y red matriz residencial',
+    imageSrc: '/images/proyectos/proyecto-residencial-multifamiliar.jpg',
     imageAlt: 'Batería centralizada de medidores de gas natural en gabinete técnico residencial',
   },
   {
@@ -299,11 +299,11 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
     scope: 'Tendido de tubería de acero soldado, estación de regulación ERM y tren de gas para calderas',
     description:
       'Registro técnico de suministro de gas en media presión para procesos térmicos industriales continuos con sistemas automáticos de seguridad.',
-    isPlaceholder: true,
+    isPlaceholder: false,
     confirmationDetails:
-      '[CONFIRMAR CON COLFGAS: Pendiente entrega de registros fotográficos autorizados]',
-    imageSrc: '/images/galeria/corredor-de-obra-con-tuberias-amarillas.webp',
-    imageAlt: 'Tendido de tuberías de gas en acero en corredor técnico industrial',
+      'Ilustración técnica: Estación ERM y tren de regulación para planta industrial',
+    imageSrc: '/images/proyectos/proyecto-industrial-erm.jpg',
+    imageAlt: 'Estación de regulación y medición ERM para planta industrial de manufactura',
   },
   {
     id: 'proyecto-3',
@@ -314,10 +314,10 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
     scope: 'Inspección de estanqueidad, recambio de reguladores y adecuación técnica',
     description:
       'Protocolo técnico de verificación de presión estática con manómetro certificado para garantizar cero fugas y habilitación del servicio.',
-    isPlaceholder: true,
+    isPlaceholder: false,
     confirmationDetails:
-      '[CONFIRMAR CON COLFGAS: Pendiente entrega de registros oficiales del servicio]',
-    imageSrc: '/images/galeria/tecnico-revisando-tuberias-de-gas.webp',
+      'Ilustración técnica: Verificación con manómetro certificado y pruebas de estanqueidad',
+    imageSrc: '/images/proyectos/proyecto-mantenimiento-hermeticidad.jpg',
     imageAlt: 'Técnico calificado realizando inspección y prueba de hermeticidad en tuberías de gas',
   },
 ];
