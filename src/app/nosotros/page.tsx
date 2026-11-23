@@ -95,12 +95,6 @@ export default function NosotrosPage() {
                 </div>
 
                 <div>
-                  <span className="text-[#5B6570] block text-xs uppercase font-semibold">NIT:</span>
-                  <span className="font-mono font-medium text-[#263238]">{COMPANY_INFO.nit}</span>
-                  <ClientConfirmationBadge label="Validar con cliente" className="mt-1" />
-                </div>
-
-                <div>
                   <span className="text-[#5B6570] block text-xs uppercase font-semibold">Sede Principal:</span>
                   <span className="text-[#263238] font-medium block">{COMPANY_INFO.address}</span>
                   <a

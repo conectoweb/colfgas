@@ -1,25 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
 import { Logo } from './Logo';
-import { COMPANY_INFO, NAV_LINKS, SERVICES_CATALOG } from '@/lib/constants';
-import { Phone, MessageCircle, MapPin, CheckCircle2, ExternalLink } from 'lucide-react';
+import { COMPANY_INFO, NAV_LINKS, SERVICE_SUB_LINKS } from '@/lib/constants';
+import { Phone, MessageCircle, MapPin, ExternalLink, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-[#263238] text-slate-300 border-t-4 border-[#0066B3]">
-      {/* Top Banner: Enfoque Residencial e Industrial y Vanti */}
+      {/* Top Banner: Enfoque Residencial e Industrial y Canales Directos */}
       <div className="bg-[#1A2327] py-6 px-4 border-b border-slate-700/60">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-[#43BE24] flex-shrink-0">
-              <CheckCircle2 className="w-6 h-6" aria-hidden="true" />
+            <div className="w-10 h-10 rounded-full bg-sky-500/10 flex items-center justify-center text-[#007afd] flex-shrink-0">
+              <ShieldCheck className="w-6 h-6" aria-hidden="true" />
             </div>
             <div>
               <p className="text-white font-bold text-sm sm:text-base flex items-center gap-2">
-                <span>{COMPANY_INFO.vantiCertification}</span>
-                <span className="text-xs font-normal text-emerald-400">| Redes Fijas de Gas</span>
+                <span>COLFGAS CONSTRUCCIONES S.A.S.</span>
+                <span className="text-xs font-normal text-sky-400">| Redes Fijas de Gas</span>
               </p>
               <p className="text-xs text-slate-400 mt-0.5">
                 Construcción, instalación y mantenimiento para edificaciones residenciales e industriales. No prestamos servicios para gas vehicular (GNCV) ni automotores.
@@ -28,6 +28,15 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-2.5 flex-shrink-0">
+            <Link
+              href="/contacto"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold text-white bg-[#0066B3] hover:bg-[#005291] transition-colors shadow-sm"
+              aria-label="Ir a la página de Contáctanos"
+            >
+              <span>Contáctanos</span>
+              <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
+            </Link>
+
             <a
               href={COMPANY_INFO.whatsapp.url}
               target="_blank"
@@ -36,16 +45,7 @@ export function Footer() {
               aria-label="Escribir por WhatsApp a COLFGAS"
             >
               <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-              <span>Escribir por WhatsApp</span>
-            </a>
-
-            <a
-              href={COMPANY_INFO.phoneCallUrl}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-colors"
-              aria-label={`Llamar al ${COMPANY_INFO.phoneDisplay}`}
-            >
-              <Phone className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
-              <span>Llamar: {COMPANY_INFO.phoneDisplay}</span>
+              <span>WhatsApp</span>
             </a>
           </div>
         </div>
@@ -54,10 +54,10 @@ export function Footer() {
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Column 1: Brand & Identity */}
+          {/* Column 1: Brand & Identity (Sin NIT) */}
           <div className="space-y-4">
             <Link
-              href="#inicio"
+              href="/"
               className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] rounded-xl transition-opacity hover:opacity-95"
               aria-label="Ir al inicio de COLFGAS CONSTRUCCIONES S.A.S."
             >
@@ -66,10 +66,6 @@ export function Footer() {
             <p className="text-xs text-slate-300 leading-relaxed">
               {COMPANY_INFO.missionStatement}
             </p>
-            <div className="pt-2 text-[11px] text-slate-400">
-              <span className="font-semibold text-slate-300">NIT: </span>
-              <span className="font-mono">{COMPANY_INFO.nit}</span>
-            </div>
             {COMPANY_INFO.socialMedia.facebook && (
               <div className="pt-1">
                 <a
@@ -85,50 +81,79 @@ export function Footer() {
             )}
           </div>
 
-          {/* Column 2: Servicios */}
+          {/* Column 2: Servicios de Gas */}
           <div>
             <h3 className="text-white font-bold text-sm tracking-wider uppercase mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#43BE24]"></span>
-              Servicios de Gas
+              Servicios Especializados
             </h3>
             <ul className="space-y-2 text-xs">
-              {SERVICES_CATALOG.map((service) => (
-                <li key={service.id}>
-                  <a
-                    href="#servicios"
-                    className="hover:text-white transition-colors block py-0.5"
+              <li>
+                <Link
+                  href="/servicios"
+                  className="hover:text-white transition-colors block py-0.5 font-semibold text-slate-200"
+                >
+                  Todos los Servicios de Gas
+                </Link>
+              </li>
+              {SERVICE_SUB_LINKS.map((sub) => (
+                <li key={sub.name}>
+                  <Link
+                    href={sub.href}
+                    className="hover:text-white transition-colors block py-0.5 text-slate-300"
                   >
-                    {service.title}
-                  </a>
+                    {sub.name}
+                  </Link>
                 </li>
               ))}
               <li className="pt-2 border-t border-slate-700/80">
-                <a href="#soluciones" className="hover:text-white transition-colors block py-0.5 text-emerald-400">
-                  Soluciones Residenciales
-                </a>
+                <Link
+                  href="/servicios/gas-residencial"
+                  className="hover:text-white transition-colors block py-0.5 text-emerald-400"
+                >
+                  Redes para Edificios Multifamiliares
+                </Link>
               </li>
               <li>
-                <a href="#soluciones" className="hover:text-white transition-colors block py-0.5 text-emerald-400">
-                  Soluciones Industriales
-                </a>
+                <Link
+                  href="/servicios/gas-industrial"
+                  className="hover:text-white transition-colors block py-0.5 text-emerald-400"
+                >
+                  Líneas Industriales y Estaciones ERM
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Navegación de la Landing */}
+          {/* Column 3: Navegación del Sitio */}
           <div>
             <h3 className="text-white font-bold text-sm tracking-wider uppercase mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#007afd]"></span>
-              Secciones
+              Páginas del Sitio
             </h3>
             <ul className="space-y-2 text-xs">
               {NAV_LINKS.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors block py-0.5">
+                  <Link href={link.href} className="hover:text-white transition-colors block py-0.5">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/preguntas-frecuentes" className="hover:text-white transition-colors block py-0.5 text-slate-300">
+                  Preguntas Frecuentes
+                </Link>
+              </li>
+              <li>
+                <Link href="/mapa-del-sitio" className="hover:text-white transition-colors block py-0.5 text-slate-300">
+                  Mapa del Sitio
+                </Link>
+              </li>
+              <li>
+                <Link href="/contacto" className="hover:text-white transition-colors block py-0.5 text-slate-300">
+                  Contacto
+                </Link>
+              </li>
               <li className="pt-2 border-t border-slate-700/80">
                 <Link
                   href="/politica-de-privacidad"
@@ -137,18 +162,10 @@ export function Footer() {
                   Política de Privacidad
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/terminos-y-condiciones"
-                  className="hover:text-white transition-colors block py-0.5 text-slate-400"
-                >
-                  Términos y Condiciones
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Column 4: Contacto Oficial (Confirmado) */}
+          {/* Column 4: Contacto Oficial (Confirmado - Sin datos no confirmados) */}
           <div>
             <h3 className="text-white font-bold text-sm tracking-wider uppercase mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
@@ -157,24 +174,25 @@ export function Footer() {
             <div className="space-y-3.5 text-xs">
               <div>
                 <p className="text-slate-400 font-semibold mb-1 flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-[#43BE24]" aria-hidden="true" />
+                  <Phone className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
                   <span>Teléfono y WhatsApp:</span>
                 </p>
-                <div className="space-y-1">
-                  <a
-                    href={COMPANY_INFO.phoneCallUrl}
-                    className="font-bold text-white hover:text-[#43BE24] transition-colors block"
-                  >
-                    {COMPANY_INFO.phoneDisplay}
-                  </a>
+                <div className="flex flex-col gap-1.5">
                   <a
                     href={COMPANY_INFO.whatsapp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300"
+                    className="text-white font-mono font-bold hover:text-emerald-400 transition-colors text-sm flex items-center gap-1.5"
                   >
-                    <span>Escribir por WhatsApp</span>
-                    <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                    <MessageCircle className="w-4 h-4 text-[#43BE24]" aria-hidden="true" />
+                    <span>WhatsApp: {COMPANY_INFO.phoneDisplay}</span>
+                  </a>
+                  <a
+                    href={COMPANY_INFO.phoneCallUrl}
+                    className="text-slate-300 hover:text-white transition-colors text-xs flex items-center gap-1.5"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
+                    <span>Llamada: {COMPANY_INFO.phoneDisplay}</span>
                   </a>
                 </div>
               </div>
@@ -182,38 +200,39 @@ export function Footer() {
               <div>
                 <p className="text-slate-400 font-semibold mb-1 flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
-                  <span>Dirección Confirmada:</span>
+                  <span>Sede Principal en Bogotá:</span>
                 </p>
-                <p className="text-white font-medium">{COMPANY_INFO.address}</p>
+                <p className="text-slate-200 leading-snug">
+                  {COMPANY_INFO.address}
+                </p>
                 <a
                   href={COMPANY_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-sky-300 hover:text-white mt-1 underline"
+                  className="inline-flex items-center gap-1 text-[11px] text-sky-400 hover:text-sky-300 mt-1 transition-colors"
                 >
-                  <span>Ver en Google Maps</span>
+                  <span>Abrir en Google Maps</span>
                   <ExternalLink className="w-3 h-3" aria-hidden="true" />
                 </a>
-              </div>
-
-              <div>
-                <p className="text-slate-400 font-semibold mb-1">Certificación:</p>
-                <span className="inline-block px-2.5 py-1 rounded-md bg-emerald-950 text-emerald-300 border border-emerald-800 text-[11px] font-semibold">
-                  {COMPANY_INFO.vantiCertification}
-                </span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Compliance */}
-        <div className="mt-12 pt-6 border-t border-slate-700/80 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        {/* Bottom Copyright and Legal Bar */}
+        <div className="mt-12 pt-8 border-t border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            © {currentYear} {COMPANY_INFO.legalName}. {COMPANY_INFO.vantiCertification}.
+            © {currentYear} {COMPANY_INFO.legalName}. Todos los derechos reservados.
           </p>
-          <p className="text-center md:text-right text-[11px] text-slate-400">
-            Redes de Gas para Construcciones Residenciales e Industriales • Normas NTC 2505 y NTC 3838
-          </p>
+          <div className="flex items-center gap-4 text-[11px]">
+            <Link href="/politica-de-privacidad" className="hover:text-slate-200 transition-colors">
+              Política de Tratamiento de Datos (Ley 1581)
+            </Link>
+            <span className="text-slate-600">|</span>
+            <Link href="/contacto" className="hover:text-slate-200 transition-colors">
+              Contáctanos
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

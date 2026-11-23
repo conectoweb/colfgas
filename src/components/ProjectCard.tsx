@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ProjectItem } from '@/lib/constants';
 import { MapPin, Layers, Camera } from 'lucide-react';
 import { ClientConfirmationBadge } from './ClientConfirmationBadge';
@@ -11,48 +12,78 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between">
       <div>
-        {/* Placeholder Image Space with High-Quality Engineering Blueprint Graphic */}
-        <div className="relative aspect-[16/10] bg-gradient-to-br from-[#263238] via-[#1E293B] to-[#334155] p-6 flex flex-col justify-between text-white overflow-hidden">
-          {/* Subtle Grid overlay representing engineering blueprints */}
-          <div
-            className="absolute inset-0 opacity-15"
-            style={{
-              backgroundImage:
-                'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
-              backgroundSize: '24px 24px',
-            }}
-            aria-hidden="true"
-          />
+        {/* Real Image or Blueprint Graphic */}
+        {project.imageSrc ? (
+          <div className="relative aspect-[16/10] bg-slate-900 overflow-hidden group">
+            <Image
+              src={project.imageSrc}
+              alt={project.imageAlt || project.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-          {/* Top badges */}
-          <div className="relative z-10 flex items-center justify-between gap-2">
-            <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/20 backdrop-blur-md text-white border border-white/30">
-              {project.category}
-            </span>
-            <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-amber-400 text-slate-900 shadow-sm flex items-center gap-1">
-              <Camera className="w-3 h-3" aria-hidden="true" />
-              <span>Espacio para Foto Real</span>
-            </span>
-          </div>
-
-          {/* Center Graphic */}
-          <div className="relative z-10 text-center my-auto py-4">
-            <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-              <Layers className="w-6 h-6 text-[#43BE24]" aria-hidden="true" />
+            {/* Badges */}
+            <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 z-10">
+              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/20">
+                {project.category}
+              </span>
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-600 text-white shadow-sm flex items-center gap-1">
+                <Camera className="w-3 h-3" aria-hidden="true" />
+                <span>Registro Técnico</span>
+              </span>
             </div>
-            <p className="text-xs uppercase tracking-wider text-slate-200 font-bold">
-              Registro Técnico de Obra
-            </p>
-            <p className="text-[11px] text-slate-300 mt-1 max-w-xs mx-auto">
-              Fotografía autorizada pendiente de asignación por el cliente
-            </p>
-          </div>
 
-          {/* Bottom sector label */}
-          <div className="relative z-10 text-xs font-medium text-slate-300">
-            {project.sectorLabel}
+            {/* Bottom Sector Label */}
+            <div className="absolute bottom-3 left-3 right-3 z-10 text-xs font-medium text-slate-200 drop-shadow">
+              {project.sectorLabel}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="relative aspect-[16/10] bg-gradient-to-br from-[#263238] via-[#1E293B] to-[#334155] p-6 flex flex-col justify-between text-white overflow-hidden">
+            {/* Subtle Grid overlay representing engineering blueprints */}
+            <div
+              className="absolute inset-0 opacity-15"
+              style={{
+                backgroundImage:
+                  'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
+                backgroundSize: '24px 24px',
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Top badges */}
+            <div className="relative z-10 flex items-center justify-between gap-2">
+              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/20 backdrop-blur-md text-white border border-white/30">
+                {project.category}
+              </span>
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-amber-400 text-slate-900 shadow-sm flex items-center gap-1">
+                <Camera className="w-3 h-3" aria-hidden="true" />
+                <span>Espacio para Foto Real</span>
+              </span>
+            </div>
+
+            {/* Center Graphic */}
+            <div className="relative z-10 text-center my-auto py-4">
+              <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+                <Layers className="w-6 h-6 text-[#43BE24]" aria-hidden="true" />
+              </div>
+              <p className="text-xs uppercase tracking-wider text-slate-200 font-bold">
+                Registro Técnico de Obra
+              </p>
+              <p className="text-[11px] text-slate-300 mt-1 max-w-xs mx-auto">
+                Fotografía autorizada pendiente de asignación por el cliente
+              </p>
+            </div>
+
+            {/* Bottom sector label */}
+            <div className="relative z-10 text-xs font-medium text-slate-300">
+              {project.sectorLabel}
+            </div>
+          </div>
+        )}
 
         {/* Content Body */}
         <div className="p-6">

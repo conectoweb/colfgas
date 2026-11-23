@@ -113,20 +113,28 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
           <span>Cotizar servicio</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform motion-reduce:transform-none" aria-hidden="true" />
         </Link>
-        {service.slug === 'residencial' && (
+        {(service.slug === 'residencial' || service.id === 'construccion-redes') && (
           <Link
-            href="/servicios/residencial"
+            href="/servicios/gas-residencial"
             className="min-h-[44px] inline-flex items-center text-xs font-bold text-[#263238] hover:text-[#0066B3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] rounded-lg px-2"
           >
-            Ficha técnica residencial →
+            Ficha residencial →
           </Link>
         )}
-        {service.slug === 'industrial' && (
+        {(service.slug === 'industrial' || service.id === 'instalacion-redes') && (
           <Link
-            href="/servicios/industrial"
+            href="/servicios/gas-industrial"
             className="min-h-[44px] inline-flex items-center text-xs font-bold text-[#263238] hover:text-[#287A1C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#287A1C] rounded-lg px-2"
           >
-            Ficha técnica industrial →
+            Ficha industrial →
+          </Link>
+        )}
+        {(service.slug === 'mantenimiento' || service.id === 'mantenimiento-redes') && (
+          <Link
+            href="/servicios/mantenimiento"
+            className="min-h-[44px] inline-flex items-center text-xs font-bold text-[#263238] hover:text-[#0066B3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] rounded-lg px-2"
+          >
+            Ficha mantenimiento →
           </Link>
         )}
       </div>

@@ -50,6 +50,8 @@ export interface ProjectItem {
   description: string;
   isPlaceholder: boolean;
   confirmationDetails: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 export interface DifferentialItem {
@@ -64,10 +66,9 @@ export const COMPANY_INFO = {
   tradeName: 'COLFGAS',
   vantiCertification: 'Empresa certificada por Vanti',
   vantiShortBadge: 'Certificado por Vanti',
-  nit: '[CONFIRMAR CON COLFGAS]',
   slogan: 'Ingeniería, Construcción e Instalación de Redes de Gas Residencial e Industrial',
   missionStatement:
-    'Empresa certificada por Vanti especializada en la construcción, instalación y mantenimiento de redes de gas natural y GLP para construcciones residenciales e industriales en Colombia, garantizando máxima seguridad técnica y cumplimiento normativo.',
+    'Empresa especializada en la construcción, instalación y mantenimiento de redes de gas natural y GLP para construcciones residenciales e industriales en Colombia, garantizando máxima seguridad técnica y cumplimiento normativo.',
   focusDisclaimer:
     'Especialistas en redes e instalaciones fijas de gas para construcciones residenciales e industriales. No ofrecemos servicios para gas vehicular, conversión de motores ni estaciones de servicio (GNCV).',
   phoneDisplay: '320 827 1724',
@@ -115,13 +116,46 @@ export const SITE_METADATA = {
 };
 
 export const NAV_LINKS = [
-  { name: 'Inicio', href: '#inicio' },
-  { name: 'Servicios', href: '#servicios' },
-  { name: 'Soluciones', href: '#soluciones' },
-  { name: 'Proyectos', href: '#proyectos' },
-  { name: 'Por qué elegirnos', href: '#por-que-elegirnos' },
-  { name: 'Preguntas Frecuentes', href: '#preguntas-frecuentes' },
-  { name: 'Contacto', href: '#contacto' },
+  { name: 'Inicio', href: '/' },
+  { name: 'Servicios', href: '/servicios' },
+  { name: 'Proyectos', href: '/proyectos' },
+  { name: 'Nosotros', href: '/nosotros' },
+];
+
+export const ABOUT_SUB_LINKS = [
+  {
+    name: 'Sobre Nosotros',
+    href: '/nosotros',
+    description: 'Empresa especializada en redes de gas para vivienda e industria',
+  },
+  {
+    name: 'Preguntas Frecuentes',
+    href: '/preguntas-frecuentes',
+    description: 'Respuestas a dudas habituales sobre normativas y servicios',
+  },
+  {
+    name: 'Mapa del Sitio',
+    href: '/mapa-del-sitio',
+    description: 'Índice visual y navegable de todas las páginas del sitio',
+  },
+];
+
+export const SERVICE_SUB_LINKS = [
+  {
+    name: 'Gas Residencial',
+    href: '/servicios/gas-residencial',
+    description: 'Redes y montantes para edificios multifamiliares y vivienda',
+  },
+  {
+    name: 'Gas Industrial',
+    href: '/servicios/gas-industrial',
+    description: 'Líneas y estaciones de regulación para industrias y comercio',
+  },
+  {
+    name: 'Mantenimiento de Redes',
+    href: '/servicios/mantenimiento',
+    description: 'Mantenimiento de sistemas de gas y pruebas de hermeticidad',
+  },
 ];
 
 /**
@@ -210,9 +244,9 @@ export const RESIDENTIAL_SOLUTION: SolutionItem = {
   ],
   normativa: 'NTC 2505 y especificaciones de Vanti',
   iconName: 'Home',
-  imageSrc: '/images/servicios/gas-residencial-hero.svg',
-  imageAlt: 'Esquema técnico representativo de distribución de gas residencial y gabinetes de medición',
-  targetHref: '#contacto',
+  imageSrc: '/images/galeria/gran-banco-de-medidores-de-gas.webp',
+  imageAlt: 'Batería centralizada de medidores de gas natural en gabinete técnico para edificación residencial',
+  targetHref: '/servicios/gas-residencial',
 };
 
 export const INDUSTRIAL_SOLUTION: SolutionItem = {
@@ -231,9 +265,9 @@ export const INDUSTRIAL_SOLUTION: SolutionItem = {
   ],
   normativa: 'NTC 3838, NTC 4282 y código ASME B31.8',
   iconName: 'Factory',
-  imageSrc: '/images/servicios/gas-industrial-hero.svg',
-  imageAlt: 'Esquema técnico representativo de estación ERM y distribución de gas industrial',
-  targetHref: '#contacto',
+  imageSrc: '/images/galeria/corredor-de-obra-con-tuberias-amarillas.webp',
+  imageAlt: 'Tendido de tuberías de gas en corredor técnico de obra para sector industrial y comercial',
+  targetHref: '/servicios/gas-industrial',
 };
 
 /**
@@ -249,10 +283,12 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
     location: 'Bogotá D.C. [CONFIRMAR CON COLFGAS]',
     scope: 'Construcción de acometida, montantes verticales y batería centralizada de medidores',
     description:
-      'Esquema técnico representativo de instalación de gas natural para unidades de vivienda multifamiliar, con pruebas de hermeticidad y adecuación a norma NTC 2505.',
+      'Registro técnico documental de instalación de gas natural para unidades de vivienda multifamiliar, con pruebas de hermeticidad y adecuación a norma NTC 2505.',
     isPlaceholder: true,
     confirmationDetails:
       '[CONFIRMAR CON COLFGAS: Pendiente entrega de fotografías oficiales autorizadas de la obra]',
+    imageSrc: '/images/galeria/gran-banco-de-medidores-de-gas.webp',
+    imageAlt: 'Batería centralizada de medidores de gas natural en gabinete técnico residencial',
   },
   {
     id: 'proyecto-2',
@@ -262,10 +298,12 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
     location: 'Cundinamarca [CONFIRMAR CON COLFGAS]',
     scope: 'Tendido de tubería de acero soldado, estación de regulación ERM y tren de gas para calderas',
     description:
-      'Esquema técnico de suministro de gas en media presión para procesos térmicos industriales continuos con sistemas automáticos de seguridad.',
+      'Registro técnico de suministro de gas en media presión para procesos térmicos industriales continuos con sistemas automáticos de seguridad.',
     isPlaceholder: true,
     confirmationDetails:
       '[CONFIRMAR CON COLFGAS: Pendiente entrega de registros fotográficos autorizados]',
+    imageSrc: '/images/galeria/corredor-de-obra-con-tuberias-amarillas.webp',
+    imageAlt: 'Tendido de tuberías de gas en acero en corredor técnico industrial',
   },
   {
     id: 'proyecto-3',
@@ -275,10 +313,12 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
     location: 'Bogotá D.C. [CONFIRMAR CON COLFGAS]',
     scope: 'Inspección de estanqueidad, recambio de reguladores y adecuación técnica',
     description:
-      'Esquema de protocolo técnico de verificación de presión estática con manómetro certificado para garantizar cero fugas y habilitación del servicio.',
+      'Protocolo técnico de verificación de presión estática con manómetro certificado para garantizar cero fugas y habilitación del servicio.',
     isPlaceholder: true,
     confirmationDetails:
       '[CONFIRMAR CON COLFGAS: Pendiente entrega de registros oficiales del servicio]',
+    imageSrc: '/images/galeria/tecnico-revisando-tuberias-de-gas.webp',
+    imageAlt: 'Técnico calificado realizando inspección y prueba de hermeticidad en tuberías de gas',
   },
 ];
 
@@ -289,10 +329,10 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
  */
 export const WHY_CHOOSE_US: DifferentialItem[] = [
   {
-    title: 'Empresa Certificada por Vanti',
+    title: 'Cumplimiento Técnico y Normativo',
     description:
-      'Contamos con la certificación oficial de Vanti, lo que respalda que nuestras obras y montajes se realizan bajo los lineamientos y estándares de la empresa distribuidora.',
-    badge: 'Certificación Oficial',
+      'Nuestras obras y montajes se realizan bajo los lineamientos y especificaciones de las normas técnicas colombianas (NTC 2505 y NTC 3838), asegurando máxima seguridad y habilitación sin contratiempos.',
+    badge: 'Normativa Oficial',
     iconName: 'ShieldCheck',
   },
   {
@@ -404,12 +444,6 @@ export const CLIENT_VALIDATION_CHECKLIST = [
     label: 'Dirección física oficial',
     description: 'Confirmado: Calle 90 Sur # 4F-33 Este, Bogotá, Colombia.',
     status: 'Confirmado',
-  },
-  {
-    id: 'nit',
-    label: 'Número de Identificación Tributaria (NIT)',
-    description: '[CONFIRMAR CON COLFGAS: NIT oficial con dígito de verificación].',
-    status: 'Pendiente',
   },
   {
     id: 'fotos-proyectos',

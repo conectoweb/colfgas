@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { COMPANY_INFO } from '@/lib/constants';
 import { getBreadcrumbJsonLd } from '@/lib/seo';
 import { ShieldCheck, AlertCircle } from 'lucide-react';
@@ -28,6 +29,18 @@ export default function PoliticaPrivacidadPage() {
 
       <section className="bg-[#F4F7F8] border-b border-slate-200 py-12 sm:py-16 text-[#263238]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav aria-label="Breadcrumb" className="mb-3">
+            <ol className="flex items-center gap-2 text-xs text-[#5B6570]">
+              <li>
+                <Link href="/" className="hover:text-[#0066B3] transition-colors">
+                  Inicio
+                </Link>
+              </li>
+              <li>/</li>
+              <li className="font-semibold text-[#0066B3]">Política de Privacidad</li>
+            </ol>
+          </nav>
+
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-100 text-[#0066B3] border border-sky-200 mb-3">
             <ShieldCheck className="w-3.5 h-3.5 text-[#0066B3]" aria-hidden="true" />
             <span>Marco Legal Colombiano</span>
@@ -57,7 +70,6 @@ export default function PoliticaPrivacidadPage() {
               <p className="text-[#5B6570]">
                 <strong className="text-[#263238]">Razón Social:</strong> {COMPANY_INFO.legalName}<br />
                 <strong className="text-[#263238]">Nombre Comercial:</strong> {COMPANY_INFO.tradeName}<br />
-                <strong className="text-[#263238]">NIT:</strong> {COMPANY_INFO.nit} <ClientConfirmationBadge label="Confirmar NIT" /><br />
                 <strong className="text-[#263238]">Domicilio:</strong> {COMPANY_INFO.address}<br />
                 <strong className="text-[#263238]">Correo Electrónico de Contacto:</strong> {COMPANY_INFO.email} <ClientConfirmationBadge label="Confirmar Correo" /><br />
                 <strong className="text-[#263238]">Línea de Atención:</strong> {COMPANY_INFO.phones[0].display}

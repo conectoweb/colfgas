@@ -90,18 +90,25 @@ export default function ServiciosPage() {
 
               <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                 <Link
-                  href="/servicios/residencial"
+                  href="/servicios/gas-residencial"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#0066B3] hover:bg-[#005291] shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3]"
                 >
                   <Building2 className="w-4 h-4" aria-hidden="true" />
                   <span>Gas Residencial</span>
                 </Link>
                 <Link
-                  href="/servicios/industrial"
+                  href="/servicios/gas-industrial"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#287A1C] hover:bg-[#1E5F15] shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#287A1C]"
                 >
                   <Factory className="w-4 h-4" aria-hidden="true" />
                   <span>Gas Industrial</span>
+                </Link>
+                <Link
+                  href="/servicios/mantenimiento"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-[#263238] bg-white hover:bg-slate-100 border border-slate-300 shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+                >
+                  <Wrench className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />
+                  <span>Mantenimiento</span>
                 </Link>
               </div>
             </div>
@@ -109,17 +116,26 @@ export default function ServiciosPage() {
             {/* Right Column: Visual Technical Graphic */}
             <div className="lg:col-span-6">
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/90 bg-white">
-                <Image
-                  src="/images/servicios/gas-servicios-hero.svg"
-                  alt="Esquema técnico general de infraestructura de redes de gas residencial e industrial de COLFGAS"
-                  width={800}
-                  height={480}
-                  priority
-                  className="w-full h-auto object-cover"
-                />
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src="/images/galeria/corredor-de-obra-con-tuberias-amarillas.webp"
+                    alt="Trazado y montaje de redes de tuberías de gas en corredor técnico de edificación en obra"
+                    width={800}
+                    height={500}
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 right-3">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-[#0066B3] shadow-md border border-sky-200 flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#0066B3]" aria-hidden="true" />
+                      <span>Redes Fijas Certificadas</span>
+                    </span>
+                  </div>
+                </div>
                 <div className="p-3 bg-slate-50 border-t border-slate-200 text-center">
                   <span className="text-[11px] font-semibold text-[#5B6570]">
-                    Esquema representativo de distribución fija • NTC 2505 y NTC 3838
+                    Tendido de tuberías aéreas en zona técnica • Normas NTC 2505 y NTC 3838
                   </span>
                 </div>
               </div>
@@ -188,14 +204,135 @@ export default function ServiciosPage() {
 
               <div className="lg:col-span-6">
                 <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src="/images/galeria/manometro-y-tuberias-de-gas-en-ladrillo.webp"
+                      alt="Manómetro para prueba neumática de hermeticidad y tuberías de gas en muro de ladrillo"
+                      width={600}
+                      height={450}
+                      loading="lazy"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-2.5 bg-slate-50 border-t border-slate-200 text-center">
+                    <span className="text-[11px] font-semibold text-[#5B6570]">
+                      Prueba neumática de presión estática con manómetro certificado
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Visual Showcase: Redes, Tuberías y Medidores */}
+          <div className="mb-20">
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0066B3]">
+                Registro Técnico en Obra
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#263238] mt-2">
+                Instalaciones de Tuberías y Baterías de Medición
+              </h2>
+              <p className="text-sm text-[#5B6570] mt-1">
+                Fichas visuales de componentes reales de redes fijas ejecutadas bajo estándares de Vanti.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="group rounded-2xl bg-[#F4F7F8] border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                   <Image
-                    src="/images/servicios/esquema-pruebas-hermeticidad.svg"
-                    alt="Diagrama explicativo del protocolo de prueba de hermeticidad neumática de COLFGAS"
+                    src="/images/galeria/gran-banco-de-medidores-de-gas.webp"
+                    alt="Batería centralizada de medidores de gas natural en gabinete técnico residencial"
                     width={600}
-                    height={400}
+                    height={450}
                     loading="lazy"
-                    className="w-full h-auto object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                </div>
+                <div className="p-5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-100 text-[#0066B3]">
+                    Sector Residencial
+                  </span>
+                  <h3 className="text-base font-bold text-[#263238] mt-2">
+                    Bancos Centralizados de Medición
+                  </h3>
+                  <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
+                    Conjunto de medidores calibrados con reguladores individuales para copropiedades.
+                  </p>
+                  <Link
+                    href="/servicios/gas-residencial"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#0066B3] hover:text-[#005291] mt-3"
+                  >
+                    <span>Ficha técnica residencial</span>
+                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="group rounded-2xl bg-[#F4F7F8] border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                  <Image
+                    src="/images/galeria/tres-tuberias-amarillas-en-obra.webp"
+                    alt="Líneas de tuberías de gas en acero soldado para distribución industrial"
+                    width={600}
+                    height={450}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-100 text-[#287A1C]">
+                    Sector Industrial
+                  </span>
+                  <h3 className="text-base font-bold text-[#263238] mt-2">
+                    Tuberías Matrices en Acero Soldado
+                  </h3>
+                  <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
+                    Tendido aéreo y canalizaciones con soldadura calificada según norma NTC 3838.
+                  </p>
+                  <Link
+                    href="/servicios/gas-industrial"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#287A1C] hover:text-[#1E5F15] mt-3"
+                  >
+                    <span>Ficha técnica industrial</span>
+                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="group rounded-2xl bg-[#F4F7F8] border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                  <Image
+                    src="/images/galeria/tecnico-revisando-tuberias-de-gas.webp"
+                    alt="Técnico calificado realizando verificación técnica y mantenimiento en tuberías de gas"
+                    width={600}
+                    height={450}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-100 text-[#0066B3]">
+                    Mantenimiento Técnico
+                  </span>
+                  <h3 className="text-base font-bold text-[#263238] mt-2">
+                    Ensayos de Hermeticidad y Ajuste
+                  </h3>
+                  <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
+                    Revisión preventiva, cambio de valvulería y presurización reglamentaria.
+                  </p>
+                  <Link
+                    href="/servicios/mantenimiento"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#0066B3] hover:text-[#005291] mt-3"
+                  >
+                    <span>Ficha de mantenimiento</span>
+                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
             </div>

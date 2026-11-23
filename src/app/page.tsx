@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import {
   ShieldCheck,
@@ -16,6 +17,8 @@ import {
   ArrowDown,
   Layers,
   ChevronRight,
+  Camera,
+  ArrowRight,
 } from 'lucide-react';
 import {
   COMPANY_INFO,
@@ -51,12 +54,12 @@ export default function LandingPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Column: Value Proposition & Vanti Badge */}
+            {/* Left Column: Value Proposition */}
             <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
-              {/* Sello Certificada por Vanti */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-300 text-xs font-bold text-[#287A1C] shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />
-                <span>{COMPANY_INFO.vantiCertification}</span>
+              {/* Sello de Especialidad */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-xs font-bold text-[#0066B3] shadow-sm">
+                <ShieldCheck className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
+                <span>Especialistas en Vivienda e Industria</span>
               </div>
 
               {/* H1 Semántico Principal */}
@@ -70,7 +73,7 @@ export default function LandingPage() {
               <p className="text-base sm:text-lg md:text-xl text-[#5B6570] leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Soluciones integrales de <strong>construcción</strong>, <strong>instalación</strong> y{' '}
                 <strong>mantenimiento</strong> de redes de gas natural y GLP en Colombia. Calidad
-                técnica respaldada con certificación de Vanti y estricta normativa de seguridad.
+                técnica respaldada con estricta normativa de seguridad y procesos estandarizados.
               </p>
 
               {/* Exclusion Note: No Gas Vehicular */}
@@ -83,26 +86,26 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              {/* Botones Visibles: WhatsApp y Llamar */}
+              {/* Botones Visibles: Embudo hacia Contáctanos y WhatsApp */}
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+                <Link
+                  href="/contacto"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-md hover:shadow-lg transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-sky-300 min-h-[48px]"
+                  aria-label="Ir a la página de Contáctanos para cotizar proyecto"
+                >
+                  <span>Contáctanos / Cotizar</span>
+                  <ArrowRight className="w-5 h-5 text-white" aria-hidden="true" />
+                </Link>
+
                 <a
                   href={COMPANY_INFO.whatsapp.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-md hover:shadow-lg transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-emerald-400 min-h-[48px]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm hover:shadow transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-emerald-400 min-h-[48px]"
                   aria-label="Escribir por WhatsApp a COLFGAS al 320 827 1724"
                 >
                   <MessageCircle className="w-5 h-5 text-[#263238]" aria-hidden="true" />
-                  <span>Escribir por WhatsApp</span>
-                </a>
-
-                <a
-                  href={COMPANY_INFO.phoneCallUrl}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-semibold text-[#0066B3] bg-white hover:bg-slate-50 border-2 border-[#0066B3] shadow-sm hover:shadow transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-sky-300 min-h-[48px]"
-                  aria-label={`Llamar a COLFGAS al ${COMPANY_INFO.phoneDisplay}`}
-                >
-                  <Phone className="w-5 h-5 text-[#0066B3]" aria-hidden="true" />
-                  <span>Llamar: {COMPANY_INFO.phoneDisplay}</span>
+                  <span>WhatsApp Directo</span>
                 </a>
               </div>
 
@@ -111,9 +114,9 @@ export default function LandingPage() {
                 <div className="p-2.5 rounded-lg bg-white/70 border border-slate-200/80">
                   <div className="text-base sm:text-lg font-bold text-[#287A1C] flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />
-                    <span>Certificado Vanti</span>
+                    <span>Calidad Certificada</span>
                   </div>
-                  <div className="text-xs text-[#5B6570]">Distribuidora Oficial</div>
+                  <div className="text-xs text-[#5B6570]">Ingeniería Homologada</div>
                 </div>
 
                 <div className="p-2.5 rounded-lg bg-white/70 border border-slate-200/80">
@@ -128,22 +131,23 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Right Column: Hero Technical Illustration */}
+            {/* Right Column: Hero Technical Photo */}
             <div className="lg:col-span-5">
               <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white">
-                <div className="relative">
+                <div className="relative aspect-[4/3]">
                   <Image
-                    src="/images/servicios/gas-servicios-hero.svg"
-                    alt="Esquema técnico de infraestructura de redes de gas residencial e industrial de COLFGAS CONSTRUCCIONES"
+                    src="/images/galeria/azotea-con-tuberias-y-montanas.webp"
+                    alt="Instalación de redes de gas en azotea con tuberías y montantes ejecutadas según normas de seguridad por COLFGAS"
                     width={800}
-                    height={480}
+                    height={600}
                     priority
-                    className="w-full h-auto object-cover"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute top-3 right-3">
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-[#287A1C] shadow-md border border-emerald-200 flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#287A1C]" aria-hidden="true" />
-                      <span>Certificado por Vanti</span>
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-[#263238] shadow-md border border-slate-200 flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#43BE24]" aria-hidden="true" />
+                      <span>Registro Técnico de Obra</span>
                     </span>
                   </div>
                 </div>
@@ -156,6 +160,30 @@ export default function LandingPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECCIÓN DE CONFIANZA: CERTIFICACIÓN VANTI (Mención única destacada)
+          ========================================================================= */}
+      <section className="bg-slate-50 border-b border-slate-200 py-8 sm:py-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 shadow-sm text-center sm:text-left">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-[#287A1C] flex items-center justify-center flex-shrink-0">
+              <ShieldCheck className="w-8 h-8" aria-hidden="true" />
+            </div>
+            <div className="flex-1 space-y-1">
+              <span className="inline-block px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-50 text-[#287A1C] border border-emerald-200 mb-1">
+                Respaldo Oficial
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#263238]">
+                {COMPANY_INFO.vantiCertification}
+              </h2>
+              <p className="text-xs sm:text-sm text-[#5B6570] leading-relaxed">
+                COLFGAS CONSTRUCCIONES S.A.S. cuenta con la certificación oficial de Vanti para la construcción, instalación y mantenimiento de redes de gas natural, respaldando que nuestras obras se ejecutan bajo los estándares, procedimientos y especificaciones técnicas de la empresa distribuidora en Colombia.
+              </p>
             </div>
           </div>
         </div>
@@ -175,7 +203,7 @@ export default function LandingPage() {
             </h2>
             <p className="mt-3 text-base text-[#5B6570] leading-relaxed">
               En COLFGAS CONSTRUCCIONES S.A.S. cubrimos las tres etapas esenciales de la red de gas
-              para edificaciones de vivienda y plantas industriales con respaldo de Vanti.
+              para edificaciones de vivienda y plantas industriales con los más altos estándares de calidad técnica.
             </p>
           </div>
 
@@ -427,6 +455,138 @@ export default function LandingPage() {
       </section>
 
       {/* =========================================================================
+          SECCIÓN FOTOGRÁFICA: INSTALACIONES GENERALES EN OBRA
+          ========================================================================= */}
+      <section className="py-20 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-100 text-[#0066B3] border border-sky-200 mb-3">
+              Evidencia Técnica en Terreno
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#263238]">
+              Instalaciones Generales de Gas en Obra
+            </h2>
+            <p className="mt-3 text-base text-[#5B6570] leading-relaxed">
+              Registros visuales de montajes de redes fijas, centros de medición y tuberías ejecutadas con supervisión y estricto cumplimiento de la normativa colombiana.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="group rounded-2xl bg-[#F4F7F8] border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                <Image
+                  src="/images/galeria/azotea-con-tuberias-y-montanas.webp"
+                  alt="Trazado y tendido de tuberías de gas en azotea técnica con protección anticorrosiva"
+                  width={600}
+                  height={450}
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-4">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-100 text-[#0066B3]">
+                  Cubiertas y Azoteas
+                </span>
+                <h3 className="text-sm font-bold text-[#263238] mt-2 leading-snug">
+                  Redes en Azoteas Técnicas
+                </h3>
+                <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
+                  Tendido de tuberías exteriores con anclaje antisísmico y protección a la intemperie.
+                </p>
+              </div>
+            </div>
+
+            <div className="group rounded-2xl bg-[#F4F7F8] border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                <Image
+                  src="/images/galeria/garaje-iluminado-con-medidores-de-gas.webp"
+                  alt="Batería de medidores de gas en área técnica de parqueadero subterráneo"
+                  width={600}
+                  height={450}
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-4">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-100 text-[#287A1C]">
+                  Centros de Medición
+                </span>
+                <h3 className="text-sm font-bold text-[#263238] mt-2 leading-snug">
+                  Baterías en Sótano y Parqueadero
+                </h3>
+                <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
+                  Centros de medición unificados para edificios residenciales bajo norma NTC 2505.
+                </p>
+              </div>
+            </div>
+
+            <div className="group rounded-2xl bg-[#F4F7F8] border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                <Image
+                  src="/images/galeria/tecnico-revisando-tuberias-de-gas.webp"
+                  alt="Técnico calificado realizando inspección y verificación de hermeticidad en tuberías de gas"
+                  width={600}
+                  height={450}
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-4">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-900">
+                  Control Técnico
+                </span>
+                <h3 className="text-sm font-bold text-[#263238] mt-2 leading-snug">
+                  Inspección y Pruebas en Obra
+                </h3>
+                <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
+                  Control riguroso de estanqueidad y verificación de uniones mecánicas y soldadas.
+                </p>
+              </div>
+            </div>
+
+            <div className="group rounded-2xl bg-[#F4F7F8] border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                <Image
+                  src="/images/galeria/corredor-de-obra-con-tuberias-amarillas.webp"
+                  alt="Líneas matrices de tuberías de gas en corredor técnico de edificación"
+                  width={600}
+                  height={450}
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-4">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-100 text-[#0066B3]">
+                  Redes Matrices
+                </span>
+                <h3 className="text-sm font-bold text-[#263238] mt-2 leading-snug">
+                  Tuberías Matrices en Obra
+                </h3>
+                <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
+                  Tendido aéreo canalizado por zonas técnicas no habitables cumpliendo distancias mínimas.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href="/proyectos"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-[#0066B3] bg-[#F4F7F8] hover:bg-sky-50 border border-sky-200 transition-all shadow-sm"
+            >
+              <Camera className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
+              <span>Ver Galería Fotográfica Completa de Obras</span>
+              <ChevronRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
           SECCIÓN 4: PROYECTOS (ESQUEMAS TÉCNICOS TRANSPARENTES)
           ========================================================================= */}
       <section id="proyectos" className="py-20 bg-white border-b border-slate-200/80">
@@ -531,8 +691,7 @@ export default function LandingPage() {
               ¿Por Qué Elegir a COLFGAS CONSTRUCCIONES?
             </h2>
             <p className="mt-3 text-base text-[#5B6570] leading-relaxed">
-              Basamos nuestra reputación en hechos comprobados: certificación oficial de Vanti,
-              dedicación exclusiva a construcciones residenciales e industriales y rigurosa seguridad.
+              Basamos nuestra reputación en hechos comprobados: dedicación exclusiva a construcciones residenciales e industriales, rigurosa seguridad técnica y personal calificado.
             </p>
           </div>
 
@@ -601,7 +760,7 @@ export default function LandingPage() {
               Comunícate con COLFGAS CONSTRUCCIONES S.A.S.
             </h2>
             <p className="mt-3 text-base sm:text-lg text-[#5B6570] max-w-2xl mx-auto leading-relaxed">
-              Empresa certificada por Vanti. Habla directamente con nuestro equipo para asesorarte
+              Habla directamente con nuestro equipo de ingenieros para asesorarte
               en la construcción, instalación o mantenimiento de tus redes de gas.
             </p>
           </div>
@@ -703,11 +862,11 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Banner de Cierre con Vanti y Botones de Acción */}
+          {/* Banner de Cierre con Botones de Acción */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm text-center space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-300 text-xs font-bold text-[#287A1C]">
-              <CheckCircle2 className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />
-              <span>{COMPANY_INFO.vantiCertification}</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-xs font-bold text-[#0066B3]">
+              <ShieldCheck className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
+              <span>Asesoría Directa y Cotizaciones</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-bold text-[#263238]">
@@ -716,10 +875,18 @@ export default function LandingPage() {
 
             <p className="text-sm sm:text-base text-[#5B6570] max-w-2xl mx-auto leading-relaxed">
               Comunícate hoy mismo al <strong>{COMPANY_INFO.phoneDisplay}</strong> para recibir
-              asesoría especializada de una empresa certificada por Vanti.
+              asesoría técnica personalizada para tu proyecto.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contacto"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl text-base font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-md transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-sky-300 min-h-[48px]"
+              >
+                <span>Ir a Contáctanos</span>
+                <ArrowRight className="w-5 h-5 text-white" aria-hidden="true" />
+              </Link>
+
               <a
                 href={COMPANY_INFO.whatsapp.url}
                 target="_blank"
@@ -729,18 +896,10 @@ export default function LandingPage() {
                 <MessageCircle className="w-5 h-5 text-[#263238]" aria-hidden="true" />
                 <span>Escribir por WhatsApp</span>
               </a>
-
-              <a
-                href={COMPANY_INFO.phoneCallUrl}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl text-base font-semibold text-[#0066B3] bg-sky-50 hover:bg-sky-100 border border-sky-200 transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-sky-300 min-h-[48px]"
-              >
-                <Phone className="w-5 h-5 text-[#0066B3]" aria-hidden="true" />
-                <span>Llamar al {COMPANY_INFO.phoneDisplay}</span>
-              </a>
             </div>
 
             <div className="pt-4 text-xs text-[#5B6570]">
-              Dirección: {COMPANY_INFO.address} • [CONFIRMAR CON COLFGAS: Horarios de atención y NIT]
+              Dirección: {COMPANY_INFO.address} • [CONFIRMAR CON COLFGAS: Horarios de atención]
             </div>
           </div>
         </div>
