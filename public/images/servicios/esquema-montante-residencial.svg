@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <rect width="600" height="400" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+  <g opacity="0.15">
+    <path d="M0 40h600M0 80h600M0 120h600M0 160h600M0 200h600M0 240h600M0 280h600M0 320h600M0 360h600" stroke="#0066B3" stroke-width="0.8" stroke-dasharray="3 3" />
+    <path d="M40 0v400M80 0v400M120 0v400M160 0v400M200 0v400M240 0v400M280 0v400M320 0v400M360 0v400M400 0v400M440 0v400M480 0v400M520 0v400M560 0v400" stroke="#0066B3" stroke-width="0.8" stroke-dasharray="3 3" />
+  </g>
+
+  <!-- Title bar -->
+  <rect x="20" y="16" width="560" height="36" rx="8" fill="#263238" />
+  <text x="36" y="39" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">DETALLE CONSTRUCTIVO: MONTANTE VERTICAL Y BATERÍA (NTC 2505)</text>
+
+  <!-- Gas Riser (Tubería Cobre / Acero) -->
+  <line x1="200" y1="80" x2="200" y2="340" stroke="#007afd" stroke-width="8" stroke-linecap="round" />
+  <!-- Riser wall brackets -->
+  <rect x="188" y="120" width="24" height="8" rx="2" fill="#475569" />
+  <rect x="188" y="200" width="24" height="8" rx="2" fill="#475569" />
+  <rect x="188" y="280" width="24" height="8" rx="2" fill="#475569" />
+
+  <!-- Floor 3 Takeoff -->
+  <path d="M200 124h80" stroke="#007afd" stroke-width="5" />
+  <!-- Valve -->
+  <polygon points="230,118 242,124 230,130" fill="#43BE24" />
+  <polygon points="254,118 242,124 254,130" fill="#43BE24" />
+  <!-- Meter -->
+  <rect x="280" y="104" width="45" height="40" rx="6" fill="#FFFFFF" stroke="#0066B3" stroke-width="2" />
+  <circle cx="302" cy="124" r="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5" />
+  <text x="340" y="128" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#263238">Piso 3: Medidor Individual</text>
+
+  <!-- Floor 2 Takeoff -->
+  <path d="M200 204h80" stroke="#007afd" stroke-width="5" />
+  <polygon points="230,198 242,204 230,210" fill="#43BE24" />
+  <polygon points="254,198 242,204 254,210" fill="#43BE24" />
+  <rect x="280" y="184" width="45" height="40" rx="6" fill="#FFFFFF" stroke="#0066B3" stroke-width="2" />
+  <circle cx="302" cy="204" r="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5" />
+  <text x="340" y="208" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#263238">Piso 2: Medidor Individual</text>
+
+  <!-- Floor 1 Takeoff -->
+  <path d="M200 284h80" stroke="#007afd" stroke-width="5" />
+  <polygon points="230,278 242,284 230,290" fill="#43BE24" />
+  <polygon points="254,278 242,284 254,290" fill="#43BE24" />
+  <rect x="280" y="264" width="45" height="40" rx="6" fill="#FFFFFF" stroke="#0066B3" stroke-width="2" />
+  <circle cx="302" cy="284" r="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5" />
+  <text x="340" y="288" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#263238">Piso 1: Medidor Individual</text>
+
+  <!-- Bottom Main Valve & Ground -->
+  <rect x="50" y="335" width="500" height="35" rx="6" fill="#E2E8F0" />
+  <text x="65" y="356" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Válvula de corte general con cerradura de seguridad reglamentaria</text>
+
+  <!-- Client Tag -->
+  <text x="36" y="388" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#0066B3">[ESQUEMA TÉCNICO PROVISIONAL COLFGAS CONSTRUCCIONES S.A.S.]</text>
+</svg>

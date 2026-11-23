@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <rect width="600" height="400" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+  <g opacity="0.15">
+    <path d="M0 40h600M0 80h600M0 120h600M0 160h600M0 200h600M0 240h600M0 280h600M0 320h600M0 360h600" stroke="#287A1C" stroke-width="0.8" stroke-dasharray="3 3" />
+    <path d="M40 0v400M80 0v400M120 0v400M160 0v400M200 0v400M240 0v400M280 0v400M320 0v400M360 0v400M400 0v400M440 0v400M480 0v400M520 0v400M560 0v400" stroke="#287A1C" stroke-width="0.8" stroke-dasharray="3 3" />
+  </g>
+
+  <!-- Title bar -->
+  <rect x="20" y="16" width="560" height="36" rx="8" fill="#287A1C" />
+  <text x="36" y="39" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">DIAGRAMA DE FLUJO: ESTACIÓN ERM DOBLE LÍNEA (NTC 3838)</text>
+
+  <!-- Pipe Flow Line 1 (Línea Activa) -->
+  <path d="M40 140h100v-30h320v30h100" stroke="#007afd" stroke-width="6" fill="none" />
+  <!-- Pipe Flow Line 2 (Línea de Reserva / Standby) -->
+  <path d="M140 140v90h320v-90" stroke="#475569" stroke-width="5" stroke-dasharray="4 4" fill="none" />
+
+  <!-- Inlet Valve -->
+  <polygon points="65,133 77,140 65,147" fill="#263238" />
+  <polygon points="89,133 77,140 89,147" fill="#263238" />
+  <text x="50" y="125" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#263238">VÁLVULA ENTRADA</text>
+
+  <!-- Line 1: Filter -->
+  <rect x="180" y="90" width="35" height="40" rx="4" fill="#FFFFFF" stroke="#0066B3" stroke-width="2" />
+  <text x="185" y="114" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#0066B3">FILTRO</text>
+
+  <!-- Line 1: OPSO Slam-shut -->
+  <rect x="240" y="94" width="30" height="32" rx="4" fill="#DC2626" />
+  <text x="244" y="113" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#FFFFFF">OPSO</text>
+
+  <!-- Line 1: Pressure Regulator -->
+  <circle cx="320" cy="110" r="16" fill="#FFFFFF" stroke="#007afd" stroke-width="2.5" />
+  <text x="309" y="114" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#007afd">REG-1</text>
+
+  <!-- Line 1: Turbine Meter -->
+  <rect x="380" y="92" width="45" height="36" rx="4" fill="#263238" stroke="#0066B3" stroke-width="1.5" />
+  <text x="388" y="113" font-family="monospace" font-size="8" font-weight="700" fill="#43BE24">METER</text>
+
+  <!-- Line 2 components (Standby line) -->
+  <rect x="235" y="210" width="35" height="40" rx="4" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5" />
+  <text x="240" y="234" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#64748B">FILTRO 2</text>
+  <circle cx="320" cy="230" r="16" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5" />
+  <text x="309" y="234" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#64748B">REG-2</text>
+
+  <!-- Outlet Valve -->
+  <polygon points="505,133 517,140 505,147" fill="#43BE24" />
+  <polygon points="529,133 517,140 529,147" fill="#43BE24" />
+  <text x="490" y="125" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#287A1C">SALIDA REGULADA</text>
+
+  <!-- Bottom Explanatory Legend -->
+  <rect x="40" y="290" width="520" height="60" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+  <text x="55" y="312" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#263238">Ventajas del Skid Doble Etapa COLFGAS:</text>
+  <text x="55" y="328" font-family="system-ui, sans-serif" font-size="10" fill="#5B6570">• Mantenimiento en caliente sin suspender el proceso térmico ni apagar calderas.</text>
+  <text x="55" y="342" font-family="system-ui, sans-serif" font-size="10" fill="#5B6570">• Válvula de seguridad OPSO de corte instantáneo por variación de presión fuera de rango.</text>
+
+  <text x="36" y="385" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#0066B3">[ESQUEMA TÉCNICO PROVISIONAL COLFGAS CONSTRUCCIONES S.A.S.]</text>
+</svg>

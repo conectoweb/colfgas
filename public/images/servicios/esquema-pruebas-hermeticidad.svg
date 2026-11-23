@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <rect width="600" height="400" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+  <g opacity="0.15">
+    <path d="M0 40h600M0 80h600M0 120h600M0 160h600M0 200h600M0 240h600M0 280h600M0 320h600M0 360h600" stroke="#0066B3" stroke-width="0.8" stroke-dasharray="3 3" />
+    <path d="M40 0v400M80 0v400M120 0v400M160 0v400M200 0v400M240 0v400M280 0v400M320 0v400M360 0v400M400 0v400M440 0v400M480 0v400M520 0v400M560 0v400" stroke="#0066B3" stroke-width="0.8" stroke-dasharray="3 3" />
+  </g>
+
+  <!-- Title bar -->
+  <rect x="20" y="16" width="560" height="36" rx="8" fill="#263238" />
+  <text x="36" y="39" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">PROTOCOLO DE PRUEBA DE HERMETICIDAD Y PRESIÓN ESTÁTICA</text>
+
+  <!-- Manometer Graphic Center -->
+  <circle cx="180" cy="180" r="75" fill="#FFFFFF" stroke="#0066B3" stroke-width="4" />
+  <circle cx="180" cy="180" r="65" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1" />
+  <!-- Dial ticks -->
+  <line x1="180" y1="120" x2="180" y2="128" stroke="#263238" stroke-width="2" />
+  <line x1="230" y1="140" x2="223" y2="145" stroke="#263238" stroke-width="2" />
+  <line x1="240" y1="180" x2="232" y2="180" stroke="#263238" stroke-width="2" />
+  <line x1="230" y1="220" x2="223" y2="215" stroke="#263238" stroke-width="2" />
+  <line x1="180" y1="240" x2="180" y2="232" stroke="#263238" stroke-width="2" />
+  <line x1="130" y1="220" x2="137" y2="215" stroke="#263238" stroke-width="2" />
+  <line x1="120" y1="180" x2="128" y2="180" stroke="#263238" stroke-width="2" />
+  <line x1="130" y1="140" x2="137" y2="145" stroke="#263238" stroke-width="2" />
+
+  <!-- Needle locked on green (cero caída) -->
+  <circle cx="180" cy="180" r="6" fill="#263238" />
+  <line x1="180" y1="180" x2="215" y2="145" stroke="#43BE24" stroke-width="3" stroke-linecap="round" />
+  <text x="156" y="205" font-family="monospace" font-size="11" font-weight="700" fill="#0066B3">20.0 PSI</text>
+  <text x="154" y="218" font-family="system-ui" font-size="8" font-weight="600" fill="#64748B">ESTABLE</text>
+
+  <!-- Connective Pipe to line under test -->
+  <path d="M180 255v45h80" stroke="#007afd" stroke-width="6" fill="none" stroke-linejoin="round" />
+  <rect x="250" y="294" width="280" height="14" rx="2" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5" />
+  <text x="270" y="305" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#263238">TRAMO DE TUBERÍA BAJO ENSAYO NEUMÁTICO</text>
+
+  <!-- Steps Card Right Side -->
+  <rect x="300" y="70" width="270" height="200" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+  <rect x="300" y="70" width="270" height="32" rx="10" fill="#0066B3" />
+  <rect x="300" y="92" width="270" height="10" fill="#0066B3" />
+  <text x="315" y="91" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">CRITERIOS DE CONFORMIDAD</text>
+
+  <circle cx="320" cy="125" r="4" fill="#43BE24" />
+  <text x="332" y="128" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#263238">1. Presión de Prueba</text>
+  <text x="332" y="142" font-family="system-ui, sans-serif" font-size="9" fill="#5B6570">Mínimo 1.5 a 3 veces la presión de diseño</text>
+
+  <circle cx="320" cy="165" r="4" fill="#43BE24" />
+  <text x="332" y="168" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#263238">2. Tiempo de Observación</text>
+  <text x="332" y="182" font-family="system-ui, sans-serif" font-size="9" fill="#5B6570">Duración reglamentaria según volumen de red</text>
+
+  <circle cx="320" cy="205" r="4" fill="#43BE24" />
+  <text x="332" y="208" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#263238">3. Cero Variación</text>
+  <text x="332" y="222" font-family="system-ui, sans-serif" font-size="9" fill="#5B6570">100% libre de fugas certificado</text>
+
+  <circle cx="320" cy="245" r="4" fill="#0066B3" />
+  <text x="332" y="248" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#0066B3">Inspección con Solución Formadora</text>
+
+  <!-- Client Footer Tag -->
+  <text x="36" y="385" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#0066B3">[ESQUEMA TÉCNICO PROVISIONAL COLFGAS CONSTRUCCIONES S.A.S.]</text>
+</svg>
