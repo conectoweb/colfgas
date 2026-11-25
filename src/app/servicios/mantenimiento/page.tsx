@@ -19,9 +19,9 @@ import {
 import { COMPANY_INFO } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Mantenimiento de Redes de Gas | Vivienda e Industria',
+  title: 'Reparaciones de Gas Natural y Mantenimiento en Bogotá | COLFGAS',
   description:
-    'Mantenimiento preventivo y correctivo de redes y sistemas de gas para viviendas e industrias en Colombia. Pruebas de hermeticidad y detección técnica de fugas. Empresa certificada por Vanti.',
+    'Servicio técnico y reparaciones de gas natural en Bogotá y alrededores. Detección rápida de fugas y pruebas de hermeticidad con técnicos de gas certificados por Vanti.',
   alternates: {
     canonical: '/servicios/mantenimiento',
   },
@@ -125,17 +125,17 @@ export default function MantenimientoPage() {
                 </ol>
               </nav>
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-100 text-[#0066B3] border border-sky-300">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#0066B3]" aria-hidden="true" />
-                <span>Inspección Técnica y Pruebas de Hermeticidad</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-[#287A1C] border border-emerald-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#287A1C]" aria-hidden="true" />
+                <span>Técnicos de Gas Natural Certificados • Bogotá y Sabana</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-normal text-[#263238] leading-tight">
-                Mantenimiento de Redes y Sistemas de Gas
+                Reparaciones de Gas Natural y Mantenimiento en Bogotá
               </h1>
 
               <p className="text-base sm:text-lg text-[#5B6570] leading-relaxed">
-                Mantenimiento preventivo y correctivo, pruebas de hermeticidad y adecuación técnica para sistemas de gas natural y GLP en edificaciones residenciales, comerciales e industriales en Colombia.
+                ¿Fugas de gas, baja presión o suspensión del servicio? En <strong>COLFGAS</strong> contamos con <strong>técnicos en gas natural e instaladores certificados por Vanti</strong>. Realizamos reparaciones de gas urgentes, mantenimiento preventivo, adecuación de puntos para gasodomésticos y pruebas de hermeticidad en Bogotá y alrededores para que recuperes la tranquilidad de inmediato.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
@@ -464,7 +464,7 @@ export default function MantenimientoPage() {
 
           {/* Final CTA Box */}
           <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#0066B3] to-[#005291] text-white text-center space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-bold">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
               ¿Requieres mantenimiento preventivo o prueba de hermeticidad?
             </h2>
             <p className="text-sm sm:text-base text-sky-100 max-w-2xl mx-auto">

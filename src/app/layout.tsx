@@ -4,7 +4,6 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { COMPANY_INFO, SITE_METADATA } from '@/lib/constants';
-import { getOrganizationJsonLd } from '@/lib/seo';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -106,18 +105,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const orgJsonLd = getOrganizationJsonLd();
-
   return (
     <html lang="es-CO" className={`${manrope.variable} scroll-smooth`}>
       <head>
         <link rel="icon" type="image/png" href="/logos/llama-azul.png" />
         <link rel="shortcut icon" href="/logos/llama-azul.png" />
         <link rel="apple-touch-icon" href="/logos/llama-azul.png" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
       </head>
       <body className="font-sans min-h-screen flex flex-col bg-white text-[#263238] antialiased selection:bg-[#007afd]/20 selection:text-[#0066B3]">
         {/* Skip to Main Content Link for Keyboard / Screen Reader Accessibility */}

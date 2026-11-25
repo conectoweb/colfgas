@@ -119,17 +119,17 @@ export default function GasResidencialPage() {
                 </ol>
               </nav>
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-100 text-[#0066B3] border border-sky-300">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#0066B3]" aria-hidden="true" />
-                <span>Especialistas en Copropiedades y Multifamiliares</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-[#287A1C] border border-emerald-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#287A1C]" aria-hidden="true" />
+                <span>Instaladores de Gas Certificados • Bogotá y Sabana</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-normal text-[#263238] leading-tight">
-                Redes de Gas Residencial y Multifamiliar
+                Instalaciones de Gas Natural Residencial en Bogotá
               </h1>
 
               <p className="text-base sm:text-lg text-[#5B6570] leading-relaxed">
-                Ingeniería, construcción e instalación de redes matrices, montantes verticales y centros de medición para edificios de propiedad horizontal, torres de apartamentos y conjuntos residenciales con estrictos estándares de seguridad y especificaciones de Vanti.
+                ¿Necesitas una red de gas para una vivienda o una edificación residencial? En <strong>COLFGAS</strong> construimos e instalamos redes matrices, montantes verticales, baterías de medidores y puntos para gasodomésticos en Bogotá y alrededores. Proyectos homologados ante Vanti con pruebas de hermeticidad garantizadas y cero demoras.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
@@ -464,7 +464,7 @@ export default function GasResidencialPage() {
 
           {/* Final CTA Box */}
           <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#0066B3] to-[#005291] text-white text-center space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-bold">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
               ¿Vas a iniciar una obra residencial o multifamiliar?
             </h2>
             <p className="text-sm sm:text-base text-sky-100 max-w-2xl mx-auto">

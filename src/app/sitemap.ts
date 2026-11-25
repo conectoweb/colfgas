@@ -4,7 +4,12 @@ import { SITE_METADATA } from '@/lib/constants';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = SITE_METADATA.siteUrl;
+  // Garantiza el host canónico oficial https://colfgas.com sin discrepancias
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL &&
+    !process.env.NEXT_PUBLIC_SITE_URL.includes('localhost')
+      ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '')
+      : 'https://colfgas.com';
   const currentDate = new Date().toISOString().split('T')[0];
 
   return [

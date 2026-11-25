@@ -38,6 +38,17 @@ export default function NosotrosPage() {
       {/* Hero Banner - Luminous & Modern */}
       <section className="bg-[#F4F7F8] border-b border-slate-200 py-12 sm:py-16 text-[#263238]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+          <nav aria-label="Breadcrumb" className="mb-3">
+            <ol className="flex items-center justify-center sm:justify-start gap-2 text-xs text-[#5B6570]">
+              <li>
+                <Link href="/" className="hover:text-[#0066B3] transition-colors">
+                  Inicio
+                </Link>
+              </li>
+              <li>/</li>
+              <li className="font-semibold text-[#0066B3]">Nosotros</li>
+            </ol>
+          </nav>
           <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-100 text-[#0066B3] border border-sky-200 mb-3">
             Identidad Corporativa e Ingeniería
           </span>
@@ -109,14 +120,8 @@ export default function NosotrosPage() {
                 </div>
 
                 <div>
-                  <span className="text-[#5B6570] block text-xs uppercase font-semibold">Cobertura de Operación:</span>
-                  <span className="text-[#263238]">{COMPANY_INFO.coverageArea}</span>
-                  <ClientConfirmationBadge label="Confirmar alcance geográfico" className="mt-1" />
-                </div>
-
-                <div>
                   <span className="text-[#5B6570] block text-xs uppercase font-semibold">Actividad Principal:</span>
-                  <span className="text-[#263238]">Construcción de obras de ingeniería civil e instalaciones de redes de gas natural / GLP</span>
+                  <span className="text-[#263238]">Construcción de obras de ingeniería civil e instalaciones de redes de gas natural y GLP</span>
                 </div>
               </div>
             </div>
@@ -213,8 +218,77 @@ export default function NosotrosPage() {
             </div>
           </div>
 
+          {/* Navigation Hub: Enlaces recomendados a Servicios, Proyectos, FAQ y Mapa */}
+          <div className="mt-16 p-8 rounded-3xl bg-slate-50 border border-slate-200">
+            <div className="max-w-2xl mx-auto text-center mb-8">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0066B3]">
+                Arquitectura y Navegación
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#263238] mt-1">
+                Conoce Más Sobre COLFGAS
+              </h3>
+              <p className="text-xs sm:text-sm text-[#5B6570] mt-1">
+                Accede directamente a nuestras áreas de servicio, registros de obra, preguntas frecuentes y el mapa completo del sitio.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+              <Link
+                href="/servicios"
+                className="p-4 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all group"
+              >
+                <span className="text-xs font-bold text-[#0066B3] block mb-1">Portafolio</span>
+                <span className="text-sm font-bold text-[#263238] group-hover:text-[#0066B3] transition-colors block">
+                  Nuestros Servicios
+                </span>
+                <span className="text-xs text-[#5B6570] mt-1 block">
+                  Construcción, instalación y mantenimiento de redes de gas.
+                </span>
+              </Link>
+
+              <Link
+                href="/proyectos"
+                className="p-4 rounded-2xl bg-white border border-slate-200 hover:border-emerald-300 hover:shadow-md transition-all group"
+              >
+                <span className="text-xs font-bold text-[#287A1C] block mb-1">Experiencia</span>
+                <span className="text-sm font-bold text-[#263238] group-hover:text-[#287A1C] transition-colors block">
+                  Galería de Proyectos
+                </span>
+                <span className="text-xs text-[#5B6570] mt-1 block">
+                  Fichas técnicas y tipologías de obra residencial e industrial.
+                </span>
+              </Link>
+
+              <Link
+                href="/preguntas-frecuentes"
+                className="p-4 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all group"
+              >
+                <span className="text-xs font-bold text-[#0066B3] block mb-1">Dudas Técnicas</span>
+                <span className="text-sm font-bold text-[#263238] group-hover:text-[#0066B3] transition-colors block">
+                  Preguntas Frecuentes
+                </span>
+                <span className="text-xs text-[#5B6570] mt-1 block">
+                  Respuestas sobre certificación Vanti, procesos y cotizaciones.
+                </span>
+              </Link>
+
+              <Link
+                href="/mapa-del-sitio"
+                className="p-4 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all group"
+              >
+                <span className="text-xs font-bold text-[#5B6570] block mb-1">Estructura</span>
+                <span className="text-sm font-bold text-[#263238] group-hover:text-[#0066B3] transition-colors block">
+                  Mapa del Sitio (HTML)
+                </span>
+                <span className="text-xs text-[#5B6570] mt-1 block">
+                  Índice navegable de todas las páginas y secciones del portal.
+                </span>
+              </Link>
+            </div>
+          </div>
+
           {/* Bottom CTA */}
-          <div className="mt-16 text-center">
+          <div className="mt-12 text-center">
             <Link
               href="/contacto"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold text-white bg-[#0066B3] hover:bg-[#005291] shadow-sm transition-all"

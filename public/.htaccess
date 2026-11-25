@@ -45,8 +45,24 @@ ErrorDocument 404 /404.html
 
 # 4. Security Headers
 <IfModule mod_headers.c>
+  # Previene que el navegador interprete archivos con tipos MIME diferentes al declarado (MIME-sniffing)
   Header set X-Content-Type-Options "nosniff"
+
+  # Protección contra ataques de clickjacking limitando el renderizado en iframes
   Header set X-Frame-Options "SAMEORIGIN"
-  Header set X-XSS-Protection "1; mode=block"
+
+  # Política de seguridad de contenido (CSP) estricta acorde a los recursos propios del sitio
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://wa.me; upgrade-insecure-requests;"
+
+  # HSTS activo para conexiones HTTPS sin includeSubDomains ni preload
+  Header set Strict-Transport-Security "max-age=31536000"
+
+  # Política de control de referenciador
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Restricción de APIs y permisos del navegador innecesarios
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # Protección XSS para navegadores compatibles
+  Header set X-XSS-Protection "1; mode=block"
 </IfModule>

@@ -120,17 +120,17 @@ export default function GasIndustrialPage() {
                 </ol>
               </nav>
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-100 text-[#0066B3] border border-sky-300">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#0066B3]" aria-hidden="true" />
-                <span>Especialistas en Media y Alta Demanda</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-[#287A1C] border border-emerald-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#287A1C]" aria-hidden="true" />
+                <span>Instaladores de Gas Industrial • Bogotá y Sabana</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-normal text-[#263238] leading-tight">
-                Redes de Gas Industrial y Comercial
+                Redes e Instalaciones de Gas Industrial en Bogotá
               </h1>
 
               <p className="text-base sm:text-lg text-[#5B6570] leading-relaxed">
-                Ingeniería, montaje y canalización de líneas de suministro de gas en media y alta presión para plantas de manufactura, calderas, hornos continuos y centros comerciales, con los más altos estándares de seguridad y especificaciones de Vanti.
+                ¿Necesitas una red de gas para una planta industrial, fábrica o comercio en Bogotá o la Sabana? Diseñamos e instalamos líneas de suministro en acero soldado y polietileno PEAD con estaciones de regulación ERM. Abastecimiento continuo, máxima potencia térmica y seguridad garantizada para calderas, hornos y procesos térmicos continuos.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
@@ -465,7 +465,7 @@ export default function GasIndustrialPage() {
 
           {/* Final CTA Box */}
           <div className="p-8 sm:p-12 rounded-3xl bg-[#263238] text-white text-center space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-bold">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
               ¿Planeas una ampliación o nueva línea de gas para tu industria?
             </h2>
             <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">

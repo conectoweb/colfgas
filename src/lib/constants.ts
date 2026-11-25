@@ -96,7 +96,7 @@ export const COMPANY_INFO = {
   googleMapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Calle+90+Sur+%23+4F-33+Este%2C+Bogot%C3%A1%2C+Colombia',
   coverageArea:
-    'Bogotá D.C., Cundinamarca y cobertura de proyectos en Colombia [CONFIRMAR COBERTURA EXACTA CON COLFGAS]',
+    '',
   hours: '[CONFIRMAR HORARIO EXACTO CON COLFGAS]',
   email: '[CONFIRMAR CON COLFGAS: Correo oficial]',
   socialMedia: {
@@ -107,11 +107,15 @@ export const COMPANY_INFO = {
 
 export const SITE_METADATA = {
   siteName: 'COLFGAS CONSTRUCCIONES S.A.S.',
-  defaultTitle: 'COLFGAS CONSTRUCCIONES S.A.S. | Empresa Certificada por Vanti',
+  defaultTitle:
+    'Instalaciones y Reparaciones de Gas Natural en Bogotá | Técnicos Certificados Vanti',
   titleTemplate: '%s | COLFGAS CONSTRUCCIONES S.A.S.',
   defaultDescription:
-    'Empresa certificada por Vanti. Construcción, instalación y mantenimiento de redes de gas para construcciones residenciales e industriales en Colombia. Asesoría y cotizaciones oficiales.',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://colfgas.com',
+    '¿Necesitas una red de gas para una vivienda o una industria? En COLFGAS ofrecemos instalaciones de gas natural, reparaciones de gas y mantenimiento en Bogotá y alrededores con técnicos certificados por Vanti.',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL &&
+    !process.env.NEXT_PUBLIC_SITE_URL.includes('localhost')
+      ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '')
+      : 'https://colfgas.com',
   locale: 'es_CO',
 };
 
@@ -124,17 +128,17 @@ export const NAV_LINKS = [
 
 export const ABOUT_SUB_LINKS = [
   {
-    name: 'Sobre Nosotros',
+    name: 'Sobre nosotros',
     href: '/nosotros',
     description: 'Empresa especializada en redes de gas para vivienda e industria',
   },
   {
-    name: 'Preguntas Frecuentes',
+    name: 'Preguntas frecuentes',
     href: '/preguntas-frecuentes',
     description: 'Respuestas a dudas habituales sobre procesos y servicios',
   },
   {
-    name: 'Mapa del Sitio',
+    name: 'Mapa del sitio',
     href: '/mapa-del-sitio',
     description: 'Índice visual y navegable de todas las páginas del sitio',
   },
@@ -142,17 +146,22 @@ export const ABOUT_SUB_LINKS = [
 
 export const SERVICE_SUB_LINKS = [
   {
-    name: 'Gas Residencial',
+    name: 'Todos los servicios',
+    href: '/servicios',
+    description: 'Portafolio integral de redes e ingeniería de gas',
+  },
+  {
+    name: 'Gas residencial',
     href: '/servicios/gas-residencial',
     description: 'Redes y montantes para edificios multifamiliares y vivienda',
   },
   {
-    name: 'Gas Industrial',
+    name: 'Gas industrial',
     href: '/servicios/gas-industrial',
     description: 'Líneas y estaciones de regulación para industrias y comercio',
   },
   {
-    name: 'Mantenimiento de Redes',
+    name: 'Mantenimiento de redes',
     href: '/servicios/mantenimiento',
     description: 'Mantenimiento de sistemas de gas y pruebas de hermeticidad',
   },
@@ -166,19 +175,19 @@ export const SERVICES_CATALOG: ServiceItem[] = [
   {
     id: 'construccion-redes',
     slug: 'construccion',
-    title: 'Construcción de Redes de Gas',
+    title: 'Construcción de Redes de Gas Natural',
     shortTitle: 'Construcción de Redes',
     sector: 'ambos',
     summary:
-      'Construcción integral de redes matrices subterráneas, acometidas principales y montantes verticales para proyectos habitacionales y plantas industriales.',
+      'Construcción especializada de redes matrices subterráneas, acometidas principales y montantes verticales en Bogotá y alrededores para proyectos habitacionales y plantas industriales.',
     description:
-      'Ejecutamos la construcción física de redes de gas combustible conforme a las exigencias técnicas y estándares de seguridad de Vanti. Desarrollamos canalizaciones, tendido de tubería especializada y pruebas preliminares para garantizar redes seguras y duraderas.',
+      '¿Inicias un proyecto de construcción en Bogotá o la Sabana? Diseñamos y construimos redes matrices de gas natural con materiales de máxima resistencia (PEAD y acero). Coordinamos acometidas principales y montantes para que tu obra reciba la aprobación y conexión de Vanti a tiempo y sin demoras.',
     features: [
-      'Construcción de redes matrices en polietileno de alta densidad (PEAD) y acero',
-      'Trazado y canalización de acometidas desde la red de distribución',
-      'Montantes verticales estructurados para edificios multifamiliares',
-      'Integración de obras civiles complementarias para cruces y zanjas de gas',
-      'Cumplimiento estricto de lineamientos de construcción certificados por Vanti',
+      'Construcción de redes matrices en polietileno (PEAD) y acero certificado',
+      'Trazado y canalización ágil de acometidas desde la red pública de distribución',
+      'Montantes verticales estructurados para edificios residenciales e industriales',
+      'Obras civiles complementarias: zanjado técnico, cruces y reposición de acabados',
+      'Aprobación garantizada y cumplimiento estricto de lineamientos Vanti',
     ],
     normativa: 'Residencial e Industrial',
     iconName: 'Building2',
@@ -186,19 +195,19 @@ export const SERVICES_CATALOG: ServiceItem[] = [
   {
     id: 'instalacion-redes',
     slug: 'instalacion',
-    title: 'Instalación de Redes de Gas',
-    shortTitle: 'Instalación de Redes',
+    title: 'Instalaciones de Gas Natural Certificadas',
+    shortTitle: 'Instalaciones Gas Natural',
     sector: 'ambos',
     summary:
-      'Instalación técnica de tuberías internas, centros de medición, reguladores y puntos de conexión en edificaciones residenciales e industriales.',
+      'Instaladores de gas certificados para redes internas, centros de medición y conexión técnica de gasodomésticos en viviendas, comercios e industrias en Bogotá.',
     description:
-      'Instalamos sistemas de distribución interna de gas con tuberías homologadas (PE-AL-PE, cobre y acero al carbono). Realizamos el montaje de baterías de medidores unificados, estaciones de regulación y acople de equipos térmicos con pruebas de hermeticidad.',
+      'Pon la instalación de gas natural de tu inmueble en manos de instaladores certificados. Realizamos el tendido de tuberías homologadas (PE-AL-PE, cobre y acero al carbono), montaje de baterías de medidores unificados y puntos seguros para estufas, calentadores, hornos y calderas con pruebas de hermeticidad certificadas para garantizar cero fugas.',
     features: [
       'Instalación de redes internas empotradas y a la vista con materiales certificados',
       'Montaje de gabinetes y centros de medición unificados para copropiedades',
       'Instalación de estaciones de regulación (ERM) para media y baja presión',
-      'Conexión segura de puntos para estufas, calentadores, hornos y calderas',
-      'Pruebas de hermeticidad con manómetros certificados para habilitación',
+      'Conexión y servicio técnico para puntos de gasodomésticos en Bogotá',
+      'Pruebas de hermeticidad con manómetros certificados para habilitación inmediata',
     ],
     normativa: 'Vivienda y Comercio',
     iconName: 'Wrench',
@@ -206,19 +215,19 @@ export const SERVICES_CATALOG: ServiceItem[] = [
   {
     id: 'mantenimiento-redes',
     slug: 'mantenimiento',
-    title: 'Mantenimiento de Redes de Gas',
-    shortTitle: 'Mantenimiento de Redes',
+    title: 'Reparaciones y Mantenimiento de Gas Natural',
+    shortTitle: 'Reparaciones de Gas',
     sector: 'ambos',
     summary:
-      'Mantenimiento preventivo y correctivo, inspección técnica, detección de fugas y adecuación técnica en viviendas e industrias.',
+      'Servicio técnico y reparaciones de gas en Bogotá y municipios aledaños. Detección rápida de fugas, adecuación técnica y pruebas de hermeticidad con técnicos de gas certificados.',
     description:
-      'Servicio técnico especializado para preservar la estanqueidad y seguridad de las redes existentes. Realizamos reemplazo de valvulería deteriorada, pruebas de presión, calibración de reguladores y adecuaciones previas a inspecciones de la distribuidora.',
+      '¿Problemas de fuga, olor a gas, baja presión o suspensión del servicio? Nuestro equipo de técnicos en gas natural atiende reparaciones de gas urgentes y mantenimiento preventivo en Bogotá y municipios vecinos. Diagnosticamos con equipos de alta precisión y dejamos tu red 100% segura y lista para inspección.',
     features: [
-      'Pruebas de hermeticidad y detección electrónica de microfugas',
-      'Mantenimiento preventivo en estaciones de regulación y medidores',
-      'Sustitución de válvulas de corte, reguladores y accesorios desgastados',
-      'Adecuaciones técnicas de ventilación y recintos para máxima seguridad',
-      'Preparación de instalaciones para certificación periódica y reconexión',
+      'Reparación urgente de fugas y pruebas de hermeticidad manométricas',
+      'Mantenimiento preventivo en estaciones de regulación, medidores y tuberías',
+      'Sustitución inmediata de válvulas de corte, reguladores y accesorios desgastados',
+      'Servicio técnico para revisión y adecuación de puntos de gasodomésticos en Bogotá',
+      'Preparación integral de instalaciones para certificación y reconexión ante Vanti',
     ],
     normativa: 'Inspección y Mantenimiento',
     iconName: 'ShieldCheck',
@@ -230,10 +239,10 @@ export const SERVICES_CATALOG: ServiceItem[] = [
  */
 export const RESIDENTIAL_SOLUTION: SolutionItem = {
   id: 'solucion-residencial',
-  title: 'Soluciones de Gas para Construcciones Residenciales',
-  subtitle: 'Edificios multifamiliares, torres de apartamentos y conjuntos residenciales',
+  title: 'Instalaciones de Gas Residencial en Bogotá y Alrededores',
+  subtitle: 'Edificios multifamiliares, torres de apartamentos y conjuntos residenciales en Bogotá y la Sabana',
   description:
-    'En COLFGAS CONSTRUCCIONES S.A.S. construimos, instalamos y mantenemos redes de gas concebidas para la seguridad de las familias en propiedad horizontal. Respaldados como empresa certificada por Vanti, ejecutamos acometidas, montantes y redes internas listas para la habilitación del servicio.',
+    '¿Estás desarrollando un proyecto de vivienda o necesitas adecuar la red de gas de una copropiedad? En COLFGAS construimos e instalamos redes de gas seguras, montantes verticales y centros de medición con aprobación asegurada ante Vanti. Te garantizamos cero fugas, entregas a tiempo y tranquilidad absoluta para cada hogar.',
   scopeItems: [
     'Acometidas desde la red pública hasta el límite de la copropiedad',
     'Baterías y centros de medición unificados con cerraduras reglamentarias',
@@ -251,10 +260,10 @@ export const RESIDENTIAL_SOLUTION: SolutionItem = {
 
 export const INDUSTRIAL_SOLUTION: SolutionItem = {
   id: 'solucion-industrial',
-  title: 'Soluciones de Gas para Construcciones Industriales',
+  title: 'Redes de Gas e Instalaciones Industriales en Bogotá y Sabana',
   subtitle: 'Plantas de producción, fábricas, calderas, hornos y centros comerciales',
   description:
-    'Diseño y ejecución técnica de redes de gas de alta confiabilidad para industrias con demandas térmicas continuas. Como empresa certificada por Vanti, instalamos líneas de suministro en acero soldado y polietileno de alta densidad con estaciones de regulación que garantizan flujo estable y cero fugas.',
+    'Mantén tu operación industrial produciendo sin interrupciones ni riesgos. Diseñamos e instalamos líneas de suministro de gas de alto flujo en acero soldado y polietileno PEAD con estaciones de regulación ERM. Instaladores de gas certificados para garantizar potencia constante, máxima eficiencia y seguridad en Bogotá y parques industriales aledaños.',
   scopeItems: [
     'Líneas de suministro en acero al carbón soldado y polietileno PEAD',
     'Montaje de Estaciones de Regulación y Medición (ERM) primaria y secundaria',
@@ -329,32 +338,32 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
  */
 export const WHY_CHOOSE_US: DifferentialItem[] = [
   {
-    title: 'Calidad y Seguridad en Cada Obra',
+    title: 'Empresa Certificada por Vanti',
     description:
-      'Nuestras obras y montajes se ejecutan bajo rigurosos estándares de ingeniería y seguridad, asegurando redes confiables y una habilitación del servicio sin contratiempos.',
-    badge: 'Ingeniería Certificada',
+      'Tu proyecto respaldado por instaladores de gas certificados. Garantizamos cumplimiento técnico y aprobación ágil ante la distribuidora de gas, sin trámites engorrosos ni retrasos en tu obra.',
+    badge: 'Respaldo Oficial',
     iconName: 'ShieldCheck',
   },
   {
-    title: 'Enfoque Exclusivo en Construcciones Residenciales e Industriales',
+    title: 'Cobertura Rápida en Bogotá y Alrededores',
     description:
-      'Nos dedicamos con exclusividad a redes fijas de gas para viviendas, edificios e industrias. No prestamos servicios para vehículos ni gas automotor, garantizando total especialización en edificación.',
-    badge: 'Especialización',
+      'Atención prioritaria y oportuna en todas las localidades de Bogotá y municipios aledaños de la Sabana (Soacha, Chía, Cajicá, Funza, Mosquera, Madrid). Técnicos de gas disponibles para asesorarte en obra.',
+    badge: 'Bogotá y Sabana',
     iconName: 'Building2',
   },
   {
-    title: 'Construcción, Instalación y Mantenimiento Integral',
+    title: 'Instalaciones y Reparaciones 100% Seguras',
     description:
-      'Cubrimos todo el ciclo técnico de la red de gas: desde la construcción de acometidas y canalizaciones hasta la instalación de puntos internos y el mantenimiento preventivo.',
-    badge: 'Solución Integral',
-    iconName: 'Wrench',
+      'Cero fugas, cero riesgos. Cada instalación de gas natural y reparación se entrega con pruebas de hermeticidad con manómetros certificados para garantizar máxima tranquilidad y habilitación inmediata.',
+    badge: 'Cero Fugas',
+    iconName: 'CheckCircle2',
   },
   {
-    title: 'Seguridad Operativa y Confiabilidad',
+    title: 'Cotización Clara y Asesoría Técnica Directa',
     description:
-      'Cada trabajo se ejecuta con altos estándares de calidad y pruebas de hermeticidad certificadas para garantizar cero fugas y máxima protección.',
-    badge: 'Seguridad Garantizada',
-    iconName: 'CheckCircle2',
+      'Habla directamente con técnicos en gas natural e ingenieros. Te entregamos presupuestos claros, detallados y sin sobrecostos para proyectos de vivienda e industria.',
+    badge: 'Sin Intermediarios',
+    iconName: 'Wrench',
   },
 ];
 
@@ -402,10 +411,10 @@ export const FAQS_LANDING = [
     category: 'Ubicación',
   },
   {
-    question: '¿Cuál es la cobertura geográfica exacta y horarios de atención?',
+    question: '¿Cuál es la cobertura para instalaciones y reparaciones de gas?',
     answer:
-      '[CONFIRMAR CON COLFGAS]. Para coordinar visitas técnicas o consultar disponibilidad en tu zona, comunícate a través de nuestra página de contacto.',
-    category: 'Información General',
+      'Nuestra sede principal está en Bogotá y cubrimos proyectos residenciales e industriales en toda la capital y municipios aledaños de la Sabana (como Soacha, Chía, Cajicá, Funza, Mosquera, Madrid, entre otros). [CONFIRMAR CON COLFGAS alcance detallado de horarios y municipios adicionales].',
+    category: 'Cobertura',
   },
 ];
 
@@ -446,17 +455,10 @@ export const CLIENT_VALIDATION_CHECKLIST = [
     status: 'Confirmado',
   },
   {
-    id: 'fotos-proyectos',
-    label: 'Fotografías reales autorizadas de obras',
-    description:
-      '[CONFIRMAR CON COLFGAS: Entrega de fotos oficiales de obras reales o autorización explícita de fotos de Facebook].',
-    status: 'Pendiente',
-  },
-  {
     id: 'cobertura-exacta',
     label: 'Cobertura geográfica y horarios de atención',
     description:
-      '[CONFIRMAR CON COLFGAS: Ciudades atendidas y horarios oficiales de atención al público].',
-    status: 'Pendiente',
+      'Comunícate con COLFGAS para confirmar la cobertura y disponibilidad de atención para tu proyecto.',
+    status: 'Confirmado',
   },
 ];

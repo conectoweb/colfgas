@@ -17,9 +17,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Servicios de Redes de Gas Residencial e Industrial',
+  title: 'Instalaciones y Reparaciones de Gas Natural en Bogotá | Servicios COLFGAS',
   description:
-    'Portafolio de servicios de COLFGAS CONSTRUCCIONES S.A.S.: redes de gas para edificios multifamiliares, líneas industriales de alta presión, diseño hidráulico y mantenimiento técnico.',
+    '¿Necesitas una red de gas para una vivienda o una industria? Instalaciones de gas natural, reparaciones de gas y mantenimiento en Bogotá y alrededores con técnicos certificados por Vanti.',
   alternates: {
     canonical: '/servicios',
   },
@@ -53,7 +53,7 @@ const FAQS_SERVICIOS: FaqItem[] = [
   {
     question: '¿Cómo solicito una visita técnica o cotización formal?',
     answer:
-      'Puedes contactarnos a través de nuestra página de contacto oficial o completando el formulario de cotización. Revisamos tus planos arquitectónicos o memorias hidráulicas para estructurar una propuesta técnica y económica a la medida.',
+      'Puedes contactarnos a través de nuestra página de contacto oficial por WhatsApp o llamada directa. Revisamos tus requerimientos, planos arquitectónicos o memorias técnicas para estructurar una propuesta económica y técnica a la medida en Bogotá y alrededores.',
     category: 'Cotizaciones',
   },
 ];
@@ -77,15 +77,27 @@ export default function ServiciosPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Heading and Value Proposition */}
             <div className="lg:col-span-6 text-center lg:text-left space-y-4">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-100 text-[#0066B3] border border-sky-200">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#0066B3]" aria-hidden="true" />
-                <span>Ingeniería Especializada en Redes Fijas de Gas</span>
+              <nav aria-label="Breadcrumb" className="mb-2">
+                <ol className="flex items-center justify-center lg:justify-start gap-2 text-xs text-[#5B6570]">
+                  <li>
+                    <Link href="/" className="hover:text-[#0066B3] transition-colors">
+                      Inicio
+                    </Link>
+                  </li>
+                  <li>/</li>
+                  <li className="font-semibold text-[#0066B3]">Servicios</li>
+                </ol>
+              </nav>
+
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-[#287A1C] border border-emerald-300">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#287A1C]" aria-hidden="true" />
+                <span>Instaladores y Técnicos de Gas Certificados • Bogotá y Sabana</span>
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-normal text-[#263238] leading-tight">
-                Servicios Técnicos en Redes de Gas
+                Instalaciones de Gas Natural, Reparaciones y Redes en Bogotá
               </h1>
               <p className="text-base sm:text-lg text-[#5B6570] leading-relaxed">
-                Ofrecemos soluciones integrales de diseño, construcción, canalización y mantenimiento de redes de gas natural y GLP para proyectos residenciales, comerciales e industriales en Colombia.
+                ¿Necesitas una red de gas para una vivienda o una industria? En <strong>COLFGAS</strong> contamos con <strong>técnicos en gas natural e instaladores certificados por Vanti</strong>. Diseñamos, construimos, reparamos y mantenemos tus redes con pruebas de hermeticidad garantizadas en Bogotá y municipios aledaños.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
@@ -396,23 +408,31 @@ export default function ServiciosPage() {
             />
           </div>
 
-          {/* Bottom Help CTA */}
+          {/* Bottom Help CTA con enlaces a Proyectos y Contacto */}
           <div className="p-8 sm:p-10 rounded-3xl bg-[#F4F7F8] border border-slate-200 text-[#263238] flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-[#263238]">
                 ¿Requieres una propuesta técnica para tu obra o industria?
               </h3>
-              <p className="text-[#5B6570] text-sm mt-1 max-w-xl">
-                Envíanos tus especificaciones técnicas o comunícate con un asesor para coordinar una reunión de ingeniería.
+              <p className="text-[#5B6570] text-sm mt-1 max-w-xl leading-relaxed">
+                Revisamos tus planos y requerimientos técnicos sin compromiso. También puedes explorar nuestros registros y tipologías de proyectos ejecutados en obra.
               </p>
             </div>
-            <Link
-              href="/contacto"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-[#0066B3] hover:bg-[#005291] flex-shrink-0 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3]"
-            >
-              <span>Solicitar Cotización</span>
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
+            <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
+              <Link
+                href="/proyectos"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-[#0066B3] bg-white border border-sky-200 hover:bg-sky-50 transition-colors shadow-sm"
+              >
+                <span>Ver Proyectos</span>
+              </Link>
+              <Link
+                href="/contacto"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#0066B3] hover:bg-[#005291] transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3]"
+              >
+                <span>Consultar Servicio / Contacto</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

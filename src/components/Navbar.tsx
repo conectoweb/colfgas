@@ -4,9 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Logo } from './Logo';
-import { COMPANY_INFO, NAV_LINKS, SERVICE_SUB_LINKS, ABOUT_SUB_LINKS } from '@/lib/constants';
+import { NAV_LINKS, SERVICE_SUB_LINKS, ABOUT_SUB_LINKS } from '@/lib/constants';
 import {
-  MessageCircle,
   Menu,
   X,
   ChevronDown,
@@ -23,22 +22,35 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+
   const pathname = usePathname();
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const aboutDropdownRef = useRef<HTMLDivElement>(null);
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
+  const aboutButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Handle escape key to close menus
+  // Close menus on Escape key and return focus
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setMobileMenuOpen(false);
-        setServicesDropdownOpen(false);
-        setAboutDropdownOpen(false);
+        if (servicesDropdownOpen) {
+          setServicesDropdownOpen(false);
+          servicesButtonRef.current?.focus();
+        }
+        if (aboutDropdownOpen) {
+          setAboutDropdownOpen(false);
+          aboutButtonRef.current?.focus();
+        }
+        if (mobileMenuOpen) {
+          setMobileMenuOpen(false);
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [servicesDropdownOpen, aboutDropdownOpen, mobileMenuOpen]);
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -60,11 +72,23 @@ export function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Close menus on route change
+  // Close menus on route change and pre-expand current active mobile accordion
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setAboutDropdownOpen(false);
+
+    if (pathname.startsWith('/servicios')) {
+      setMobileServicesOpen(true);
+    } else {
+      setMobileServicesOpen(false);
+    }
+
+    if (['/nosotros', '/preguntas-frecuentes', '/mapa-del-sitio'].includes(pathname)) {
+      setMobileAboutOpen(true);
+    } else {
+      setMobileAboutOpen(false);
+    }
   }, [pathname]);
 
   const handleNavClick = () => {
@@ -73,22 +97,37 @@ export function Navbar() {
     setAboutDropdownOpen(false);
   };
 
-  const isLinkActive = (href: string) => {
-    if (href === '/') {
-      return pathname === '/';
-    }
-    return pathname.startsWith(href);
-  };
+  const isServicesActive = pathname.startsWith('/servicios');
+  const isAboutActive =
+    pathname === '/nosotros' ||
+    pathname === '/preguntas-frecuentes' ||
+    pathname === '/mapa-del-sitio';
 
-  const getServiceIcon = (name: string) => {
-    if (name.includes('Residencial')) return <Building2 className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />;
-    if (name.includes('Industrial')) return <Factory className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />;
+  const getServiceIcon = (name: string, isAll?: boolean) => {
+    const lower = name.toLowerCase();
+    if (isAll || lower.includes('todos')) {
+      return <Building2 className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />;
+    }
+    if (lower.includes('residencial')) {
+      return <Building2 className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />;
+    }
+    if (lower.includes('industrial')) {
+      return <Factory className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />;
+    }
+    if (lower.includes('mantenimiento')) {
+      return <Wrench className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />;
+    }
     return <Wrench className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />;
   };
 
   const getAboutIcon = (name: string) => {
-    if (name.includes('Preguntas')) return <HelpCircle className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />;
-    if (name.includes('Mapa')) return <Network className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />;
+    const lower = name.toLowerCase();
+    if (lower.includes('preguntas')) {
+      return <HelpCircle className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />;
+    }
+    if (lower.includes('mapa')) {
+      return <Network className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />;
+    }
     return <Users className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />;
   };
 
@@ -131,169 +170,224 @@ export function Navbar() {
             aria-label="Navegación principal del sitio"
             className="hidden lg:flex items-center gap-1 xl:gap-2"
           >
-            {NAV_LINKS.map((link) => {
-              const active = isLinkActive(link.href);
+            {/* 1. Inicio (Sin flecha) */}
+            <Link
+              href="/"
+              className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] ${
+                pathname === '/'
+                  ? 'text-[#0066B3] bg-sky-50'
+                  : 'text-[#263238] hover:text-[#0066B3] hover:bg-slate-50'
+              }`}
+            >
+              Inicio
+            </Link>
 
-              // 1. Dropdown Servicios
-              if (link.name === 'Servicios') {
-                return (
-                  <div
-                    key={link.name}
-                    ref={servicesDropdownRef}
-                    className="relative"
-                    onMouseEnter={() => setServicesDropdownOpen(true)}
-                    onMouseLeave={() => setServicesDropdownOpen(false)}
-                  >
-                    <div className="flex items-center">
-                      <Link
-                        href={link.href}
-                        className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] flex items-center gap-1 ${
-                          active
-                            ? 'text-[#0066B3] bg-sky-50'
-                            : 'text-[#263238] hover:text-[#0066B3] hover:bg-slate-50'
-                        }`}
-                        aria-expanded={servicesDropdownOpen}
-                        aria-haspopup="true"
-                      >
-                        <span>{link.name}</span>
-                        <ChevronDown
-                          className={`w-3.5 h-3.5 transition-transform duration-150 ${
-                            servicesDropdownOpen ? 'rotate-180' : ''
-                          }`}
-                          aria-hidden="true"
-                        />
-                      </Link>
-                    </div>
-
-                    {/* Services Dropdown Menu */}
-                    {servicesDropdownOpen && (
-                      <div className="absolute top-full left-0 w-72 pt-2 z-50">
-                        <div className="rounded-2xl bg-white border border-slate-200 shadow-xl p-2 animate-in fade-in-50 duration-150">
-                          <Link
-                            href="/servicios"
-                            onClick={handleNavClick}
-                            className="p-2.5 rounded-xl block hover:bg-slate-50 transition-colors border-b border-slate-100 mb-1"
-                          >
-                            <span className="text-xs font-bold text-[#0066B3] uppercase tracking-wider block">
-                              Todos los Servicios
-                            </span>
-                            <span className="text-[11px] text-[#5B6570]">
-                              Portafolio integral de redes de gas
-                            </span>
-                          </Link>
-
-                          {SERVICE_SUB_LINKS.map((sub) => (
-                            <Link
-                              key={sub.name}
-                              href={sub.href}
-                              onClick={handleNavClick}
-                              className={`p-2.5 rounded-xl flex items-start gap-3 hover:bg-slate-50 transition-colors ${
-                                pathname === sub.href ? 'bg-sky-50/70 text-[#0066B3]' : 'text-[#263238]'
-                              }`}
-                            >
-                              <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                {getServiceIcon(sub.name)}
-                              </div>
-                              <div>
-                                <span className="text-xs font-bold block">{sub.name}</span>
-                                <span className="text-[11px] text-[#5B6570] block leading-tight">
-                                  {sub.description}
-                                </span>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-
-              // 2. Dropdown Nosotros (con submenú Mapa del sitio y Preguntas frecuentes)
-              if (link.name === 'Nosotros') {
-                const isAboutActive =
-                  pathname === '/nosotros' ||
-                  pathname === '/preguntas-frecuentes' ||
-                  pathname === '/mapa-del-sitio';
-
-                return (
-                  <div
-                    key={link.name}
-                    ref={aboutDropdownRef}
-                    className="relative"
-                    onMouseEnter={() => setAboutDropdownOpen(true)}
-                    onMouseLeave={() => setAboutDropdownOpen(false)}
-                  >
-                    <div className="flex items-center">
-                      <Link
-                        href={link.href}
-                        className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] flex items-center gap-1 ${
-                          isAboutActive
-                            ? 'text-[#0066B3] bg-sky-50'
-                            : 'text-[#263238] hover:text-[#0066B3] hover:bg-slate-50'
-                        }`}
-                        aria-expanded={aboutDropdownOpen}
-                        aria-haspopup="true"
-                      >
-                        <span>{link.name}</span>
-                        <ChevronDown
-                          className={`w-3.5 h-3.5 transition-transform duration-150 ${
-                            aboutDropdownOpen ? 'rotate-180' : ''
-                          }`}
-                          aria-hidden="true"
-                        />
-                      </Link>
-                    </div>
-
-                    {/* About Dropdown Menu: Nosotros, Preguntas Frecuentes, Mapa del Sitio */}
-                    {aboutDropdownOpen && (
-                      <div className="absolute top-full left-0 w-72 pt-2 z-50">
-                        <div className="rounded-2xl bg-white border border-slate-200 shadow-xl p-2 animate-in fade-in-50 duration-150">
-                          {ABOUT_SUB_LINKS.map((sub) => (
-                            <Link
-                              key={sub.name}
-                              href={sub.href}
-                              onClick={handleNavClick}
-                              className={`p-2.5 rounded-xl flex items-start gap-3 hover:bg-slate-50 transition-colors ${
-                                pathname === sub.href ? 'bg-sky-50/70 text-[#0066B3]' : 'text-[#263238]'
-                              }`}
-                            >
-                              <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                {getAboutIcon(sub.name)}
-                              </div>
-                              <div>
-                                <span className="text-xs font-bold block">{sub.name}</span>
-                                <span className="text-[11px] text-[#5B6570] block leading-tight">
-                                  {sub.description}
-                                </span>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-
-              // 3. Demás enlaces: Inicio, Proyectos
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] ${
-                    active
-                      ? 'text-[#0066B3] bg-sky-50'
-                      : 'text-[#263238] hover:text-[#0066B3] hover:bg-slate-50'
+            {/* 2. Servicios (Desplegable con flecha indicador abierto/cerrado) */}
+            <div
+              ref={servicesDropdownRef}
+              className="relative"
+              onMouseEnter={() => {
+                setServicesDropdownOpen(true);
+                setAboutDropdownOpen(false);
+              }}
+              onMouseLeave={() => setServicesDropdownOpen(false)}
+            >
+              <button
+                ref={servicesButtonRef}
+                type="button"
+                onClick={() => {
+                  setServicesDropdownOpen((prev) => !prev);
+                  setAboutDropdownOpen(false);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'ArrowDown' && !servicesDropdownOpen) {
+                    e.preventDefault();
+                    setServicesDropdownOpen(true);
+                  }
+                }}
+                className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] flex items-center gap-1.5 cursor-pointer ${
+                  isServicesActive || servicesDropdownOpen
+                    ? 'text-[#0066B3] bg-sky-50'
+                    : 'text-[#263238] hover:text-[#0066B3] hover:bg-slate-50'
+                }`}
+                aria-expanded={servicesDropdownOpen}
+                aria-haspopup="true"
+                aria-controls="desktop-services-dropdown"
+              >
+                <span>Servicios</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    servicesDropdownOpen ? 'rotate-180 text-[#0066B3]' : 'text-slate-500'
                   }`}
+                  aria-hidden="true"
+                />
+              </button>
+
+              {/* Submenú Servicios: Todos los servicios, Gas residencial, Gas industrial, Mantenimiento de redes */}
+              {servicesDropdownOpen && (
+                <div
+                  id="desktop-services-dropdown"
+                  className="absolute top-full left-0 w-80 pt-2 z-50"
+                  role="menu"
+                  aria-label="Submenú de Servicios"
                 >
-                  {link.name}
-                </Link>
-              );
-            })}
+                  <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl p-2 animate-in fade-in-50 duration-150">
+                    {SERVICE_SUB_LINKS.map((sub) => {
+                      const isSubActive = pathname === sub.href;
+                      const isAll = sub.href === '/servicios';
+                      return (
+                        <Link
+                          key={sub.name}
+                          href={sub.href}
+                          onClick={handleNavClick}
+                          role="menuitem"
+                          className={`p-2.5 rounded-xl flex items-start gap-3 transition-colors ${
+                            isAll ? 'border-b border-slate-100 mb-1' : ''
+                          } ${
+                            isSubActive
+                              ? 'bg-sky-50 text-[#0066B3]'
+                              : 'text-[#263238] hover:bg-slate-50'
+                          }`}
+                        >
+                          <div
+                            className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                              isSubActive ? 'bg-sky-100 text-[#0066B3]' : 'bg-slate-100'
+                            }`}
+                          >
+                            {getServiceIcon(sub.name, isAll)}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <span
+                                className={`text-xs block ${
+                                  isAll
+                                    ? 'font-bold uppercase tracking-wider text-[#0066B3]'
+                                    : 'font-bold text-[#263238]'
+                                } ${isSubActive ? 'text-[#0066B3]' : ''}`}
+                              >
+                                {sub.name}
+                              </span>
+                              {isAll && (
+                                <ArrowRight className="w-3.5 h-3.5 text-[#0066B3]" aria-hidden="true" />
+                              )}
+                            </div>
+                            <span className="text-[11px] text-[#5B6570] block leading-tight mt-0.5">
+                              {sub.description}
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 3. Proyectos (Sin flecha) */}
+            <Link
+              href="/proyectos"
+              className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] ${
+                pathname === '/proyectos'
+                  ? 'text-[#0066B3] bg-sky-50'
+                  : 'text-[#263238] hover:text-[#0066B3] hover:bg-slate-50'
+              }`}
+            >
+              Proyectos
+            </Link>
+
+            {/* 4. Nosotros (Desplegable con flecha indicador abierto/cerrado) */}
+            <div
+              ref={aboutDropdownRef}
+              className="relative"
+              onMouseEnter={() => {
+                setAboutDropdownOpen(true);
+                setServicesDropdownOpen(false);
+              }}
+              onMouseLeave={() => setAboutDropdownOpen(false)}
+            >
+              <button
+                ref={aboutButtonRef}
+                type="button"
+                onClick={() => {
+                  setAboutDropdownOpen((prev) => !prev);
+                  setServicesDropdownOpen(false);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'ArrowDown' && !aboutDropdownOpen) {
+                    e.preventDefault();
+                    setAboutDropdownOpen(true);
+                  }
+                }}
+                className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] flex items-center gap-1.5 cursor-pointer ${
+                  isAboutActive || aboutDropdownOpen
+                    ? 'text-[#0066B3] bg-sky-50'
+                    : 'text-[#263238] hover:text-[#0066B3] hover:bg-slate-50'
+                }`}
+                aria-expanded={aboutDropdownOpen}
+                aria-haspopup="true"
+                aria-controls="desktop-about-dropdown"
+              >
+                <span>Nosotros</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    aboutDropdownOpen ? 'rotate-180 text-[#0066B3]' : 'text-slate-500'
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+
+              {/* Submenú Nosotros: Sobre nosotros, Preguntas frecuentes, Mapa del sitio */}
+              {aboutDropdownOpen && (
+                <div
+                  id="desktop-about-dropdown"
+                  className="absolute top-full left-0 w-80 pt-2 z-50"
+                  role="menu"
+                  aria-label="Submenú de Nosotros"
+                >
+                  <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl p-2 animate-in fade-in-50 duration-150">
+                    {ABOUT_SUB_LINKS.map((sub) => {
+                      const isSubActive = pathname === sub.href;
+                      return (
+                        <Link
+                          key={sub.name}
+                          href={sub.href}
+                          onClick={handleNavClick}
+                          role="menuitem"
+                          className={`p-2.5 rounded-xl flex items-start gap-3 transition-colors ${
+                            isSubActive
+                              ? 'bg-sky-50 text-[#0066B3]'
+                              : 'text-[#263238] hover:bg-slate-50'
+                          }`}
+                        >
+                          <div
+                            className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                              isSubActive ? 'bg-sky-100 text-[#0066B3]' : 'bg-slate-100'
+                            }`}
+                          >
+                            {getAboutIcon(sub.name)}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <span
+                              className={`text-xs font-bold block ${
+                                isSubActive ? 'text-[#0066B3]' : 'text-[#263238]'
+                              }`}
+                            >
+                              {sub.name}
+                            </span>
+                            <span className="text-[11px] text-[#5B6570] block leading-tight mt-0.5">
+                              {sub.description}
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
-          {/* Action CTA: Botón visible "Contáctanos" que conduce a la landing de contacto */}
+          {/* Action CTA: Botón visible "Contáctanos" hacia la landing de contacto */}
           <div className="hidden lg:flex items-center">
             <Link
               href="/contacto"
@@ -339,105 +433,133 @@ export function Navbar() {
           id="mobile-navigation"
           role="navigation"
           aria-label="Navegación móvil del sitio"
-          className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top duration-200"
+          className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top duration-200 max-h-[calc(100vh-5rem)] overflow-y-auto"
         >
-          <div className="flex flex-col space-y-1">
-            {NAV_LINKS.map((link) => {
-              const active = isLinkActive(link.href);
+          <div className="flex flex-col space-y-1.5">
+            {/* 1. Inicio (Sin flecha) */}
+            <Link
+              href="/"
+              onClick={handleNavClick}
+              className={`min-h-[44px] flex items-center px-3.5 py-2.5 rounded-xl text-base font-semibold transition-colors ${
+                pathname === '/'
+                  ? 'bg-sky-50 text-[#0066B3]'
+                  : 'text-[#263238] hover:bg-slate-50'
+              }`}
+            >
+              Inicio
+            </Link>
 
-              // Submenú Servicios en Móvil
-              if (link.name === 'Servicios') {
-                return (
-                  <div key={link.name} className="space-y-1">
-                    <Link
-                      href={link.href}
-                      onClick={handleNavClick}
-                      className={`min-h-[44px] flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-semibold transition-colors ${
-                        active ? 'bg-sky-50 text-[#0066B3]' : 'text-[#263238] hover:bg-slate-50'
-                      }`}
-                    >
-                      <span>{link.name}</span>
-                      <ArrowRight className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
-                    </Link>
-
-                    {/* Submenu on mobile */}
-                    <div className="pl-4 space-y-1 border-l-2 border-slate-100 ml-2">
-                      {SERVICE_SUB_LINKS.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.href}
-                          onClick={handleNavClick}
-                          className={`min-h-[38px] flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                            pathname === sub.href
-                              ? 'text-[#0066B3] bg-sky-50 font-semibold'
-                              : 'text-[#5B6570] hover:text-[#263238]'
-                          }`}
-                        >
-                          {getServiceIcon(sub.name)}
-                          <span>{sub.name}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                );
-              }
-
-              // Submenú Nosotros en Móvil (con Mapa del sitio y Preguntas frecuentes)
-              if (link.name === 'Nosotros') {
-                const isAboutActive =
-                  pathname === '/nosotros' ||
-                  pathname === '/preguntas-frecuentes' ||
-                  pathname === '/mapa-del-sitio';
-
-                return (
-                  <div key={link.name} className="space-y-1">
-                    <Link
-                      href={link.href}
-                      onClick={handleNavClick}
-                      className={`min-h-[44px] flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-semibold transition-colors ${
-                        isAboutActive ? 'bg-sky-50 text-[#0066B3]' : 'text-[#263238] hover:bg-slate-50'
-                      }`}
-                    >
-                      <span>{link.name}</span>
-                      <ArrowRight className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
-                    </Link>
-
-                    {/* Subenlaces: Sobre Nosotros, Preguntas frecuentes, Mapa del Sitio */}
-                    <div className="pl-4 space-y-1 border-l-2 border-slate-100 ml-2">
-                      {ABOUT_SUB_LINKS.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.href}
-                          onClick={handleNavClick}
-                          className={`min-h-[38px] flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                            pathname === sub.href
-                              ? 'text-[#0066B3] bg-sky-50 font-semibold'
-                              : 'text-[#5B6570] hover:text-[#263238]'
-                          }`}
-                        >
-                          {getAboutIcon(sub.name)}
-                          <span>{sub.name}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                );
-              }
-
-              // Demás opciones
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={handleNavClick}
-                  className={`min-h-[44px] flex items-center px-3 py-2.5 rounded-lg text-base font-semibold transition-colors ${
-                    active ? 'bg-sky-50 text-[#0066B3]' : 'text-[#263238] hover:bg-slate-50'
+            {/* 2. Servicios (Acordeón desplegable con flecha que indica abierto/cerrado) */}
+            <div className="space-y-1">
+              <button
+                type="button"
+                onClick={() => setMobileServicesOpen((prev) => !prev)}
+                className={`w-full min-h-[44px] flex items-center justify-between px-3.5 py-2.5 rounded-xl text-base font-semibold transition-colors text-left ${
+                  isServicesActive || mobileServicesOpen
+                    ? 'bg-sky-50 text-[#0066B3]'
+                    : 'text-[#263238] hover:bg-slate-50'
+                }`}
+                aria-expanded={mobileServicesOpen}
+                aria-controls="mobile-services-submenu"
+              >
+                <span>Servicios</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    mobileServicesOpen ? 'rotate-180 text-[#0066B3]' : 'text-slate-400'
                   }`}
+                  aria-hidden="true"
+                />
+              </button>
+
+              {mobileServicesOpen && (
+                <div
+                  id="mobile-services-submenu"
+                  className="pl-3 pr-1 py-1 space-y-1 border-l-2 border-[#0066B3]/30 ml-3.5 animate-in fade-in-50 duration-150"
                 >
-                  {link.name}
-                </Link>
-              );
-            })}
+                  {SERVICE_SUB_LINKS.map((sub) => {
+                    const isSubActive = pathname === sub.href;
+                    const isAll = sub.href === '/servicios';
+                    return (
+                      <Link
+                        key={sub.name}
+                        href={sub.href}
+                        onClick={handleNavClick}
+                        className={`min-h-[40px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors ${
+                          isSubActive
+                            ? 'text-[#0066B3] bg-sky-50 font-bold'
+                            : 'text-[#5B6570] hover:text-[#263238] hover:bg-slate-50 font-medium'
+                        }`}
+                      >
+                        {getServiceIcon(sub.name, isAll)}
+                        <span>{sub.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* 3. Proyectos (Sin flecha) */}
+            <Link
+              href="/proyectos"
+              onClick={handleNavClick}
+              className={`min-h-[44px] flex items-center px-3.5 py-2.5 rounded-xl text-base font-semibold transition-colors ${
+                pathname === '/proyectos'
+                  ? 'bg-sky-50 text-[#0066B3]'
+                  : 'text-[#263238] hover:bg-slate-50'
+              }`}
+            >
+              Proyectos
+            </Link>
+
+            {/* 4. Nosotros (Acordeón desplegable con flecha que indica abierto/cerrado) */}
+            <div className="space-y-1">
+              <button
+                type="button"
+                onClick={() => setMobileAboutOpen((prev) => !prev)}
+                className={`w-full min-h-[44px] flex items-center justify-between px-3.5 py-2.5 rounded-xl text-base font-semibold transition-colors text-left ${
+                  isAboutActive || mobileAboutOpen
+                    ? 'bg-sky-50 text-[#0066B3]'
+                    : 'text-[#263238] hover:bg-slate-50'
+                }`}
+                aria-expanded={mobileAboutOpen}
+                aria-controls="mobile-about-submenu"
+              >
+                <span>Nosotros</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    mobileAboutOpen ? 'rotate-180 text-[#0066B3]' : 'text-slate-400'
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+
+              {mobileAboutOpen && (
+                <div
+                  id="mobile-about-submenu"
+                  className="pl-3 pr-1 py-1 space-y-1 border-l-2 border-[#0066B3]/30 ml-3.5 animate-in fade-in-50 duration-150"
+                >
+                  {ABOUT_SUB_LINKS.map((sub) => {
+                    const isSubActive = pathname === sub.href;
+                    return (
+                      <Link
+                        key={sub.name}
+                        href={sub.href}
+                        onClick={handleNavClick}
+                        className={`min-h-[40px] flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors ${
+                          isSubActive
+                            ? 'text-[#0066B3] bg-sky-50 font-bold'
+                            : 'text-[#5B6570] hover:text-[#263238] hover:bg-slate-50 font-medium'
+                        }`}
+                      >
+                        {getAboutIcon(sub.name)}
+                        <span>{sub.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Action CTA in Mobile Drawer: Botón "Contáctanos" hacia /contacto */}

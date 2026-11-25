@@ -49,6 +49,41 @@ export default function ProyectosPage() {
           <p className="mt-3 text-base sm:text-lg text-[#5B6570] max-w-3xl leading-relaxed">
             Fichas técnicas y tipologías de proyectos en los sectores habitacional, comercial, industrial y de infraestructura civil desarrollados bajo supervisión técnica y altos estándares de calidad.
           </p>
+
+          {/* Sub-enlaces a Servicios Relacionados y Contacto */}
+          <div className="mt-6 pt-5 border-t border-slate-200/80 flex flex-wrap items-center gap-2.5 text-xs">
+            <span className="font-bold text-[#263238]">Servicios relacionados:</span>
+            <Link
+              href="/servicios"
+              className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-[#263238] font-semibold transition-colors"
+            >
+              Todos los servicios
+            </Link>
+            <Link
+              href="/servicios/gas-residencial"
+              className="px-3 py-1 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0066B3] font-semibold transition-colors"
+            >
+              Gas residencial
+            </Link>
+            <Link
+              href="/servicios/gas-industrial"
+              className="px-3 py-1 rounded-full bg-emerald-100 hover:bg-emerald-200 text-[#287A1C] font-semibold transition-colors"
+            >
+              Gas industrial
+            </Link>
+            <Link
+              href="/servicios/mantenimiento"
+              className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-[#263238] font-semibold transition-colors"
+            >
+              Mantenimiento
+            </Link>
+            <Link
+              href="/contacto"
+              className="px-3.5 py-1 rounded-full bg-[#0066B3] hover:bg-[#005291] text-white font-bold transition-colors ml-auto"
+            >
+              Hablemos de su proyecto
+            </Link>
+          </div>
         </div>
       </section>
 

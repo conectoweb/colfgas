@@ -106,11 +106,11 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
       {/* Card Action Footer */}
       <div className="px-6 sm:px-8 py-4 bg-slate-50/90 border-t border-slate-100 rounded-b-2xl flex flex-wrap items-center justify-between gap-3">
         <Link
-          href={`/contacto?servicio=${encodeURIComponent(service.id)}`}
+          href="/contacto"
           className="min-h-[44px] inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0066B3] hover:text-[#005291] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] rounded-lg px-2"
-          aria-label={`Solicitar cotización para ${service.title}`}
+          aria-label={`Consultar o cotizar servicio de ${service.title}`}
         >
-          <span>Cotizar servicio</span>
+          <span>Consultar servicio</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform motion-reduce:transform-none" aria-hidden="true" />
         </Link>
         {(service.slug === 'residencial' || service.id === 'construccion-redes') && (
@@ -118,7 +118,7 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
             href="/servicios/gas-residencial"
             className="min-h-[44px] inline-flex items-center text-xs font-bold text-[#263238] hover:text-[#0066B3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] rounded-lg px-2"
           >
-            Ficha residencial →
+            Gas residencial →
           </Link>
         )}
         {(service.slug === 'industrial' || service.id === 'instalacion-redes') && (
@@ -126,7 +126,7 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
             href="/servicios/gas-industrial"
             className="min-h-[44px] inline-flex items-center text-xs font-bold text-[#263238] hover:text-[#287A1C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#287A1C] rounded-lg px-2"
           >
-            Ficha industrial →
+            Gas industrial →
           </Link>
         )}
         {(service.slug === 'mantenimiento' || service.id === 'mantenimiento-redes') && (
@@ -134,7 +134,7 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
             href="/servicios/mantenimiento"
             className="min-h-[44px] inline-flex items-center text-xs font-bold text-[#263238] hover:text-[#0066B3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] rounded-lg px-2"
           >
-            Ficha mantenimiento →
+            Mantenimiento →
           </Link>
         )}
       </div>

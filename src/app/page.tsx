@@ -28,10 +28,17 @@ import {
   FAQS_LANDING,
 } from '@/lib/constants';
 import { FaqAccordion } from '@/components/FaqAccordion';
+import { getHomeStructuredData } from '@/lib/seo';
 
 export default function LandingPage() {
+  const homeJsonLd = getHomeStructuredData();
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      />
       {/* =========================================================================
           SECCIÓN 1: INICIO (HERO)
           ========================================================================= */}
@@ -55,23 +62,21 @@ export default function LandingPage() {
             {/* Left Column: Value Proposition */}
             <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
               {/* Sello de Especialidad */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-xs font-bold text-[#0066B3] shadow-sm">
-                <ShieldCheck className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
-                <span>Especialistas en Vivienda e Industria</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#287A1C] shadow-sm">
+                <ShieldCheck className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />
+                <span>Técnicos e Instaladores de Gas Certificados • Bogotá y Sabana</span>
               </div>
 
               {/* H1 Semántico Principal */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-normal text-[#263238] leading-tight">
-                Redes de Gas para Construcciones{' '}
-                <span className="text-[#0066B3]">Residenciales</span> e{' '}
-                <span className="text-[#287A1C]">Industriales</span>
+                Instalación y Reparación de Gas Natural en{' '}
+                <span className="text-[#0066B3]">Bogotá</span> y{' '}
+                <span className="text-[#287A1C]">Alrededores</span>
               </h1>
 
               {/* Propuesta de Valor */}
               <p className="text-base sm:text-lg md:text-xl text-[#5B6570] leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Soluciones integrales de <strong>construcción</strong>, <strong>instalación</strong> y{' '}
-                <strong>mantenimiento</strong> de redes de gas natural y GLP en Colombia. Calidad
-                técnica respaldada con altos estándares de seguridad y procesos certificados.
+                ¿Necesitas una red de gas para una vivienda o una industria? En <strong>COLFGAS</strong> te entregamos soluciones rápidas, seguras y 100% garantizadas. <strong>Instalación de gas natural</strong>, <strong>reparaciones de gas</strong> y mantenimiento con técnicos certificados por Vanti. Cero demoras, máxima protección y habilitación asegurada en Bogotá y municipios aledaños.
               </p>
 
               {/* Exclusion Note: No Gas Vehicular */}
@@ -91,7 +96,7 @@ export default function LandingPage() {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-md hover:shadow-lg transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-sky-300 min-h-[48px]"
                   aria-label="Ir a la página de Contáctanos para cotizar proyecto"
                 >
-                  <span>Contáctanos / Cotizar</span>
+                  <span>Cotizar por WhatsApp o Teléfono</span>
                   <ArrowRight className="w-5 h-5 text-white" aria-hidden="true" />
                 </Link>
 
@@ -99,7 +104,7 @@ export default function LandingPage() {
                   href="/servicios"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-bold text-[#263238] bg-slate-100 hover:bg-slate-200 transition-all border border-slate-300 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-slate-400 min-h-[48px]"
                 >
-                  <span>Ver Nuestros Servicios</span>
+                  <span>Ver Servicios en Bogotá</span>
                 </Link>
               </div>
 
@@ -108,14 +113,14 @@ export default function LandingPage() {
                 <div className="p-2.5 rounded-lg bg-white/70 border border-slate-200/80">
                   <div className="text-base sm:text-lg font-bold text-[#287A1C] flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />
-                    <span>Calidad Certificada</span>
+                    <span>Certificados Vanti</span>
                   </div>
-                  <div className="text-xs text-[#5B6570]">Ingeniería Homologada</div>
+                  <div className="text-xs text-[#5B6570]">Instaladores Homologados</div>
                 </div>
 
                 <div className="p-2.5 rounded-lg bg-white/70 border border-slate-200/80">
-                  <div className="text-base sm:text-lg font-bold text-[#0066B3]">Seguridad Total</div>
-                  <div className="text-xs text-[#5B6570]">Pruebas de Hermeticidad</div>
+                  <div className="text-base sm:text-lg font-bold text-[#0066B3]">Bogotá y Sabana</div>
+                  <div className="text-xs text-[#5B6570]">Respuesta Inmediata</div>
                 </div>
 
                 <div className="col-span-2 sm:col-span-1 p-2.5 rounded-lg bg-white/70 border border-slate-200/80">
@@ -189,15 +194,14 @@ export default function LandingPage() {
       <section id="servicios" className="py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-sky-100 text-[#0066B3] border border-sky-200 mb-3">
-              Portafolio Técnico Confirmado
+            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-[#287A1C] border border-emerald-200 mb-3">
+              Instaladores y Técnicos en Gas Natural
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#263238]">
-              Nuestros Servicios de Redes de Gas
+              Servicios de Gas Natural en Bogotá y Alrededores
             </h2>
             <p className="mt-3 text-base text-[#5B6570] leading-relaxed">
-              En COLFGAS CONSTRUCCIONES S.A.S. cubrimos las tres etapas esenciales de la red de gas
-              para edificaciones de vivienda y plantas industriales con los más altos estándares de calidad técnica.
+              En COLFGAS realizamos instalaciones de gas natural, mantenimiento preventivo y reparaciones de gas con instaladores certificados por Vanti para viviendas, comercios e industrias.
             </p>
           </div>
 
@@ -249,14 +253,32 @@ export default function LandingPage() {
                   </ul>
                 </div>
 
-                {/* Card CTA */}
-                <div className="pt-4 border-t border-slate-100">
+                {/* Card CTA con enlaces detallados y contacto */}
+                <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
+                  <Link
+                    href={
+                      service.id === 'construccion-redes'
+                        ? '/servicios/gas-residencial'
+                        : service.id === 'instalacion-redes'
+                        ? '/servicios/gas-industrial'
+                        : '/servicios/mantenimiento'
+                    }
+                    className="inline-flex items-center justify-between text-xs font-bold text-[#0066B3] hover:text-[#005291] py-1 px-1 rounded transition-colors"
+                  >
+                    <span>
+                      {service.id === 'construccion-redes'
+                        ? 'Ver solución en gas residencial'
+                        : service.id === 'instalacion-redes'
+                        ? 'Ver solución en gas industrial'
+                        : 'Ver mantenimiento y reparaciones'}
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                  </Link>
                   <Link
                     href="/contacto"
-                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-xs font-bold text-white bg-[#0066B3] hover:bg-[#005291] transition-colors"
+                    className="w-full inline-flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-xs font-bold text-white bg-[#0066B3] hover:bg-[#005291] transition-colors"
                   >
-                    <span>Solicitar Cotización</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-white" aria-hidden="true" />
+                    <span>Consultar servicio / Cotizar</span>
                   </Link>
                 </div>
               </article>
@@ -812,7 +834,7 @@ export default function LandingPage() {
                 </span>
                 <h3 className="text-lg font-bold text-[#263238] mt-1">Canales de Contacto</h3>
                 <p className="text-xs text-[#5B6570] mt-1.5 leading-relaxed">
-                  Accede a nuestros canales de mensajería directa, atención telefónica y formulario en la sección oficial de contacto.
+                  Accede a nuestros canales de llamada directa y WhatsApp en la sección oficial de contacto.
                 </p>
               </div>
 
@@ -821,7 +843,7 @@ export default function LandingPage() {
                   href="/contacto"
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
                 >
-                  <span>Ver Canales de Atención</span>
+                  <span>Hablar por WhatsApp o Teléfono</span>
                   <ArrowRight className="w-4 h-4 text-[#263238]" aria-hidden="true" />
                 </Link>
               </div>
@@ -838,7 +860,7 @@ export default function LandingPage() {
                 </span>
                 <h3 className="text-lg font-bold text-[#263238] mt-1">Sede en Bogotá</h3>
                 <p className="text-xs text-[#5B6570] mt-1.5 leading-relaxed">
-                  Sede oficial de operaciones en la ciudad de Bogotá, Colombia.
+                  Base operativa central para atender proyectos en Bogotá y municipios de la Sabana.
                 </p>
                 <div className="mt-3 text-xs font-bold text-[#263238]">
                   {COMPANY_INFO.address}
@@ -862,17 +884,17 @@ export default function LandingPage() {
 
           {/* Banner de Cierre con Botón de Acción a Contacto */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm text-center space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-xs font-bold text-[#0066B3]">
-              <ShieldCheck className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
-              <span>Asesoría Directa y Cotizaciones</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#287A1C]">
+              <ShieldCheck className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />
+              <span>Instaladores de Gas Certificados por Vanti</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-bold text-[#263238]">
-              ¿Tienes una Obra Residencial o Proyecto Industrial?
+              ¿Necesitas una Red de Gas para una Vivienda o una Industria?
             </h3>
 
             <p className="text-sm sm:text-base text-[#5B6570] max-w-2xl mx-auto leading-relaxed">
-              Nuestro equipo técnico está listo para asesorarte en la planificación, instalación o mantenimiento de tus redes de gas.
+              Habla hoy mismo con nuestros <strong>técnicos en gas natural</strong>. Asesoramos tu obra, revisamos tus requerimientos y te entregamos una cotización clara y sin sobrecostos en Bogotá y alrededores.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -880,7 +902,7 @@ export default function LandingPage() {
                 href="/contacto"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl text-base font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-md transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-sky-300 min-h-[48px]"
               >
-                <span>Ir a Contáctanos / Solicitar Cotización</span>
+                <span>Hablar con un Técnico de Gas Ahora</span>
                 <ArrowRight className="w-5 h-5 text-white" aria-hidden="true" />
               </Link>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Logo } from './Logo';
 import { COMPANY_INFO, NAV_LINKS, SERVICE_SUB_LINKS } from '@/lib/constants';
-import { MapPin, ExternalLink, ShieldCheck, ArrowRight } from 'lucide-react';
+import { MapPin, ExternalLink, ShieldCheck, ArrowRight, Facebook } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -56,15 +56,16 @@ export function Footer() {
               {COMPANY_INFO.missionStatement}
             </p>
             {COMPANY_INFO.socialMedia.facebook && (
-              <div className="pt-1">
+              <div className="pt-2">
                 <a
                   href={COMPANY_INFO.socialMedia.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white transition-colors"
+                  className="w-10 h-10 rounded-xl bg-slate-800/90 hover:bg-[#1877F2] text-slate-300 hover:text-white border border-slate-700/80 inline-flex items-center justify-center transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007afd] group"
+                  aria-label="Página de Facebook de COLFGAS CONSTRUCCIONES S.A.S."
+                  title="Facebook de COLFGAS"
                 >
-                  <span>Página de Facebook de COLFGAS</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
+                  <Facebook className="w-5 h-5 transition-transform group-hover:scale-110" aria-hidden="true" />
                 </a>
               </div>
             )}
@@ -77,19 +78,15 @@ export function Footer() {
               Servicios Especializados
             </h3>
             <ul className="space-y-2 text-xs">
-              <li>
-                <Link
-                  href="/servicios"
-                  className="hover:text-white transition-colors block py-0.5 font-semibold text-slate-200"
-                >
-                  Todos los Servicios de Gas
-                </Link>
-              </li>
               {SERVICE_SUB_LINKS.map((sub) => (
                 <li key={sub.name}>
                   <Link
                     href={sub.href}
-                    className="hover:text-white transition-colors block py-0.5 text-slate-300"
+                    className={`hover:text-white transition-colors block py-0.5 ${
+                      sub.href === '/servicios'
+                        ? 'font-semibold text-slate-200'
+                        : 'text-slate-300'
+                    }`}
                   >
                     {sub.name}
                   </Link>

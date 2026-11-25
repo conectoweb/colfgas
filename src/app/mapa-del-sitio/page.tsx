@@ -179,7 +179,7 @@ export default function MapaDelSitioPage() {
                     <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#0066B3] transition-colors" />
                   </h3>
                   <p className="mt-2 text-xs text-[#5B6570] leading-relaxed">
-                    Canales oficiales de atención telefónica, chat directo, dirección física de la sede en Bogotá y formulario de cotización.
+                    Canales oficiales de atención telefónica, WhatsApp directo y dirección física de la sede en Bogotá.
                   </p>
                 </div>
                 <span className="mt-3 text-[11px] font-mono text-[#0066B3]">/contacto</span>
@@ -312,16 +312,16 @@ export default function MapaDelSitioPage() {
                     <FileText className="w-4 h-4" />
                     <span>Cotización de Proyectos</span>
                   </div>
-                  <div className="text-base font-bold text-[#263238] mt-1">Formulario de Contacto</div>
+                  <div className="text-base font-bold text-[#263238] mt-1">Asesoría Directa</div>
                   <p className="text-xs text-[#5B6570] mt-1">
-                    Envía los detalles de tu proyecto para recibir una propuesta técnica personalizada.
+                    Contacta a nuestros técnicos en gas natural para recibir una propuesta personalizada.
                   </p>
                 </div>
                 <Link
                   href="/contacto"
                   className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#0066B3] hover:underline"
                 >
-                  <span>Diligenciar Formulario</span>
+                  <span>Ir a Contáctanos</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

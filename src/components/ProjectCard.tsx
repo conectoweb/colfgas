@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ProjectItem } from '@/lib/constants';
-import { MapPin, Layers, Camera } from 'lucide-react';
+import { MapPin, Layers, Camera, ArrowRight } from 'lucide-react';
 import { ClientConfirmationBadge } from './ClientConfirmationBadge';
 
 interface ProjectCardProps {
@@ -107,8 +108,48 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
 
+      {/* Actions & Internal Links Footer */}
+      <div className="px-6 py-4 bg-slate-50/90 border-t border-slate-100 flex flex-col gap-2.5">
+        <div className="flex items-center justify-between text-xs">
+          <Link
+            href={
+              project.id === 'proyecto-3'
+                ? '/servicios/mantenimiento'
+                : project.category === 'Industrial'
+                ? '/servicios/gas-industrial'
+                : '/servicios/gas-residencial'
+            }
+            className="font-bold text-[#0066B3] hover:text-[#005291] inline-flex items-center gap-1 transition-colors"
+          >
+            <span>
+              {project.id === 'proyecto-3'
+                ? 'Ver mantenimiento'
+                : project.category === 'Industrial'
+                ? 'Ver solución industrial'
+                : 'Ver solución residencial'}
+            </span>
+            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          </Link>
+
+          <Link
+            href="/servicios"
+            className="text-[11px] font-semibold text-[#5B6570] hover:text-[#263238] transition-colors"
+          >
+            Servicios relacionados
+          </Link>
+        </div>
+
+        <Link
+          href="/contacto"
+          className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-bold text-white bg-[#0066B3] hover:bg-[#005291] transition-colors shadow-sm"
+        >
+          <span>Hablemos de su proyecto</span>
+          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+        </Link>
+      </div>
+
       {/* Confirmation Footer */}
-      <div className="px-6 py-3 bg-slate-50 border-t border-slate-100 text-[11px] text-[#5B6570] text-center font-medium">
+      <div className="px-6 py-2.5 bg-slate-100/70 border-t border-slate-200/60 text-[10px] text-[#5B6570] text-center font-medium">
         {project.confirmationDetails}
       </div>
     </article>

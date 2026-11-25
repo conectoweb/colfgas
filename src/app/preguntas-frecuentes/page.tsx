@@ -53,7 +53,7 @@ const ALL_FAQS: FaqItem[] = [
   {
     question: '¿Cómo puedo solicitar una cotización o visita técnica?',
     answer:
-      'Puedes comunicarte a través de nuestra página de contacto oficial o completar el formulario web. Atendemos solicitudes tanto para obras nuevas en planos como para adecuaciones o mantenimiento de redes existentes.',
+      'Puedes comunicarte a través de nuestra página de contacto oficial por WhatsApp o llamada telefónica. Atendemos solicitudes tanto para obras nuevas en planos como para reparaciones o mantenimiento de redes de gas en Bogotá y municipios vecinos.',
     category: 'Contacto y Cotización',
   },
   {
@@ -240,20 +240,32 @@ export default function PreguntasFrecuentesPage() {
             })}
           </div>
 
-          {/* Contact Banner */}
+          {/* Contact & Navigation Banner */}
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-200 text-center space-y-4">
             <h3 className="text-2xl font-bold text-[#263238]">
               ¿Tienes otra pregunta sobre tu proyecto de gas?
             </h3>
             <p className="text-sm text-[#5B6570] max-w-xl mx-auto">
-              Comunícate directamente con nuestros ingenieros. Te asesoramos en dimensionamiento técnico y cotizaciones para tu obra.
+              Comunícate directamente con nuestros ingenieros y técnicos certificados. Te asesoramos en dimensionamiento técnico, reparaciones y cotizaciones para tu obra.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
               <Link
-                href="/contacto"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-md transition-all"
+                href="/servicios"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-[#0066B3] bg-white border border-sky-200 hover:bg-sky-50 shadow-sm transition-all"
               >
-                <span>Ir a Contáctanos / Cotizar</span>
+                <span>Ver Servicios</span>
+              </Link>
+              <Link
+                href="/servicios/mantenimiento"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-[#287A1C] bg-white border border-emerald-200 hover:bg-emerald-50 shadow-sm transition-all"
+              >
+                <span>Servicio de Mantenimiento</span>
+              </Link>
+              <Link
+                href="/contacto"
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-md transition-all"
+              >
+                <span>Contactar / Cotizar</span>
                 <ArrowRight className="w-4 h-4 text-white" />
               </Link>
             </div>
