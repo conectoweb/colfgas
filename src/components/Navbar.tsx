@@ -31,7 +31,7 @@ export function Navbar() {
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
   const aboutButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Close menus on Escape key and return focus
+  // Close menus on Escape key and return focus to triggering button
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -52,49 +52,47 @@ export function Navbar() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [servicesDropdownOpen, aboutDropdownOpen, mobileMenuOpen]);
 
-  // Close dropdown on click outside
+  // Close desktop dropdowns on click outside
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as Node;
       if (
         servicesDropdownRef.current &&
-        !servicesDropdownRef.current.contains(e.target as Node)
+        !servicesDropdownRef.current.contains(target)
       ) {
         setServicesDropdownOpen(false);
       }
       if (
         aboutDropdownRef.current &&
-        !aboutDropdownRef.current.contains(e.target as Node)
+        !aboutDropdownRef.current.contains(target)
       ) {
         setAboutDropdownOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+
+    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
 
-  // Close menus on route change and pre-expand current active mobile accordion
+  // Close all menus and reset dropdown states on route navigation
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setAboutDropdownOpen(false);
-
-    if (pathname.startsWith('/servicios')) {
-      setMobileServicesOpen(true);
-    } else {
-      setMobileServicesOpen(false);
-    }
-
-    if (['/nosotros', '/preguntas-frecuentes', '/mapa-del-sitio'].includes(pathname)) {
-      setMobileAboutOpen(true);
-    } else {
-      setMobileAboutOpen(false);
-    }
+    setMobileServicesOpen(false);
+    setMobileAboutOpen(false);
   }, [pathname]);
 
   const handleNavClick = () => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setAboutDropdownOpen(false);
+    setMobileServicesOpen(false);
+    setMobileAboutOpen(false);
   };
 
   const isServicesActive = pathname.startsWith('/servicios');
@@ -182,20 +180,16 @@ export function Navbar() {
               Inicio
             </Link>
 
-            {/* 2. Servicios (Desplegable con flecha indicador abierto/cerrado) */}
+            {/* 2. Servicios (Desplegable con clic y flecha que indica abierto/cerrado) */}
             <div
               ref={servicesDropdownRef}
               className="relative"
-              onMouseEnter={() => {
-                setServicesDropdownOpen(true);
-                setAboutDropdownOpen(false);
-              }}
-              onMouseLeave={() => setServicesDropdownOpen(false)}
             >
               <button
                 ref={servicesButtonRef}
                 type="button"
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   setServicesDropdownOpen((prev) => !prev);
                   setAboutDropdownOpen(false);
                 }}
@@ -203,6 +197,7 @@ export function Navbar() {
                   if (e.key === 'ArrowDown' && !servicesDropdownOpen) {
                     e.preventDefault();
                     setServicesDropdownOpen(true);
+                    setAboutDropdownOpen(false);
                   }
                 }}
                 className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] flex items-center gap-1.5 cursor-pointer ${
@@ -223,15 +218,16 @@ export function Navbar() {
                 />
               </button>
 
-              {/* Submenú Servicios: Todos los servicios, Gas residencial, Gas industrial, Mantenimiento de redes */}
+              {/* Panel Desplegable Servicios: Todos los servicios, Gas residencial, Gas industrial, Mantenimiento de redes */}
               {servicesDropdownOpen && (
                 <div
                   id="desktop-services-dropdown"
-                  className="absolute top-full left-0 w-80 pt-2 z-50"
+                  className="absolute top-full left-0 mt-2 w-80 z-50"
                   role="menu"
                   aria-label="Submenú de Servicios"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl p-2 animate-in fade-in-50 duration-150">
+                  <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl p-2.5">
                     {SERVICE_SUB_LINKS.map((sub) => {
                       const isSubActive = pathname === sub.href;
                       const isAll = sub.href === '/servicios';
@@ -295,20 +291,16 @@ export function Navbar() {
               Proyectos
             </Link>
 
-            {/* 4. Nosotros (Desplegable con flecha indicador abierto/cerrado) */}
+            {/* 4. Nosotros (Desplegable con clic y flecha que indica abierto/cerrado) */}
             <div
               ref={aboutDropdownRef}
               className="relative"
-              onMouseEnter={() => {
-                setAboutDropdownOpen(true);
-                setServicesDropdownOpen(false);
-              }}
-              onMouseLeave={() => setAboutDropdownOpen(false)}
             >
               <button
                 ref={aboutButtonRef}
                 type="button"
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   setAboutDropdownOpen((prev) => !prev);
                   setServicesDropdownOpen(false);
                 }}
@@ -316,6 +308,7 @@ export function Navbar() {
                   if (e.key === 'ArrowDown' && !aboutDropdownOpen) {
                     e.preventDefault();
                     setAboutDropdownOpen(true);
+                    setServicesDropdownOpen(false);
                   }
                 }}
                 className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] flex items-center gap-1.5 cursor-pointer ${
@@ -336,15 +329,16 @@ export function Navbar() {
                 />
               </button>
 
-              {/* Submenú Nosotros: Sobre nosotros, Preguntas frecuentes, Mapa del sitio */}
+              {/* Panel Desplegable Nosotros: Sobre nosotros, Preguntas frecuentes, Mapa del sitio */}
               {aboutDropdownOpen && (
                 <div
                   id="desktop-about-dropdown"
-                  className="absolute top-full left-0 w-80 pt-2 z-50"
+                  className="absolute top-full left-0 mt-2 w-80 z-50"
                   role="menu"
                   aria-label="Submenú de Nosotros"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl p-2 animate-in fade-in-50 duration-150">
+                  <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl p-2.5">
                     {ABOUT_SUB_LINKS.map((sub) => {
                       const isSubActive = pathname === sub.href;
                       return (
@@ -474,7 +468,7 @@ export function Navbar() {
               {mobileServicesOpen && (
                 <div
                   id="mobile-services-submenu"
-                  className="pl-3 pr-1 py-1 space-y-1 border-l-2 border-[#0066B3]/30 ml-3.5 animate-in fade-in-50 duration-150"
+                  className="pl-3 pr-1 py-1 space-y-1 border-l-2 border-[#0066B3]/30 ml-3.5"
                 >
                   {SERVICE_SUB_LINKS.map((sub) => {
                     const isSubActive = pathname === sub.href;
@@ -537,7 +531,7 @@ export function Navbar() {
               {mobileAboutOpen && (
                 <div
                   id="mobile-about-submenu"
-                  className="pl-3 pr-1 py-1 space-y-1 border-l-2 border-[#0066B3]/30 ml-3.5 animate-in fade-in-50 duration-150"
+                  className="pl-3 pr-1 py-1 space-y-1 border-l-2 border-[#0066B3]/30 ml-3.5"
                 >
                   {ABOUT_SUB_LINKS.map((sub) => {
                     const isSubActive = pathname === sub.href;
