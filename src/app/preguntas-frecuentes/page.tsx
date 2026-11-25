@@ -8,8 +8,7 @@ import {
   HelpCircle,
   ShieldCheck,
   CheckCircle2,
-  Phone,
-  MessageCircle,
+  ArrowRight,
   Building2,
   Factory,
   ChevronDown,
@@ -21,7 +20,7 @@ import {
 interface FaqItem {
   question: string;
   answer: string;
-  category: 'Certificación' | 'Servicios' | 'Contacto y Cotización' | 'Normativa y Seguridad' | 'Cobertura';
+  category: 'Certificación' | 'Servicios' | 'Contacto y Cotización' | 'Calidad y Seguridad' | 'Cobertura';
   hasConfirmationNote?: boolean;
 }
 
@@ -54,7 +53,7 @@ const ALL_FAQS: FaqItem[] = [
   {
     question: '¿Cómo puedo solicitar una cotización o visita técnica?',
     answer:
-      'Puedes comunicarte directamente por WhatsApp o llamada al 320 827 1724, o completar el formulario en nuestra página de contacto. Atendemos solicitudes tanto para obras nuevas en planos como para adecuaciones o mantenimiento de redes existentes.',
+      'Puedes comunicarte a través de nuestra página de contacto oficial o completar el formulario web. Atendemos solicitudes tanto para obras nuevas en planos como para adecuaciones o mantenimiento de redes existentes.',
     category: 'Contacto y Cotización',
   },
   {
@@ -73,7 +72,7 @@ const ALL_FAQS: FaqItem[] = [
   {
     question: '¿Cuáles son los horarios de atención al público?',
     answer:
-      'Atendemos consultas y requerimientos a través de nuestra línea directa y WhatsApp 320 827 1724 durante jornada laboral [CONFIRMAR HORARIO EXACTO CON COLFGAS]. Para urgencias de obra coordinamos previamente con el cliente.',
+      'Atendemos consultas y requerimientos a través de nuestros canales oficiales de contacto durante jornada laboral [CONFIRMAR HORARIO EXACTO CON COLFGAS]. Para urgencias de obra coordinamos previamente con el cliente.',
     category: 'Contacto y Cotización',
     hasConfirmationNote: true,
   },
@@ -81,13 +80,13 @@ const ALL_FAQS: FaqItem[] = [
     question: '¿Qué es una prueba de hermeticidad y por qué es indispensable?',
     answer:
       'Es un ensayo de seguridad neumática reglamentario en el que se presuriza la red con aire o gas inerte utilizando un manómetro certificado. Permite constatar que no existan microfugas ni caídas de presión en las uniones de la tubería, siendo requisito obligatorio para la habilitación del servicio de gas ante la empresa distribuidora.',
-    category: 'Normativa y Seguridad',
+    category: 'Calidad y Seguridad',
   },
   {
-    question: '¿Qué normativas técnicas rigen los proyectos de COLFGAS?',
+    question: '¿Qué estándares de calidad y seguridad rigen los proyectos de COLFGAS?',
     answer:
-      'Nuestras obras se ejecutan bajo estricto apego a las normas técnicas colombianas: NTC 2505 para instalaciones residenciales y comerciales, NTC 3838 para redes y presiones de operación industrial, y las especificaciones técnicas homologadas por Vanti.',
-    category: 'Normativa y Seguridad',
+      'Nuestras obras se ejecutan bajo rigurosos estándares de seguridad técnica, ingeniería de alta precisión y las especificaciones técnicas homologadas por Vanti, garantizando una habilitación rápida y sin contratiempos.',
+    category: 'Calidad y Seguridad',
   },
   {
     question: '¿Qué documentación técnica suministra COLFGAS para la contratación de obras?',
@@ -106,7 +105,7 @@ export default function PreguntasFrecuentesPage() {
     'Certificación',
     'Servicios',
     'Contacto y Cotización',
-    'Normativa y Seguridad',
+    'Calidad y Seguridad',
     'Cobertura',
   ];
 
@@ -247,32 +246,15 @@ export default function PreguntasFrecuentesPage() {
               ¿Tienes otra pregunta sobre tu proyecto de gas?
             </h3>
             <p className="text-sm text-[#5B6570] max-w-xl mx-auto">
-              Comunícate directamente con nuestros ingenieros. Te asesoramos en dimensionamiento, normativa y cotizaciones.
+              Comunícate directamente con nuestros ingenieros. Te asesoramos en dimensionamiento técnico y cotizaciones para tu obra.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href={COMPANY_INFO.whatsapp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
-              >
-                <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                <span>Escribir por WhatsApp (320 827 1724)</span>
-              </a>
-
-              <a
-                href={COMPANY_INFO.phoneCallUrl}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-[#0066B3] bg-sky-50 hover:bg-sky-100 border border-sky-200 transition-all"
-              >
-                <Phone className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
-                <span>Llamar al {COMPANY_INFO.phoneDisplay}</span>
-              </a>
-
               <Link
                 href="/contacto"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-[#263238] bg-white hover:bg-slate-100 border border-slate-300 transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-md transition-all"
               >
-                <span>Formulario de Contacto</span>
+                <span>Ir a Contáctanos / Cotizar</span>
+                <ArrowRight className="w-4 h-4 text-white" />
               </Link>
             </div>
           </div>

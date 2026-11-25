@@ -76,7 +76,7 @@ export default function ContactoPage() {
             </div>
             <div className="flex items-center gap-1.5 font-medium">
               <CheckCircle2 className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
-              <span>Normas NTC 2505 y NTC 3838</span>
+              <span>Altos Estándares de Seguridad</span>
             </div>
             <div className="flex items-center gap-1.5 font-medium">
               <CheckCircle2 className="w-4 h-4 text-[#287A1C]" aria-hidden="true" />
@@ -233,9 +233,9 @@ export default function ContactoPage() {
                   <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#287A1C] flex items-center justify-center font-bold text-sm mb-3">
                     02
                   </div>
-                  <h3 className="font-bold text-[#263238] text-sm sm:text-base">Evaluación Normativa y Técnica</h3>
+                  <h3 className="font-bold text-[#263238] text-sm sm:text-base">Evaluación y Diseño Técnico</h3>
                   <p className="mt-1.5 text-xs text-[#5B6570] leading-relaxed">
-                    Nuestros ingenieros analizan diámetros, trazados de tubería, centros de medición y requerimientos específicos bajo la norma NTC correspondiente y estándares de Vanti.
+                    Nuestros ingenieros analizan diámetros, trazados de tubería, centros de medición y requerimientos específicos de tu obra con estándares de Vanti.
                   </p>
                 </div>
               </div>

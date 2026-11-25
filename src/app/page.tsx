@@ -6,8 +6,6 @@ import {
   Building2,
   Factory,
   CheckCircle2,
-  Phone,
-  MessageCircle,
   Wrench,
   AlertTriangle,
   ExternalLink,
@@ -73,7 +71,7 @@ export default function LandingPage() {
               <p className="text-base sm:text-lg md:text-xl text-[#5B6570] leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Soluciones integrales de <strong>construcción</strong>, <strong>instalación</strong> y{' '}
                 <strong>mantenimiento</strong> de redes de gas natural y GLP en Colombia. Calidad
-                técnica respaldada con estricta normativa de seguridad y procesos estandarizados.
+                técnica respaldada con altos estándares de seguridad y procesos certificados.
               </p>
 
               {/* Exclusion Note: No Gas Vehicular */}
@@ -86,7 +84,7 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              {/* Botones Visibles: Embudo hacia Contáctanos y WhatsApp */}
+              {/* Botones Visibles: Embudo hacia Contáctanos y Servicios */}
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
                 <Link
                   href="/contacto"
@@ -97,16 +95,12 @@ export default function LandingPage() {
                   <ArrowRight className="w-5 h-5 text-white" aria-hidden="true" />
                 </Link>
 
-                <a
-                  href={COMPANY_INFO.whatsapp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm hover:shadow transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-emerald-400 min-h-[48px]"
-                  aria-label="Escribir por WhatsApp a COLFGAS al 320 827 1724"
+                <Link
+                  href="/servicios"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-bold text-[#263238] bg-slate-100 hover:bg-slate-200 transition-all border border-slate-300 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-slate-400 min-h-[48px]"
                 >
-                  <MessageCircle className="w-5 h-5 text-[#263238]" aria-hidden="true" />
-                  <span>WhatsApp Directo</span>
-                </a>
+                  <span>Ver Nuestros Servicios</span>
+                </Link>
               </div>
 
               {/* Trust Indicators */}
@@ -120,8 +114,8 @@ export default function LandingPage() {
                 </div>
 
                 <div className="p-2.5 rounded-lg bg-white/70 border border-slate-200/80">
-                  <div className="text-base sm:text-lg font-bold text-[#0066B3]">NTC 2505 / 3838</div>
-                  <div className="text-xs text-[#5B6570]">Normas Técnicas Colombia</div>
+                  <div className="text-base sm:text-lg font-bold text-[#0066B3]">Seguridad Total</div>
+                  <div className="text-xs text-[#5B6570]">Pruebas de Hermeticidad</div>
                 </div>
 
                 <div className="col-span-2 sm:col-span-1 p-2.5 rounded-lg bg-white/70 border border-slate-200/80">
@@ -137,7 +131,7 @@ export default function LandingPage() {
                 <div className="relative aspect-[4/3]">
                   <Image
                     src="/images/galeria/azotea-con-tuberias-y-montanas.webp"
-                    alt="Instalación de redes de gas en azotea con tuberías y montantes ejecutadas según normas de seguridad por COLFGAS"
+                    alt="Instalación de redes de gas en azotea con tuberías y montantes ejecutadas con altos estándares de seguridad por COLFGAS"
                     width={800}
                     height={600}
                     priority
@@ -256,23 +250,14 @@ export default function LandingPage() {
                 </div>
 
                 {/* Card CTA */}
-                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-2">
-                  <a
-                    href={COMPANY_INFO.whatsapp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg text-xs font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] transition-colors"
+                <div className="pt-4 border-t border-slate-100">
+                  <Link
+                    href="/contacto"
+                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-xs font-bold text-white bg-[#0066B3] hover:bg-[#005291] transition-colors"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 text-[#263238]" aria-hidden="true" />
-                    <span>Cotizar por WhatsApp</span>
-                  </a>
-                  <a
-                    href={COMPANY_INFO.phoneCallUrl}
-                    className="inline-flex items-center justify-center py-2.5 px-3 rounded-lg text-xs font-semibold text-[#0066B3] bg-sky-50 hover:bg-sky-100 transition-colors"
-                    aria-label={`Llamar para cotizar ${service.title}`}
-                  >
-                    <Phone className="w-3.5 h-3.5 text-[#0066B3]" aria-hidden="true" />
-                  </a>
+                    <span>Solicitar Cotización</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-white" aria-hidden="true" />
+                  </Link>
                 </div>
               </article>
             ))}
@@ -335,23 +320,20 @@ export default function LandingPage() {
                   </div>
 
                   <div className="pt-4 flex flex-wrap items-center gap-3">
-                    <a
-                      href={COMPANY_INFO.whatsapp.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
+                    <Link
+                      href="/servicios/gas-residencial"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-sm transition-all"
                     >
-                      <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                      <span>Escribir por WhatsApp</span>
-                    </a>
+                      <span>Ver Solución Residencial</span>
+                      <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
+                    </Link>
 
-                    <a
-                      href={COMPANY_INFO.phoneCallUrl}
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-[#0066B3] bg-sky-50 hover:bg-sky-100 border border-sky-200 transition-all"
+                    <Link
+                      href="/contacto"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-[#263238] bg-slate-100 hover:bg-slate-200 border border-slate-300 transition-all"
                     >
-                      <Phone className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
-                      <span>Llamar: {COMPANY_INFO.phoneDisplay}</span>
-                    </a>
+                      <span>Cotizar Proyecto Residencial</span>
+                    </Link>
                   </div>
                 </div>
 
@@ -367,7 +349,7 @@ export default function LandingPage() {
                     />
                     <div className="p-3 bg-slate-50 border-t border-slate-200 text-center">
                       <span className="text-[11px] font-semibold text-[#5B6570]">
-                        Esquema técnico representativo residencial • NTC 2505
+                        Esquema técnico representativo residencial
                       </span>
                     </div>
                   </div>
@@ -411,23 +393,20 @@ export default function LandingPage() {
                   </div>
 
                   <div className="pt-4 flex flex-wrap items-center gap-3">
-                    <a
-                      href={COMPANY_INFO.whatsapp.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
+                    <Link
+                      href="/servicios/gas-industrial"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-sm transition-all"
                     >
-                      <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                      <span>Escribir por WhatsApp</span>
-                    </a>
+                      <span>Ver Solución Industrial</span>
+                      <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
+                    </Link>
 
-                    <a
-                      href={COMPANY_INFO.phoneCallUrl}
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-[#0066B3] bg-sky-50 hover:bg-sky-100 border border-sky-200 transition-all"
+                    <Link
+                      href="/contacto"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-[#263238] bg-slate-100 hover:bg-slate-200 border border-slate-300 transition-all"
                     >
-                      <Phone className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
-                      <span>Llamar: {COMPANY_INFO.phoneDisplay}</span>
-                    </a>
+                      <span>Cotizar Proyecto Industrial</span>
+                    </Link>
                   </div>
                 </div>
 
@@ -443,7 +422,7 @@ export default function LandingPage() {
                     />
                     <div className="p-3 bg-slate-50 border-t border-slate-200 text-center">
                       <span className="text-[11px] font-semibold text-[#5B6570]">
-                        Esquema técnico representativo industrial • NTC 3838
+                        Esquema técnico representativo industrial
                       </span>
                     </div>
                   </div>
@@ -467,7 +446,7 @@ export default function LandingPage() {
               Instalaciones Generales de Gas en Obra
             </h2>
             <p className="mt-3 text-base text-[#5B6570] leading-relaxed">
-              Registros visuales de montajes de redes fijas, centros de medición y tuberías ejecutadas con supervisión y estricto cumplimiento de la normativa colombiana.
+              Registros visuales de montajes de redes fijas, centros de medición y tuberías ejecutadas con supervisión y riguroso control de calidad y seguridad.
             </p>
           </div>
 
@@ -517,7 +496,7 @@ export default function LandingPage() {
                   Baterías en Sótano y Parqueadero
                 </h3>
                 <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
-                  Centros de medición unificados para edificios residenciales bajo norma NTC 2505.
+                  Centros de medición unificados para edificios residenciales con total seguridad y trazabilidad.
                 </p>
               </div>
             </div>
@@ -610,8 +589,8 @@ export default function LandingPage() {
             <div className="text-xs sm:text-sm leading-relaxed">
               <strong className="font-bold text-[#0066B3]">Ilustraciones Técnicas de Alcance:</strong>{' '}
               Las imágenes a continuación representan de manera gráfica y realista el alcance técnico de nuestras
-              soluciones en redes matrices, estaciones ERM de regulación y pruebas de hermeticidad conforme a normas NTC
-              2505 y NTC 3838, garantizando total transparencia técnica y constructiva.
+              soluciones en redes matrices, estaciones ERM de regulación y pruebas de hermeticidad, garantizando total
+              transparencia técnica y constructiva.
             </div>
           </div>
 
@@ -794,67 +773,57 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* Direct Contact Cards (WhatsApp, Llamada, Dirección) */}
+          {/* Cards de Información y Enlace a Contacto */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            {/* WhatsApp Card */}
-            <div className="p-6 rounded-2xl bg-white border border-emerald-200 shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#287A1C] flex items-center justify-center mb-4">
-                  <MessageCircle className="w-6 h-6" aria-hidden="true" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#287A1C]">
-                  Atención Inmediata
-                </span>
-                <h3 className="text-lg font-bold text-[#263238] mt-1">Escribir por WhatsApp</h3>
-                <p className="text-xs text-[#5B6570] mt-1.5 leading-relaxed">
-                  Envíanos tu consulta técnica o solicitud de cotización al número oficial.
-                </p>
-                <div className="mt-3 text-sm font-bold text-[#263238]">
-                  {COMPANY_INFO.phoneDisplay}
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-slate-100">
-                <a
-                  href={COMPANY_INFO.whatsapp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
-                  aria-label="Abrir chat de WhatsApp con COLFGAS al 320 827 1724"
-                >
-                  <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                  <span>Escribir por WhatsApp</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Llamada Telefónica Card */}
+            {/* Cotizaciones Card */}
             <div className="p-6 rounded-2xl bg-white border border-sky-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-sky-50 text-[#0066B3] flex items-center justify-center mb-4">
-                  <Phone className="w-6 h-6" aria-hidden="true" />
+                  <ShieldCheck className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#0066B3]">
-                  Línea Telefónica
+                  Propuestas Técnicas
                 </span>
-                <h3 className="text-lg font-bold text-[#263238] mt-1">Llamada Directa</h3>
+                <h3 className="text-lg font-bold text-[#263238] mt-1">Solicitud de Cotización</h3>
                 <p className="text-xs text-[#5B6570] mt-1.5 leading-relaxed">
-                  Comunícate directamente por voz con nuestros asesores para atención de obra.
+                  Evaluamos tus planos arquitectónicos e hidrosanitarios para estructurar una propuesta técnica y económica a la medida.
                 </p>
-                <div className="mt-3 text-sm font-bold text-[#263238]">
-                  {COMPANY_INFO.phoneDisplay}
-                </div>
               </div>
 
               <div className="mt-6 pt-4 border-t border-slate-100">
-                <a
-                  href={COMPANY_INFO.phoneCallUrl}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold text-[#0066B3] bg-sky-50 hover:bg-sky-100 border border-sky-200 transition-all"
-                  aria-label={`Llamar por teléfono al ${COMPANY_INFO.phoneDisplay}`}
+                <Link
+                  href="/contacto"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-sm transition-all"
                 >
-                  <Phone className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
-                  <span>Llamar: {COMPANY_INFO.phoneDisplay}</span>
-                </a>
+                  <span>Solicitar Cotización</span>
+                  <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Canales Oficiales Card */}
+            <div className="p-6 rounded-2xl bg-white border border-emerald-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#287A1C] flex items-center justify-center mb-4">
+                  <CheckCircle2 className="w-6 h-6" aria-hidden="true" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#287A1C]">
+                  Atención Directa
+                </span>
+                <h3 className="text-lg font-bold text-[#263238] mt-1">Canales de Contacto</h3>
+                <p className="text-xs text-[#5B6570] mt-1.5 leading-relaxed">
+                  Accede a nuestros canales de mensajería directa, atención telefónica y formulario en la sección oficial de contacto.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-slate-100">
+                <Link
+                  href="/contacto"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
+                >
+                  <span>Ver Canales de Atención</span>
+                  <ArrowRight className="w-4 h-4 text-[#263238]" aria-hidden="true" />
+                </Link>
               </div>
             </div>
 
@@ -867,11 +836,11 @@ export default function LandingPage() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#5B6570]">
                   Sede Principal
                 </span>
-                <h3 className="text-lg font-bold text-[#263238] mt-1">Dirección Confirmada</h3>
+                <h3 className="text-lg font-bold text-[#263238] mt-1">Sede en Bogotá</h3>
                 <p className="text-xs text-[#5B6570] mt-1.5 leading-relaxed">
                   Sede oficial de operaciones en la ciudad de Bogotá, Colombia.
                 </p>
-                <div className="mt-3 text-sm font-bold text-[#263238]">
+                <div className="mt-3 text-xs font-bold text-[#263238]">
                   {COMPANY_INFO.address}
                 </div>
               </div>
@@ -891,7 +860,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Banner de Cierre con Botones de Acción */}
+          {/* Banner de Cierre con Botón de Acción a Contacto */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm text-center space-y-5">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-xs font-bold text-[#0066B3]">
               <ShieldCheck className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
@@ -903,8 +872,7 @@ export default function LandingPage() {
             </h3>
 
             <p className="text-sm sm:text-base text-[#5B6570] max-w-2xl mx-auto leading-relaxed">
-              Comunícate hoy mismo al <strong>{COMPANY_INFO.phoneDisplay}</strong> para recibir
-              asesoría técnica personalizada para tu proyecto.
+              Nuestro equipo técnico está listo para asesorarte en la planificación, instalación o mantenimiento de tus redes de gas.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -912,23 +880,13 @@ export default function LandingPage() {
                 href="/contacto"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl text-base font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-md transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-sky-300 min-h-[48px]"
               >
-                <span>Ir a Contáctanos</span>
+                <span>Ir a Contáctanos / Solicitar Cotización</span>
                 <ArrowRight className="w-5 h-5 text-white" aria-hidden="true" />
               </Link>
-
-              <a
-                href={COMPANY_INFO.whatsapp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl text-base font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-emerald-400 min-h-[48px]"
-              >
-                <MessageCircle className="w-5 h-5 text-[#263238]" aria-hidden="true" />
-                <span>Escribir por WhatsApp</span>
-              </a>
             </div>
 
             <div className="pt-4 text-xs text-[#5B6570]">
-              Dirección: {COMPANY_INFO.address} • [CONFIRMAR CON COLFGAS: Horarios de atención]
+              Sede: {COMPANY_INFO.address}
             </div>
           </div>
         </div>

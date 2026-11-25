@@ -68,7 +68,7 @@ export const COMPANY_INFO = {
   vantiShortBadge: 'Certificado por Vanti',
   slogan: 'Ingeniería, Construcción e Instalación de Redes de Gas Residencial e Industrial',
   missionStatement:
-    'Empresa especializada en la construcción, instalación y mantenimiento de redes de gas natural y GLP para construcciones residenciales e industriales en Colombia, garantizando máxima seguridad técnica y cumplimiento normativo.',
+    'Empresa especializada en la construcción, instalación y mantenimiento de redes de gas natural y GLP para construcciones residenciales e industriales en Colombia, garantizando máxima seguridad técnica, calidad y respaldo profesional.',
   focusDisclaimer:
     'Especialistas en redes e instalaciones fijas de gas para construcciones residenciales e industriales. No ofrecemos servicios para gas vehicular, conversión de motores ni estaciones de servicio (GNCV).',
   phoneDisplay: '320 827 1724',
@@ -110,8 +110,8 @@ export const SITE_METADATA = {
   defaultTitle: 'COLFGAS CONSTRUCCIONES S.A.S. | Empresa Certificada por Vanti',
   titleTemplate: '%s | COLFGAS CONSTRUCCIONES S.A.S.',
   defaultDescription:
-    'Empresa certificada por Vanti. Construcción, instalación y mantenimiento de redes de gas para construcciones residenciales e industriales en Colombia. Atención al 320 827 1724.',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://colfgas.com.co',
+    'Empresa certificada por Vanti. Construcción, instalación y mantenimiento de redes de gas para construcciones residenciales e industriales en Colombia. Asesoría y cotizaciones oficiales.',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://colfgas.com',
   locale: 'es_CO',
 };
 
@@ -131,7 +131,7 @@ export const ABOUT_SUB_LINKS = [
   {
     name: 'Preguntas Frecuentes',
     href: '/preguntas-frecuentes',
-    description: 'Respuestas a dudas habituales sobre normativas y servicios',
+    description: 'Respuestas a dudas habituales sobre procesos y servicios',
   },
   {
     name: 'Mapa del Sitio',
@@ -172,7 +172,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     summary:
       'Construcción integral de redes matrices subterráneas, acometidas principales y montantes verticales para proyectos habitacionales y plantas industriales.',
     description:
-      'Ejecutamos la construcción física de redes de gas combustible conforme a las exigencias técnicas de Vanti y la normativa colombiana. Desarrollamos canalizaciones, tendido de tubería especializada y pruebas preliminares para garantizar redes seguras y duraderas.',
+      'Ejecutamos la construcción física de redes de gas combustible conforme a las exigencias técnicas y estándares de seguridad de Vanti. Desarrollamos canalizaciones, tendido de tubería especializada y pruebas preliminares para garantizar redes seguras y duraderas.',
     features: [
       'Construcción de redes matrices en polietileno de alta densidad (PEAD) y acero',
       'Trazado y canalización de acometidas desde la red de distribución',
@@ -180,7 +180,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       'Integración de obras civiles complementarias para cruces y zanjas de gas',
       'Cumplimiento estricto de lineamientos de construcción certificados por Vanti',
     ],
-    normativa: 'NTC 2505 (Residencial) / NTC 3838 (Industrial)',
+    normativa: 'Residencial e Industrial',
     iconName: 'Building2',
   },
   {
@@ -194,13 +194,13 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     description:
       'Instalamos sistemas de distribución interna de gas con tuberías homologadas (PE-AL-PE, cobre y acero al carbono). Realizamos el montaje de baterías de medidores unificados, estaciones de regulación y acople de equipos térmicos con pruebas de hermeticidad.',
     features: [
-      'Instalación de redes internas empotradas y a la vista según norma técnica',
+      'Instalación de redes internas empotradas y a la vista con materiales certificados',
       'Montaje de gabinetes y centros de medición unificados para copropiedades',
       'Instalación de estaciones de regulación (ERM) para media y baja presión',
       'Conexión segura de puntos para estufas, calentadores, hornos y calderas',
       'Pruebas de hermeticidad con manómetros certificados para habilitación',
     ],
-    normativa: 'NTC 2505 / NTC 4282 / Aprobación Vanti',
+    normativa: 'Vivienda y Comercio',
     iconName: 'Wrench',
   },
   {
@@ -210,17 +210,17 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     shortTitle: 'Mantenimiento de Redes',
     sector: 'ambos',
     summary:
-      'Mantenimiento preventivo y correctivo, inspección técnica, detección de fugas y adecuación normativa en viviendas e industrias.',
+      'Mantenimiento preventivo y correctivo, inspección técnica, detección de fugas y adecuación técnica en viviendas e industrias.',
     description:
       'Servicio técnico especializado para preservar la estanqueidad y seguridad de las redes existentes. Realizamos reemplazo de valvulería deteriorada, pruebas de presión, calibración de reguladores y adecuaciones previas a inspecciones de la distribuidora.',
     features: [
       'Pruebas de hermeticidad y detección electrónica de microfugas',
       'Mantenimiento preventivo en estaciones de regulación y medidores',
       'Sustitución de válvulas de corte, reguladores y accesorios desgastados',
-      'Adecuaciones técnicas de ventilación y recintos conforme a norma',
+      'Adecuaciones técnicas de ventilación y recintos para máxima seguridad',
       'Preparación de instalaciones para certificación periódica y reconexión',
     ],
-    normativa: 'Resolución CREG 059 / Estándares de Vanti',
+    normativa: 'Inspección y Mantenimiento',
     iconName: 'ShieldCheck',
   },
 ];
@@ -242,7 +242,7 @@ export const RESIDENTIAL_SOLUTION: SolutionItem = {
     'Cálculo y adecuación de ventilaciones reglamentarias de recintos',
     'Pruebas de hermeticidad certificadas previas al suministro',
   ],
-  normativa: 'NTC 2505 y especificaciones de Vanti',
+  normativa: 'Estándares Técnicos Vanti',
   iconName: 'Home',
   imageSrc: '/images/galeria/gran-banco-de-medidores-de-gas.webp',
   imageAlt: 'Batería centralizada de medidores de gas natural en gabinete técnico para edificación residencial',
@@ -263,7 +263,7 @@ export const INDUSTRIAL_SOLUTION: SolutionItem = {
     'Integración de sensores de detección de mezclas explosivas y parada de emergencia',
     'Ensayos no destructivos e inspección técnica de uniones soldadas',
   ],
-  normativa: 'NTC 3838, NTC 4282 y código ASME B31.8',
+  normativa: 'Ingeniería y Seguridad Industrial',
   iconName: 'Factory',
   imageSrc: '/images/galeria/corredor-de-obra-con-tuberias-amarillas.webp',
   imageAlt: 'Tendido de tuberías de gas en corredor técnico de obra para sector industrial y comercial',
@@ -283,7 +283,7 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
     location: 'Bogotá D.C. [CONFIRMAR CON COLFGAS]',
     scope: 'Construcción de acometida, montantes verticales y batería centralizada de medidores',
     description:
-      'Registro técnico documental de instalación de gas natural para unidades de vivienda multifamiliar, con pruebas de hermeticidad y adecuación a norma NTC 2505.',
+      'Registro técnico documental de instalación de gas natural para unidades de vivienda multifamiliar, con pruebas de hermeticidad y máxima seguridad operativa.',
     isPlaceholder: false,
     confirmationDetails:
       'Ilustración técnica: Batería centralizada de medidores y red matriz residencial',
@@ -329,10 +329,10 @@ export const PROJECTS_GALLERY: ProjectItem[] = [
  */
 export const WHY_CHOOSE_US: DifferentialItem[] = [
   {
-    title: 'Cumplimiento Técnico y Normativo',
+    title: 'Calidad y Seguridad en Cada Obra',
     description:
-      'Nuestras obras y montajes se realizan bajo los lineamientos y especificaciones de las normas técnicas colombianas (NTC 2505 y NTC 3838), asegurando máxima seguridad y habilitación sin contratiempos.',
-    badge: 'Normativa Oficial',
+      'Nuestras obras y montajes se ejecutan bajo rigurosos estándares de ingeniería y seguridad, asegurando redes confiables y una habilitación del servicio sin contratiempos.',
+    badge: 'Ingeniería Certificada',
     iconName: 'ShieldCheck',
   },
   {
@@ -350,9 +350,9 @@ export const WHY_CHOOSE_US: DifferentialItem[] = [
     iconName: 'Wrench',
   },
   {
-    title: 'Seguridad Operativa y Normativa Técnica',
+    title: 'Seguridad Operativa y Confiabilidad',
     description:
-      'Cada trabajo se ejecuta cumpliendo las normas técnicas colombianas (NTC 2505 y NTC 3838), con pruebas de hermeticidad certificadas para garantizar cero fugas y máxima protección.',
+      'Cada trabajo se ejecuta con altos estándares de calidad y pruebas de hermeticidad certificadas para garantizar cero fugas y máxima protección.',
     badge: 'Seguridad Garantizada',
     iconName: 'CheckCircle2',
   },
@@ -392,7 +392,7 @@ export const FAQS_LANDING = [
   {
     question: '¿Cómo puedo solicitar una cotización o asesoría técnica?',
     answer:
-      'Puedes comunicarte directamente al teléfono y WhatsApp 320 827 1724, donde nuestro equipo atenderá tu requerimiento y coordinará la revisión de tu proyecto.',
+      'Puedes comunicarte directamente a través de nuestra página de contacto oficial, donde nuestro equipo atenderá tu requerimiento y coordinará la revisión de tu proyecto.',
     category: 'Contacto',
   },
   {
@@ -404,7 +404,7 @@ export const FAQS_LANDING = [
   {
     question: '¿Cuál es la cobertura geográfica exacta y horarios de atención?',
     answer:
-      '[CONFIRMAR CON COLFGAS]. Para coordinar visitas técnicas o consultar disponibilidad en tu zona, comunícate directamente al 320 827 1724.',
+      '[CONFIRMAR CON COLFGAS]. Para coordinar visitas técnicas o consultar disponibilidad en tu zona, comunícate a través de nuestra página de contacto.',
     category: 'Información General',
   },
 ];

@@ -46,8 +46,8 @@ export function getOrganizationJsonLd() {
       'Estaciones de regulación y medición de gas',
       'Pruebas de hermeticidad',
       'Obras de ingeniería civil',
-      'Norma Técnica Colombiana NTC 2505',
-      'Norma Técnica Colombiana NTC 3838',
+      'Sistemas de distribución de gas combustible',
+      'Seguridad y control de fugas',
     ],
   };
 }

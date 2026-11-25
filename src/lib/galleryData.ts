@@ -71,7 +71,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "width": 1448,
     "height": 1086,
     "alt": "Instalación de centros de medición y reguladores de gas en cubierta y azotea ventilada",
-    "caption": "Distribución en azotea con ventilación natural permanente conforme a la norma NTC 2505.",
+    "caption": "Distribución en azotea con ventilación natural permanente y altos estándares de seguridad.",
     "featuredIn": [
       "residencial"
     ],

@@ -12,8 +12,6 @@ import {
   Gauge,
   Layers,
   FileCheck,
-  PhoneCall,
-  MessageCircle,
   Building2,
   Wrench,
   AlertTriangle,
@@ -23,7 +21,7 @@ import { COMPANY_INFO } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Gas Industrial y Comercial | Redes de Media y Alta Presión',
   description:
-    'Ingeniería, montaje y canalización de redes de gas natural y GLP para plantas industriales y comercio en Colombia. Estaciones ERM, líneas en acero soldado y pruebas según NTC 3838. Empresa certificada por Vanti.',
+    'Ingeniería, montaje y canalización de redes de gas natural y GLP para plantas industriales y comercio en Colombia. Estaciones ERM, líneas en acero soldado y pruebas de hermeticidad. Empresa certificada por Vanti.',
   alternates: {
     canonical: '/servicios/gas-industrial',
   },
@@ -33,7 +31,7 @@ const FAQS_INDUSTRIAL: FaqItem[] = [
   {
     question: '¿Qué presiones de operación se manejan en redes industriales?',
     answer:
-      'Las redes industriales operan típicamente en rangos de media y alta presión (desde 19 mbar hasta 4 bar o 60 psig, según el requerimiento de los equipos térmicos). El dimensionamiento se realiza con base en la norma NTC 3838 y los estándares de suministro de la distribuidora de gas.',
+      'Las redes industriales operan típicamente en rangos de media y alta presión (desde 19 mbar hasta 4 bar o 60 psig, según el requerimiento de los equipos térmicos). El dimensionamiento se realiza con base en los requerimientos del proceso y los estándares técnicos de la distribuidora de gas.',
     category: 'Presiones Técnicas',
   },
   {
@@ -86,7 +84,7 @@ export default function GasIndustrialPage() {
     },
     {
       title: '5. Pruebas de Resistencia y Estanqueidad',
-      desc: 'Ensayos neumáticos y de hermeticidad con presiones de prueba reglamentarias bajo norma NTC 3838 y emisión de informe técnico.',
+      desc: 'Ensayos neumáticos y de hermeticidad con presiones de prueba certificadas para asegurar total estanqueidad y emisión de informe técnico.',
       icon: FileCheck,
     },
   ];
@@ -132,7 +130,7 @@ export default function GasIndustrialPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-[#5B6570] leading-relaxed">
-                Ingeniería, montaje y canalización de líneas de suministro de gas en media y alta presión para plantas de manufactura, calderas, hornos continuos y centros comerciales, conforme a la norma técnica NTC 3838.
+                Ingeniería, montaje y canalización de líneas de suministro de gas en media y alta presión para plantas de manufactura, calderas, hornos continuos y centros comerciales, con los más altos estándares de seguridad y especificaciones de Vanti.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
@@ -144,15 +142,12 @@ export default function GasIndustrialPage() {
                   <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
                 </Link>
 
-                <a
-                  href={COMPANY_INFO.whatsapp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
+                <Link
+                  href="/proyectos"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-[#263238] bg-slate-100 hover:bg-slate-200 transition-all border border-slate-300"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                  <span>WhatsApp</span>
-                </a>
+                  <span>Ver Galería de Obras</span>
+                </Link>
               </div>
             </div>
 
@@ -172,7 +167,7 @@ export default function GasIndustrialPage() {
                   <div className="absolute top-3 right-3">
                     <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-[#287A1C] shadow-md border border-emerald-200 flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#287A1C]" aria-hidden="true" />
-                      <span>Norma NTC 3838</span>
+                      <span>Seguridad Industrial</span>
                     </span>
                   </div>
                 </div>
@@ -254,7 +249,7 @@ export default function GasIndustrialPage() {
                 <div className="w-10 h-10 rounded-xl bg-emerald-100 text-[#287A1C] flex items-center justify-center mb-4">
                   <FileCheck className="w-5 h-5" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-[#263238] mb-2">Pruebas Neumáticas NTC 3838</h3>
+                <h3 className="text-lg font-bold text-[#263238] mb-2">Pruebas Neumáticas y Hermeticidad</h3>
                 <p className="text-xs sm:text-sm text-[#5B6570] leading-relaxed">
                   Ensayos de resistencia y hermeticidad con presiones de prueba certificadas para asegurar total confiabilidad mecánica antes de la puesta en marcha.
                 </p>
@@ -276,7 +271,7 @@ export default function GasIndustrialPage() {
                 </div>
                 <h3 className="text-lg font-bold text-[#263238] mb-2">Redes Comerciales</h3>
                 <p className="text-xs sm:text-sm text-[#5B6570] leading-relaxed">
-                  Instalaciones técnicas para centros comerciales, patios de comida, panaderías industriales y hoteles bajo normativas de seguridad comercial.
+                  Instalaciones técnicas para centros comerciales, patios de comida, panaderías industriales y hoteles con altos estándares de seguridad y confiabilidad.
                 </p>
               </div>
             </div>
@@ -292,7 +287,7 @@ export default function GasIndustrialPage() {
                 Tuberías Matrices, Colectores y Manómetros
               </h2>
               <p className="text-sm text-[#5B6570] mt-1">
-                Fichas fotográficas de líneas de suministro en acero soldado y estaciones de distribución bajo norma NTC 3838.
+                Fichas fotográficas de líneas de suministro en acero soldado y estaciones de distribución para procesos productivos continuos.
               </p>
             </div>
 
@@ -389,7 +384,7 @@ export default function GasIndustrialPage() {
                     Control Neumático
                   </span>
                   <h3 className="text-sm font-bold text-[#263238] mt-2 leading-snug">
-                    Ensayos de Presión NTC 3838
+                    Ensayos de Presión y Estanqueidad
                   </h3>
                   <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
                     Verificación de cero caídas de presión antes de la puesta en servicio.
@@ -477,20 +472,12 @@ export default function GasIndustrialPage() {
               Comunícate con nuestros ingenieros para revisar tu memoria de cálculo y programar una visita técnica a tu planta.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href={COMPANY_INFO.whatsapp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-md transition-all"
-              >
-                <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                <span>Hablar por WhatsApp (320 827 1724)</span>
-              </a>
               <Link
                 href="/contacto"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-md transition-all"
               >
-                <span>Ver Canales de Contacto</span>
+                <span>Ir a Contáctanos / Cotizar</span>
+                <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
               </Link>
             </div>
           </div>

@@ -10,7 +10,6 @@ import {
   Camera,
   Filter,
   ArrowRight,
-  MessageCircle,
   X,
   ChevronLeft,
   ChevronRight,
@@ -119,8 +118,8 @@ export function ProjectsClient() {
             <p className="leading-relaxed text-amber-900/90">
               Las <strong>46 fotografías documentales</strong> presentadas a continuación corresponden al banco de
               registros técnicos de obra de instalaciones de gas (baterías de medición, tuberías soldadas, montantes
-              verticales, gabinetes, manómetros y válvulas de corte) conforme a las normas técnicas colombianas (NTC 2505,
-              NTC 4282, NTC 3838) y lineamientos de Vanti.
+              verticales, gabinetes, manómetros y válvulas de corte) conforme a altos estándares de calidad, seguridad y
+              lineamientos de Vanti.
             </p>
           </div>
         </div>
@@ -250,12 +249,6 @@ export function ProjectsClient() {
                     <Maximize2 className="w-3 h-3" aria-hidden="true" />
                   </span>
                 </div>
-
-                {photo.normativa && (
-                  <div className="absolute bottom-2.5 right-2.5 z-10 text-[10px] font-semibold text-emerald-300 bg-black/60 px-2 py-0.5 rounded backdrop-blur-md border border-emerald-400/30">
-                    {photo.normativa}
-                  </div>
-                )}
               </div>
 
               <div className="p-3.5 flex flex-col justify-between flex-1">
@@ -290,12 +283,6 @@ export function ProjectsClient() {
                 <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-[#0066B3] text-white">
                   {selectedPhoto.categoryLabel}
                 </span>
-                {selectedPhoto.normativa && (
-                  <span className="px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-100 text-[#287A1C] border border-emerald-200 flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>{selectedPhoto.normativa}</span>
-                  </span>
-                )}
               </div>
               <button
                 type="button"
@@ -371,25 +358,16 @@ export function ProjectsClient() {
         </h3>
         <p className="text-xs sm:text-sm text-[#5B6570] leading-relaxed">
           Nuestros ingenieros analizan tus planos arquitectónicos e hidráulicos para entregarte una propuesta técnica y
-          económica conforme a la normativa colombiana y especificaciones de Vanti.
+          económica conforme a altos estándares de ingeniería y especificaciones de Vanti.
         </p>
         <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/contacto"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-sm transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#0066B3] hover:bg-[#005291] shadow-sm transition-all"
           >
             <span>Ir a Contáctanos / Cotizar</span>
             <ArrowRight className="w-4 h-4 text-white" />
           </Link>
-          <a
-            href={COMPANY_INFO.whatsapp.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
-          >
-            <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-            <span>Consultar por WhatsApp</span>
-          </a>
         </div>
       </div>
     </div>

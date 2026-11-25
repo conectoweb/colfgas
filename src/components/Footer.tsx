@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Logo } from './Logo';
 import { COMPANY_INFO, NAV_LINKS, SERVICE_SUB_LINKS } from '@/lib/constants';
-import { Phone, MessageCircle, MapPin, ExternalLink, ShieldCheck, ArrowRight } from 'lucide-react';
+import { MapPin, ExternalLink, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -30,23 +30,12 @@ export function Footer() {
           <div className="flex items-center gap-2.5 flex-shrink-0">
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold text-white bg-[#0066B3] hover:bg-[#005291] transition-colors shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold text-white bg-[#0066B3] hover:bg-[#005291] transition-colors shadow-sm"
               aria-label="Ir a la página de Contáctanos"
             >
-              <span>Contáctanos</span>
+              <span>Ir a Contáctanos / Cotizar</span>
               <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
             </Link>
-
-            <a
-              href={COMPANY_INFO.whatsapp.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] transition-colors shadow-sm"
-              aria-label="Escribir por WhatsApp a COLFGAS"
-            >
-              <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-              <span>WhatsApp</span>
-            </a>
           </div>
         </div>
       </div>
@@ -165,39 +154,27 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contacto Oficial (Confirmado - Sin datos no confirmados) */}
+          {/* Column 4: Contacto Oficial */}
           <div>
             <h3 className="text-white font-bold text-sm tracking-wider uppercase mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-              Contacto Oficial
+              Atención y Asesoría
             </h3>
-            <div className="space-y-3.5 text-xs">
+            <div className="space-y-4 text-xs">
               <div>
-                <p className="text-slate-400 font-semibold mb-1 flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
-                  <span>Teléfono y WhatsApp:</span>
+                <p className="text-slate-300 leading-relaxed mb-3">
+                  Para cotizaciones, visitas técnicas y asesoría especializada en redes de gas para vivienda e industria, visita nuestra sección de contacto.
                 </p>
-                <div className="flex flex-col gap-1.5">
-                  <a
-                    href={COMPANY_INFO.whatsapp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white font-mono font-bold hover:text-emerald-400 transition-colors text-sm flex items-center gap-1.5"
-                  >
-                    <MessageCircle className="w-4 h-4 text-[#43BE24]" aria-hidden="true" />
-                    <span>WhatsApp: {COMPANY_INFO.phoneDisplay}</span>
-                  </a>
-                  <a
-                    href={COMPANY_INFO.phoneCallUrl}
-                    className="text-slate-300 hover:text-white transition-colors text-xs flex items-center gap-1.5"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
-                    <span>Llamada: {COMPANY_INFO.phoneDisplay}</span>
-                  </a>
-                </div>
+                <Link
+                  href="/contacto"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold text-white bg-[#0066B3] hover:bg-[#005291] transition-colors"
+                >
+                  <span>Ir a Contáctanos</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-white" aria-hidden="true" />
+                </Link>
               </div>
 
-              <div>
+              <div className="pt-2 border-t border-slate-700/60">
                 <p className="text-slate-400 font-semibold mb-1 flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
                   <span>Sede Principal en Bogotá:</span>

@@ -10,8 +10,6 @@ import {
   Camera,
   Users,
   HelpCircle,
-  Phone,
-  MessageCircle,
   MapPin,
   ShieldCheck,
   FileText,
@@ -165,7 +163,7 @@ export default function MapaDelSitioPage() {
                     <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#0066B3] transition-colors" />
                   </h3>
                   <p className="mt-2 text-xs text-[#5B6570] leading-relaxed">
-                    Respuestas a dudas sobre normativas colombianas (NTC 2505 y NTC 3838), tiempos de obra y habilitación.
+                    Respuestas a dudas sobre procesos técnicos, tiempos de obra y habilitación.
                   </p>
                 </div>
                 <span className="mt-3 text-[11px] font-mono text-[#0066B3]">/preguntas-frecuentes</span>
@@ -181,7 +179,7 @@ export default function MapaDelSitioPage() {
                     <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#0066B3] transition-colors" />
                   </h3>
                   <p className="mt-2 text-xs text-[#5B6570] leading-relaxed">
-                    Línea telefónica, canal de WhatsApp al 320 827 1724, dirección física de la sede en Bogotá y formulario de cotización.
+                    Canales oficiales de atención telefónica, chat directo, dirección física de la sede en Bogotá y formulario de cotización.
                   </p>
                 </div>
                 <span className="mt-3 text-[11px] font-mono text-[#0066B3]">/contacto</span>
@@ -209,7 +207,7 @@ export default function MapaDelSitioPage() {
                     Gas Residencial
                   </h3>
                   <p className="mt-2 text-xs text-[#5B6570] leading-relaxed">
-                    Redes internas, montantes verticales, centros de medición unificados y acometidas para conjuntos residenciales y edificios multifamiliares según NTC 2505.
+                    Redes internas, montantes verticales, centros de medición unificados y acometidas para conjuntos residenciales y edificios multifamiliares con altos estándares de seguridad.
                   </p>
                 </div>
                 <span className="mt-4 text-[11px] font-mono text-[#287A1C]">/servicios/gas-residencial</span>
@@ -227,7 +225,7 @@ export default function MapaDelSitioPage() {
                     Gas Industrial
                   </h3>
                   <p className="mt-2 text-xs text-[#5B6570] leading-relaxed">
-                    Líneas de suministro en acero soldado y polietileno PEAD, estaciones de regulación ERM y trenes de gas para calderas, hornos e industrias según NTC 3838.
+                    Líneas de suministro en acero soldado y polietileno PEAD, estaciones de regulación ERM y trenes de gas para calderas, hornos e industrias.
                   </p>
                 </div>
                 <span className="mt-4 text-[11px] font-mono text-[#0066B3]">/servicios/gas-industrial</span>
@@ -283,57 +281,65 @@ export default function MapaDelSitioPage() {
           {/* GRUPO 4: CANALES DE ATENCIÓN DIRECTA */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5 pb-2 border-b border-slate-200">
-              <Phone className="w-5 h-5 text-[#43BE24]" aria-hidden="true" />
+              <ShieldCheck className="w-5 h-5 text-[#43BE24]" aria-hidden="true" />
               <h2 className="text-xl font-bold text-[#263238]">Atención Directa y Contacto</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#287A1C] mb-1">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>WhatsApp Oficial</span>
+              <div className="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#287A1C] mb-1">
+                    <ShieldCheck className="w-4 h-4" />
+                    <span>Página de Contacto</span>
+                  </div>
+                  <div className="text-base font-bold text-[#263238] mt-1">Canales Oficiales</div>
+                  <p className="text-xs text-[#5B6570] mt-1">
+                    Acceso a nuestras líneas de mensajería, atención telefónica directa y solicitud de cotizaciones.
+                  </p>
                 </div>
-                <div className="text-base font-bold text-[#263238] mt-1">{COMPANY_INFO.phoneDisplay}</div>
-                <p className="text-xs text-[#5B6570] mt-1">Canal de atención para cotizaciones y envío de planos.</p>
-                <a
-                  href={COMPANY_INFO.whatsapp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#287A1C] hover:underline"
+                <Link
+                  href="/contacto"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#287A1C] hover:underline"
                 >
-                  <span>Abrir WhatsApp</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
+                  <span>Ir a Contáctanos</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
 
-              <div className="p-5 rounded-2xl bg-sky-50/70 border border-sky-200">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0066B3] mb-1">
-                  <Phone className="w-4 h-4" />
-                  <span>Línea Telefónica</span>
+              <div className="p-5 rounded-2xl bg-sky-50/70 border border-sky-200 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0066B3] mb-1">
+                    <FileText className="w-4 h-4" />
+                    <span>Cotización de Proyectos</span>
+                  </div>
+                  <div className="text-base font-bold text-[#263238] mt-1">Formulario de Contacto</div>
+                  <p className="text-xs text-[#5B6570] mt-1">
+                    Envía los detalles de tu proyecto para recibir una propuesta técnica personalizada.
+                  </p>
                 </div>
-                <div className="text-base font-bold text-[#263238] mt-1">{COMPANY_INFO.phoneDisplay}</div>
-                <p className="text-xs text-[#5B6570] mt-1">Comunicación por voz con nuestros asesores e ingenieros.</p>
-                <a
-                  href={COMPANY_INFO.phoneCallUrl}
-                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#0066B3] hover:underline"
+                <Link
+                  href="/contacto"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#0066B3] hover:underline"
                 >
-                  <span>Llamar ahora</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
+                  <span>Diligenciar Formulario</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
 
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#5B6570] mb-1">
-                  <MapPin className="w-4 h-4 text-[#0066B3]" />
-                  <span>Sede Principal</span>
+              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#5B6570] mb-1">
+                    <MapPin className="w-4 h-4 text-[#0066B3]" />
+                    <span>Sede Principal</span>
+                  </div>
+                  <div className="text-sm font-bold text-[#263238] mt-1">{COMPANY_INFO.address}</div>
+                  <p className="text-xs text-[#5B6570] mt-1">Sede de operaciones en Bogotá, Colombia.</p>
                 </div>
-                <div className="text-sm font-bold text-[#263238] mt-1">{COMPANY_INFO.address}</div>
-                <p className="text-xs text-[#5B6570] mt-1">Sede de operaciones en Bogotá, Colombia.</p>
                 <a
                   href={COMPANY_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[#0066B3] hover:underline"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#0066B3] hover:underline"
                 >
                   <span>Ver en Google Maps</span>
                   <ExternalLink className="w-3 h-3" />

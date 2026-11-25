@@ -124,7 +124,7 @@ Hostinger ofrece dos modalidades principales de alojamiento. Esta aplicación es
 
 1. **Configurar el dominio de producción en `.env`:**
    ```bash
-   NEXT_PUBLIC_SITE_URL=https://colfgas.com.co
+   NEXT_PUBLIC_SITE_URL=https://colfgas.com
    ```
 2. **Compilar la aplicación para servidor Node.js:**
    ```bash

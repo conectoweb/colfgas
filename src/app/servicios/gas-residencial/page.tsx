@@ -12,8 +12,6 @@ import {
   Gauge,
   Layers,
   FileCheck,
-  PhoneCall,
-  MessageCircle,
   Home,
   Wrench,
 } from 'lucide-react';
@@ -22,7 +20,7 @@ import { COMPANY_INFO } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Gas Residencial y Multifamiliar | Redes Internas y Matrices',
   description:
-    'Ingeniería, construcción e instalación de redes de gas natural para conjuntos residenciales y edificios multifamiliares en Colombia. Empresa certificada por Vanti. Cumplimiento de norma NTC 2505.',
+    'Ingeniería, construcción e instalación de redes de gas natural para conjuntos residenciales y edificios multifamiliares en Colombia. Empresa certificada por Vanti. Diseño y montaje seguro para edificaciones multifamiliares.',
   alternates: {
     canonical: '/servicios/gas-residencial',
   },
@@ -42,10 +40,10 @@ const FAQS_RESIDENCIAL: FaqItem[] = [
     category: 'Materiales',
   },
   {
-    question: '¿Qué requerimientos de ventilación exige la norma NTC 2505 para cocinas?',
+    question: '¿Qué requerimientos de ventilación se deben considerar en cocinas y áreas comunes?',
     answer:
       'Cada recinto donde funcionen gasodomésticos (estufas, calentadores) debe contar con aberturas reglamentarias superiores e inferiores para renovación de aire y dilución de monóxido de carbono, calculadas según la potencia térmica nominal instalada.',
-    category: 'Norma NTC 2505',
+    category: 'Ventilación y Seguridad',
   },
   {
     question: '¿COLFGAS realiza las pruebas de hermeticidad previas a la entrega?',
@@ -85,7 +83,7 @@ export default function GasResidencialPage() {
     },
     {
       title: '5. Pruebas de Hermeticidad y Entrega',
-      desc: 'Presurización neumática con manómetro certificado según NTC 2505 para verificar cero caídas de presión antes de la inspección y habilitación del servicio.',
+      desc: 'Presurización neumática con manómetro certificado para verificar cero caídas de presión antes de la inspección y habilitación del servicio.',
       icon: FileCheck,
     },
   ];
@@ -131,7 +129,7 @@ export default function GasResidencialPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-[#5B6570] leading-relaxed">
-                Ingeniería, construcción e instalación de redes matrices, montantes verticales y centros de medición para edificios de propiedad horizontal, torres de apartamentos y conjuntos residenciales bajo la norma NTC 2505.
+                Ingeniería, construcción e instalación de redes matrices, montantes verticales y centros de medición para edificios de propiedad horizontal, torres de apartamentos y conjuntos residenciales con estrictos estándares de seguridad y especificaciones de Vanti.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
@@ -143,15 +141,12 @@ export default function GasResidencialPage() {
                   <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
                 </Link>
 
-                <a
-                  href={COMPANY_INFO.whatsapp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
+                <Link
+                  href="/proyectos"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-[#263238] bg-slate-100 hover:bg-slate-200 transition-all border border-slate-300"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                  <span>WhatsApp</span>
-                </a>
+                  <span>Ver Galería de Obras</span>
+                </Link>
               </div>
             </div>
 
@@ -171,7 +166,7 @@ export default function GasResidencialPage() {
                   <div className="absolute top-3 right-3">
                     <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-[#0066B3] shadow-md border border-sky-200 flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#287A1C]" aria-hidden="true" />
-                      <span>Norma NTC 2505</span>
+                      <span>Seguridad Certificada</span>
                     </span>
                   </div>
                 </div>
@@ -214,7 +209,7 @@ export default function GasResidencialPage() {
                 Componentes de la Red Residencial de Gas
               </h2>
               <p className="text-sm sm:text-base text-[#5B6570] mt-2">
-                Cada elemento de la instalación es planificado conforme a la norma NTC 2505 y las directrices de Vanti.
+                Cada elemento de la instalación es planificado conforme a rigurosos estándares de seguridad y las directrices de Vanti.
               </p>
             </div>
 
@@ -291,7 +286,7 @@ export default function GasResidencialPage() {
                 Medidores y Redes en Copropiedades
               </h2>
               <p className="text-sm text-[#5B6570] mt-1">
-                Fichas fotográficas de baterías de medidores, nichos y gabinetes instalados bajo norma NTC 2505.
+                Fichas fotográficas de baterías de medidores, nichos y gabinetes instalados con total seguridad.
               </p>
             </div>
 
@@ -476,20 +471,12 @@ export default function GasResidencialPage() {
               Contáctanos para revisar planos hidráulicos y cotizar la red de gas con el respaldo de una empresa certificada por Vanti.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href={COMPANY_INFO.whatsapp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-md transition-all"
-              >
-                <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                <span>Hablar por WhatsApp (320 827 1724)</span>
-              </a>
               <Link
                 href="/contacto"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-white/15 hover:bg-white/25 border border-white/30 transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-bold text-[#263238] bg-white hover:bg-slate-100 shadow-md transition-all"
               >
-                <span>Ver Canales de Contacto</span>
+                <span>Ir a Contáctanos / Cotizar</span>
+                <ArrowRight className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
               </Link>
             </div>
           </div>

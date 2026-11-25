@@ -66,7 +66,7 @@ export default function NosotrosPage() {
                 <strong>COLFGAS CONSTRUCCIONES S.A.S.</strong> es una sociedad comercial constituida en Colombia, cuyo objeto y trayectoria se fundamentan en la ejecución de obras de ingeniería civil y montaje de redes de conducción de fluidos combustibles.
               </p>
               <p className="text-sm sm:text-base text-[#5B6570] leading-relaxed">
-                Nuestra fortaleza radica en integrar dos disciplinas que comúnmente se subcontratan por separado: la precisión técnica y hermeticidad de la instalación de gas (NTC 2505 y NTC 3838) y la capacidad operativa de obra civil (zanjado, cruces viales dirigidos, cajas de inspección y reposición de pavimentos).
+                Nuestra fortaleza radica en integrar dos disciplinas que comúnmente se subcontratan por separado: la precisión técnica y hermeticidad de la instalación de gas y la capacidad operativa de obra civil (zanjado, cruces viales dirigidos, cajas de inspección y reposición de pavimentos).
               </p>
 
               <div className="p-4 rounded-xl bg-sky-50 border border-sky-200 text-xs sm:text-sm text-[#263238] flex items-start gap-3">

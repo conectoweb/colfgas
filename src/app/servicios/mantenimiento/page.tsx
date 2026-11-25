@@ -11,8 +11,6 @@ import {
   Gauge,
   Layers,
   FileCheck,
-  PhoneCall,
-  MessageCircle,
   Building2,
   Factory,
   Search,
@@ -51,7 +49,7 @@ const FAQS_MANTENIMIENTO: FaqItem[] = [
   {
     question: '¿Qué debo hacer si sospecho de una fuga de gas en mi instalación?',
     answer:
-      'Cierra de inmediato la válvula de paso general, ventila ampliamente el área abriendo puertas y ventanas, no enciendas interruptores ni fósforos, y comunícate de inmediato con las líneas de emergencia de la empresa distribuidora de gas o con nuestro servicio técnico al 320 827 1724 para atención especializada.',
+      'Cierra de inmediato la válvula de paso general, ventila ampliamente el área abriendo puertas y ventanas, no enciendas interruptores ni fósforos, y comunícate de inmediato con las líneas de emergencia de la empresa distribuidora de gas o con nuestro servicio técnico a través de nuestra página de contacto para atención especializada.',
     category: 'Seguridad',
   },
 ];
@@ -149,15 +147,12 @@ export default function MantenimientoPage() {
                   <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
                 </Link>
 
-                <a
-                  href={COMPANY_INFO.whatsapp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-sm transition-all"
+                <Link
+                  href="/proyectos"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-[#263238] bg-slate-100 hover:bg-slate-200 transition-all border border-slate-300"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                  <span>WhatsApp</span>
-                </a>
+                  <span>Ver Galería de Obras</span>
+                </Link>
               </div>
             </div>
 
@@ -250,7 +245,7 @@ export default function MantenimientoPage() {
                 Pruebas de Hermeticidad, Manómetros y Válvulas
               </h2>
               <p className="text-sm text-[#5B6570] mt-1">
-                Fichas fotográficas de operaciones de mantenimiento y adecuación normativa en redes existentes.
+                Fichas fotográficas de operaciones de mantenimiento y adecuación técnica en redes existentes.
               </p>
             </div>
 
@@ -476,22 +471,13 @@ export default function MantenimientoPage() {
               Comunícate con COLFGAS CONSTRUCCIONES S.A.S. Empresa certificada por Vanti.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href={COMPANY_INFO.whatsapp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-[#263238] bg-[#43BE24] hover:bg-[#37A51D] shadow-md transition-all"
+              <Link
+                href="/contacto"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-bold text-[#263238] bg-white hover:bg-slate-100 shadow-md transition-all"
               >
-                <MessageCircle className="w-4 h-4 text-[#263238]" aria-hidden="true" />
-                <span>Escribir por WhatsApp (320 827 1724)</span>
-              </a>
-              <a
-                href={COMPANY_INFO.phoneCallUrl}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-white/15 hover:bg-white/25 border border-white/30 transition-all"
-              >
-                <PhoneCall className="w-4 h-4" aria-hidden="true" />
-                <span>Llamar al {COMPANY_INFO.phoneDisplay}</span>
-              </a>
+                <span>Ir a Contáctanos / Cotizar</span>
+                <ArrowRight className="w-4 h-4 text-[#0066B3]" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>

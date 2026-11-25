@@ -33,10 +33,10 @@ const FAQS_SERVICIOS: FaqItem[] = [
     category: 'Enfoque Operativo',
   },
   {
-    question: '¿Qué normativas técnicas rigen el diseño y construcción de las redes?',
+    question: '¿Qué estándares técnicos y de calidad rigen sus obras?',
     answer:
-      'Nuestras obras cumplen estrictamente las normas técnicas colombianas: NTC 2505 para instalaciones residenciales y comerciales, NTC 3838 y NTC 4282 para redes industriales y presiones de operación, y los códigos internacionales ASME B31.8 para sistemas de transporte de gas por tubería.',
-    category: 'Normativa Técnica',
+      'Nuestras obras se ejecutan bajo rigurosos estándares de calidad, seguridad y precisión técnica, cumpliendo las directrices y especificaciones de Vanti para edificaciones residenciales, comerciales e industriales.',
+    category: 'Calidad y Seguridad',
   },
   {
     question: '¿Qué es una prueba de hermeticidad y por qué es obligatoria?',
@@ -53,7 +53,7 @@ const FAQS_SERVICIOS: FaqItem[] = [
   {
     question: '¿Cómo solicito una visita técnica o cotización formal?',
     answer:
-      'Puedes contactarnos a través del formulario de cotización, por correo electrónico o directamente por WhatsApp. Revisamos tus planos arquitectónicos o memorias hidráulicas para estructurar una propuesta técnica y económica a la medida.',
+      'Puedes contactarnos a través de nuestra página de contacto oficial o completando el formulario de cotización. Revisamos tus planos arquitectónicos o memorias hidráulicas para estructurar una propuesta técnica y económica a la medida.',
     category: 'Cotizaciones',
   },
 ];
@@ -135,7 +135,7 @@ export default function ServiciosPage() {
                 </div>
                 <div className="p-3 bg-slate-50 border-t border-slate-200 text-center">
                   <span className="text-[11px] font-semibold text-[#5B6570]">
-                    Tendido de tuberías aéreas en zona técnica • Normas NTC 2505 y NTC 3838
+                    Tendido de tuberías aéreas en zona técnica con altos estándares de seguridad
                   </span>
                 </div>
               </div>
@@ -292,7 +292,7 @@ export default function ServiciosPage() {
                     Tuberías Matrices en Acero Soldado
                   </h3>
                   <p className="text-xs text-[#5B6570] mt-1 line-clamp-2">
-                    Tendido aéreo y canalizaciones con soldadura calificada según norma NTC 3838.
+                    Tendido aéreo y canalizaciones con soldadura calificada y riguroso control de calidad.
                   </p>
                   <Link
                     href="/servicios/gas-industrial"
@@ -338,50 +338,50 @@ export default function ServiciosPage() {
             </div>
           </div>
 
-          {/* Technical Standards Section */}
+          {/* Quality & Safety Section */}
           <div className="mb-20 p-8 sm:p-10 rounded-3xl bg-[#F4F7F8] border border-slate-200">
             <div className="max-w-3xl mb-8">
               <span className="text-xs font-bold uppercase tracking-wider text-[#0066B3]">
-                Marco Regulatorio Colombiano
+                Calidad y Seguridad
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#263238] mt-1">
-                Normativas Técnicas y Garantía de Conformidad
+                Pilares Técnicos y Garantía de Conformidad
               </h2>
               <p className="mt-2 text-sm text-[#5B6570] leading-relaxed">
-                Todas nuestras obras se formulan, ejecutan y prueban bajo los más exigentes estándares técnicos colombianos emitidos por ICONTEC y las resoluciones de la Comisión de Regulación de Energía y Gas (CREG).
+                Todas nuestras obras se formulan, ejecutan y prueban bajo rigurosos protocolos de ingeniería para garantizar máxima seguridad y una habilitación rápida ante la empresa distribuidora.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="p-5 rounded-xl bg-white border border-slate-200">
-                <span className="font-mono text-xs font-bold text-[#0066B3] block mb-1">NTC 2505</span>
-                <h3 className="font-bold text-sm text-[#263238] mb-1">Gas Residencial y Comercial</h3>
+                <span className="text-xs font-bold text-[#0066B3] block mb-1">01. Vivienda y Comercio</span>
+                <h3 className="font-bold text-sm text-[#263238] mb-1">Redes Seguras</h3>
                 <p className="text-xs text-[#5B6570] leading-relaxed">
-                  Instalación de tuberías, dimensionamiento, ventilación y ubicación de centros de medición.
+                  Trazado y tendido de tuberías, dimensionamiento adecuado y ubicación óptima de centros de medición.
                 </p>
               </div>
 
               <div className="p-5 rounded-xl bg-white border border-slate-200">
-                <span className="font-mono text-xs font-bold text-[#287A1C] block mb-1">NTC 3838</span>
-                <h3 className="font-bold text-sm text-[#263238] mb-1">Presiones de Operación</h3>
+                <span className="text-xs font-bold text-[#287A1C] block mb-1">02. Control de Flujo</span>
+                <h3 className="font-bold text-sm text-[#263238] mb-1">Presión Continua</h3>
                 <p className="text-xs text-[#5B6570] leading-relaxed">
-                  Parámetros para líneas de distribución en alta y media presión para el sector productivo.
+                  Parámetros técnicos para distribución eficiente y segura de gas en media y alta presión industrial.
                 </p>
               </div>
 
               <div className="p-5 rounded-xl bg-white border border-slate-200">
-                <span className="font-mono text-xs font-bold text-[#0066B3] block mb-1">NTC 4282</span>
-                <h3 className="font-bold text-sm text-[#263238] mb-1">Instalaciones Industriales</h3>
+                <span className="text-xs font-bold text-[#0066B3] block mb-1">03. Equipos Térmicos</span>
+                <h3 className="font-bold text-sm text-[#263238] mb-1">Acople Industrial</h3>
                 <p className="text-xs text-[#5B6570] leading-relaxed">
-                  Conexión segura de quemadores, calderas, hornos y trenes de gas con electroválvulas.
+                  Conexión técnica de calderas, hornos y trenes de regulación con sistemas de corte automático.
                 </p>
               </div>
 
               <div className="p-5 rounded-xl bg-white border border-slate-200">
-                <span className="font-mono text-xs font-bold text-[#287A1C] block mb-1">ASME B31.8</span>
-                <h3 className="font-bold text-sm text-[#263238] mb-1">Tuberías Soldadas</h3>
+                <span className="text-xs font-bold text-[#287A1C] block mb-1">04. Cero Fugas</span>
+                <h3 className="font-bold text-sm text-[#263238] mb-1">Pruebas de Presión</h3>
                 <p className="text-xs text-[#5B6570] leading-relaxed">
-                  Soldadura calificada y ensayos no destructivos en tubería de acero para fluidos inflamables.
+                  Ensayos de hermeticidad con manómetros certificados para verificar la estanqueidad total de la red.
                 </p>
               </div>
             </div>
