@@ -31,10 +31,69 @@ export function Navbar() {
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
   const aboutButtonRef = useRef<HTMLButtonElement>(null);
 
+  const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const aboutTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Hover handlers for Desktop with debounce grace period to prevent accidental closing
+  const handleServicesMouseEnter = () => {
+    if (servicesTimeoutRef.current) {
+      clearTimeout(servicesTimeoutRef.current);
+      servicesTimeoutRef.current = null;
+    }
+    if (aboutTimeoutRef.current) {
+      clearTimeout(aboutTimeoutRef.current);
+      aboutTimeoutRef.current = null;
+    }
+    setAboutDropdownOpen(false);
+    setServicesDropdownOpen(true);
+  };
+
+  const handleServicesMouseLeave = () => {
+    if (servicesTimeoutRef.current) {
+      clearTimeout(servicesTimeoutRef.current);
+    }
+    servicesTimeoutRef.current = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 200);
+  };
+
+  const handleAboutMouseEnter = () => {
+    if (aboutTimeoutRef.current) {
+      clearTimeout(aboutTimeoutRef.current);
+      aboutTimeoutRef.current = null;
+    }
+    if (servicesTimeoutRef.current) {
+      clearTimeout(servicesTimeoutRef.current);
+      servicesTimeoutRef.current = null;
+    }
+    setServicesDropdownOpen(false);
+    setAboutDropdownOpen(true);
+  };
+
+  const handleAboutMouseLeave = () => {
+    if (aboutTimeoutRef.current) {
+      clearTimeout(aboutTimeoutRef.current);
+    }
+    aboutTimeoutRef.current = setTimeout(() => {
+      setAboutDropdownOpen(false);
+    }, 200);
+  };
+
+  // Cleanup timers on unmount
+  useEffect(() => {
+    return () => {
+      if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
+      if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
+    };
+  }, []);
+
   // Close menus on Escape key and return focus to triggering button
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
+        if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
+
         if (servicesDropdownOpen) {
           setServicesDropdownOpen(false);
           servicesButtonRef.current?.focus();
@@ -60,12 +119,14 @@ export function Navbar() {
         servicesDropdownRef.current &&
         !servicesDropdownRef.current.contains(target)
       ) {
+        if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
         setServicesDropdownOpen(false);
       }
       if (
         aboutDropdownRef.current &&
         !aboutDropdownRef.current.contains(target)
       ) {
+        if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
         setAboutDropdownOpen(false);
       }
     };
@@ -80,6 +141,8 @@ export function Navbar() {
 
   // Close all menus and reset dropdown states on route navigation
   useEffect(() => {
+    if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
+    if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setAboutDropdownOpen(false);
@@ -88,6 +151,8 @@ export function Navbar() {
   }, [pathname]);
 
   const handleNavClick = () => {
+    if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
+    if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setAboutDropdownOpen(false);
@@ -180,24 +245,26 @@ export function Navbar() {
               Inicio
             </Link>
 
-            {/* 2. Servicios (Desplegable con clic y flecha que indica abierto/cerrado) */}
+            {/* 2. Servicios (Abre al pasar el cursor o hacer clic en computadores) */}
             <div
               ref={servicesDropdownRef}
               className="relative"
+              onMouseEnter={handleServicesMouseEnter}
+              onMouseLeave={handleServicesMouseLeave}
             >
               <button
                 ref={servicesButtonRef}
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
+                  if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
                   setServicesDropdownOpen((prev) => !prev);
                   setAboutDropdownOpen(false);
                 }}
                 onKeyDown={(e) => {
                   if (e.key === 'ArrowDown' && !servicesDropdownOpen) {
                     e.preventDefault();
-                    setServicesDropdownOpen(true);
-                    setAboutDropdownOpen(false);
+                    handleServicesMouseEnter();
                   }
                 }}
                 className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] flex items-center gap-1.5 cursor-pointer ${
@@ -218,14 +285,16 @@ export function Navbar() {
                 />
               </button>
 
-              {/* Panel Desplegable Servicios: Todos los servicios, Gas residencial, Gas industrial, Mantenimiento de redes */}
+              {/* Panel Desplegable Servicios con puente invisible y padding superior para evitar cierres accidentales al mover el cursor */}
               {servicesDropdownOpen && (
                 <div
                   id="desktop-services-dropdown"
-                  className="absolute top-full left-0 mt-2 w-80 z-50"
+                  className="absolute top-full left-0 pt-2 w-80 z-50 before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
                   role="menu"
                   aria-label="Submenú de Servicios"
                   onClick={(e) => e.stopPropagation()}
+                  onMouseEnter={handleServicesMouseEnter}
+                  onMouseLeave={handleServicesMouseLeave}
                 >
                   <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl p-2.5">
                     {SERVICE_SUB_LINKS.map((sub) => {
@@ -291,24 +360,26 @@ export function Navbar() {
               Proyectos
             </Link>
 
-            {/* 4. Nosotros (Desplegable con clic y flecha que indica abierto/cerrado) */}
+            {/* 4. Nosotros (Abre al pasar el cursor o hacer clic en computadores) */}
             <div
               ref={aboutDropdownRef}
               className="relative"
+              onMouseEnter={handleAboutMouseEnter}
+              onMouseLeave={handleAboutMouseLeave}
             >
               <button
                 ref={aboutButtonRef}
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
+                  if (aboutTimeoutRef.current) clearTimeout(aboutTimeoutRef.current);
                   setAboutDropdownOpen((prev) => !prev);
                   setServicesDropdownOpen(false);
                 }}
                 onKeyDown={(e) => {
                   if (e.key === 'ArrowDown' && !aboutDropdownOpen) {
                     e.preventDefault();
-                    setAboutDropdownOpen(true);
-                    setServicesDropdownOpen(false);
+                    handleAboutMouseEnter();
                   }
                 }}
                 className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066B3] flex items-center gap-1.5 cursor-pointer ${
@@ -329,14 +400,16 @@ export function Navbar() {
                 />
               </button>
 
-              {/* Panel Desplegable Nosotros: Sobre nosotros, Preguntas frecuentes, Mapa del sitio */}
+              {/* Panel Desplegable Nosotros con puente invisible y padding superior */}
               {aboutDropdownOpen && (
                 <div
                   id="desktop-about-dropdown"
-                  className="absolute top-full left-0 mt-2 w-80 z-50"
+                  className="absolute top-full left-0 pt-2 w-80 z-50 before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
                   role="menu"
                   aria-label="Submenú de Nosotros"
                   onClick={(e) => e.stopPropagation()}
+                  onMouseEnter={handleAboutMouseEnter}
+                  onMouseLeave={handleAboutMouseLeave}
                 >
                   <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl p-2.5">
                     {ABOUT_SUB_LINKS.map((sub) => {
@@ -443,7 +516,7 @@ export function Navbar() {
               Inicio
             </Link>
 
-            {/* 2. Servicios (Acordeón desplegable con flecha que indica abierto/cerrado) */}
+            {/* 2. Servicios (Acordeón desplegable al tocar en celular) */}
             <div className="space-y-1">
               <button
                 type="button"
@@ -506,7 +579,7 @@ export function Navbar() {
               Proyectos
             </Link>
 
-            {/* 4. Nosotros (Acordeón desplegable con flecha que indica abierto/cerrado) */}
+            {/* 4. Nosotros (Acordeón desplegable al tocar en celular) */}
             <div className="space-y-1">
               <button
                 type="button"
