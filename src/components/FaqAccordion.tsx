@@ -20,7 +20,7 @@ export function FaqAccordion({
   items,
   className = '',
   title = 'Preguntas Frecuentes',
-  description = 'Respuestas claras sobre nuestros procesos de ingeniería, normativas y alcances de servicio.',
+  description = 'Respuestas claras sobre nuestros procesos de ingeniería, estándares de calidad y alcances de servicio.',
 }: FaqAccordionProps) {
   const [openIndexes, setOpenIndexes] = useState<number[]>([0]); // First item open by default
 

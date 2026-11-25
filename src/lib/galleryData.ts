@@ -19,7 +19,6 @@ export interface GalleryPhoto {
   alt: string;
   caption: string;
   featuredIn: ('inicio' | 'residencial' | 'industrial' | 'mantenimiento')[];
-  normativa?: string;
 }
 
 export const CATEGORY_LABELS: Record<GalleryPhoto['category'], string> = {
@@ -44,8 +43,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "inicio",
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-garaje-medidores",
@@ -60,8 +58,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "inicio",
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-medidores-azotea",
@@ -75,8 +72,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-medidor-nicho-concreto",
@@ -90,8 +86,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-seis-medidores-abierto",
@@ -105,8 +100,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-medidores-gabinete-abierto",
@@ -120,8 +114,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-medidores-gabinete-estrecho",
@@ -135,8 +128,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-medidores-gabinete",
@@ -150,8 +142,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-gabinete-exterior-medidor",
@@ -165,8 +156,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-gabinete-muro-piedra",
@@ -180,8 +170,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-gabinete-blanco-tuberias",
@@ -195,8 +184,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-tuberias-gas-gabinete",
@@ -210,8 +198,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-gabinete-colectores",
@@ -225,8 +212,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-colfgas-medidores-opt",
@@ -241,8 +227,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "inicio",
       "residencial"
     ],
-    "categoryLabel": "Medidores y Gabinetes",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Medidores y Gabinetes"
   },
   {
     "id": "gal-corredor-tuberias-amarillas",
@@ -257,8 +242,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "inicio",
       "industrial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-tres-tuberias-amarillas",
@@ -272,8 +256,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "industrial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-colectores-gas-obra",
@@ -287,8 +270,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "industrial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-azotea-tuberias-montanas",
@@ -304,8 +286,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "industrial",
       "residencial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-manifold-pared-blanca",
@@ -320,8 +301,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "industrial",
       "residencial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-tuberias-expuestas-muro",
@@ -335,8 +315,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "industrial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-tuberias-expuestas-obra",
@@ -350,8 +329,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "industrial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-tuberias-ductos-interior",
@@ -366,8 +344,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "industrial",
       "residencial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-tuberias-valvulas-gas",
@@ -382,8 +359,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "mantenimiento",
       "industrial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-conductos-blancos-concreto",
@@ -397,8 +373,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-interior-obra-conductos",
@@ -412,8 +387,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "inicio"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-obra-crudo-tuberias",
@@ -427,8 +401,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Tuberías y Colectores",
-    "normativa": "NTC 3838"
+    "categoryLabel": "Tuberías y Colectores"
   },
   {
     "id": "gal-tecnico-revisando-tuberias",
@@ -443,8 +416,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "inicio",
       "mantenimiento"
     ],
-    "categoryLabel": "Mantenimiento e Inspección",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Mantenimiento e Inspección"
   },
   {
     "id": "gal-manometro-tuberias-ladrillo",
@@ -459,8 +431,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "mantenimiento",
       "industrial"
     ],
-    "categoryLabel": "Mantenimiento e Inspección",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Mantenimiento e Inspección"
   },
   {
     "id": "gal-restauracion-medidores",
@@ -474,8 +445,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "mantenimiento"
     ],
-    "categoryLabel": "Mantenimiento e Inspección",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Mantenimiento e Inspección"
   },
   {
     "id": "gal-reguladores-electrodomestico",
@@ -489,8 +459,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "mantenimiento"
     ],
-    "categoryLabel": "Mantenimiento e Inspección",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Mantenimiento e Inspección"
   },
   {
     "id": "gal-obrero-escalera-conductos",
@@ -504,8 +473,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "mantenimiento"
     ],
-    "categoryLabel": "Mantenimiento e Inspección",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Mantenimiento e Inspección"
   },
   {
     "id": "gal-trabajador-conductos-obra",
@@ -519,8 +487,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "mantenimiento"
     ],
-    "categoryLabel": "Mantenimiento e Inspección",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Mantenimiento e Inspección"
   },
   {
     "id": "gal-fachada-trabajador",
@@ -534,8 +501,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "inicio"
     ],
-    "categoryLabel": "Mantenimiento e Inspección",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Mantenimiento e Inspección"
   },
   {
     "id": "gal-suministros-gas-embaldosado",
@@ -549,8 +515,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "mantenimiento"
     ],
-    "categoryLabel": "Mantenimiento e Inspección",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Mantenimiento e Inspección"
   },
   {
     "id": "gal-calentador-haceb-lavadero",
@@ -564,8 +529,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Puntos y Equipos a Gas",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Puntos y Equipos a Gas"
   },
   {
     "id": "gal-calentador-rheem-lavadero",
@@ -579,8 +543,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Puntos y Equipos a Gas",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Puntos y Equipos a Gas"
   },
   {
     "id": "gal-calentador-mabe-azulejos",
@@ -594,8 +557,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Puntos y Equipos a Gas",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Puntos y Equipos a Gas"
   },
   {
     "id": "gal-calentador-bomba-circulacion",
@@ -609,8 +571,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Puntos y Equipos a Gas",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Puntos y Equipos a Gas"
   },
   {
     "id": "gal-dos-calentadores-lavadero",
@@ -624,8 +585,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Puntos y Equipos a Gas",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Puntos y Equipos a Gas"
   },
   {
     "id": "gal-chimenea-gas-moderna",
@@ -639,8 +599,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Puntos y Equipos a Gas",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Puntos y Equipos a Gas"
   },
   {
     "id": "gal-chimenea-blanca-esquina",
@@ -654,8 +613,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Puntos y Equipos a Gas",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Puntos y Equipos a Gas"
   },
   {
     "id": "gal-chimenea-angular-gas",
@@ -669,8 +627,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     "featuredIn": [
       "residencial"
     ],
-    "categoryLabel": "Puntos y Equipos a Gas",
-    "normativa": "NTC 2505"
+    "categoryLabel": "Puntos y Equipos a Gas"
   },
   {
     "id": "gal-acera-piedra-restaurada",
@@ -685,8 +642,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "inicio",
       "industrial"
     ],
-    "categoryLabel": "Obras e Infraestructura",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Obras e Infraestructura"
   },
   {
     "id": "gal-colfgas-instalacion-opt",
@@ -701,8 +657,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
       "inicio",
       "residencial"
     ],
-    "categoryLabel": "Obras e Infraestructura",
-    "normativa": "Resolución CREG 059"
+    "categoryLabel": "Obras e Infraestructura"
   }
 ];
 

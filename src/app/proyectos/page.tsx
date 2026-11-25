@@ -47,7 +47,7 @@ export default function ProyectosPage() {
             Proyectos y Experiencia en Obra
           </h1>
           <p className="mt-3 text-base sm:text-lg text-[#5B6570] max-w-3xl leading-relaxed">
-            Fichas técnicas y tipologías de proyectos en los sectores habitacional, comercial, industrial y de infraestructura civil desarrollados bajo supervisión técnica y normativa colombiana.
+            Fichas técnicas y tipologías de proyectos en los sectores habitacional, comercial, industrial y de infraestructura civil desarrollados bajo supervisión técnica y altos estándares de calidad.
           </p>
         </div>
       </section>
